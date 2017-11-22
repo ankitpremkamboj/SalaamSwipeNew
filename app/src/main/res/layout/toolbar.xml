@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:layout_collapseMode="pin">
+
+    <!--home header-->
+    <FrameLayout
+        android:id="@+id/home_header_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/hh_profile_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/ndp12"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/profile_icon" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/header_logo" />
+
+        <ImageView
+            android:id="@+id/hh_chat_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/chat_icon" />
+
+    </FrameLayout>
+    <!--outlook header-->
+    <FrameLayout
+        android:id="@+id/outlook_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/header_logo" />
+
+
+        <TextView
+            android:id="@+id/oh_done"
+            style="@style/avenirLTStdBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:paddingRight="@dimen/dp12"
+            android:text="@string/done"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_15sp" />
+
+    </FrameLayout>
+    <!-- match header-->
+    <FrameLayout
+        android:id="@+id/match_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/mh_home_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/ndp12"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/home_icon" />
+
+        <ImageView
+            android:id="@+id/mh_chat_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/chat_icon" />
+
+    </FrameLayout>
+    <!--chat header-->
+    <FrameLayout
+        android:id="@+id/chat_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ch_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/ndp12"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/back_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <com.ak.ta.salaamswipe.customui.CircleImageView
+                android:id="@+id/ch_matched_image"
+                android:layout_width="@dimen/dp27"
+                android:layout_height="@dimen/dp27" />
+
+            <TextView
+                android:id="@+id/ch_matched_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/matched_name"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp12"
+                android:text="Amira"
+                android:textSize="@dimen/text_size_17sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ch_more_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:paddingBottom="@dimen/dp16"
+            android:paddingLeft="@dimen/dp25"
+            android:paddingRight="@dimen/dp16"
+            android:paddingTop="@dimen/dp16"
+            android:src="@drawable/more_button" />
+
+    </FrameLayout>
+    <!--profile header-->
+    <FrameLayout
+        android:id="@+id/profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ph_settings_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+
+            android:padding="@dimen/dp5"
+            android:src="@drawable/settings_icon" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/margin_15"
+            android:src="@drawable/profile_icon" />
+
+        <ImageView
+            android:id="@+id/ph_home_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:paddingLeft="@dimen/margin_5"
+            android:paddingRight="@dimen/dp12"
+            android:src="@drawable/home_icon" />
+
+    </FrameLayout>
+    <!--edit profile header-->
+    <FrameLayout
+        android:id="@+id/edit_profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/eph_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/ndp12"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/back_icon" />
+
+
+        <TextView
+            android:id="@+id/eph_edit_profile"
+            style="@style/avenirLTStdBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/matched_name"
+            android:layout_gravity="center"
+            android:text="@string/edit_profile"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_17sp" />
+
+        <TextView
+            android:id="@+id/eph_done"
+            style="@style/avenirLTStdBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:paddingRight="@dimen/dp12"
+            android:text="@string/done"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_15sp" />
+
+    </FrameLayout>
+    <!--settings header-->
+    <FrameLayout
+        android:id="@+id/settings_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/sh_settings_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/settings_icon" />
+
+
+        <ImageView
+            android:id="@+id/sh_profile_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:padding="@dimen/dp12" />
+
+    </FrameLayout>
+    <!--matched profile header-->
+    <FrameLayout
+        android:id="@+id/matched_profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/mp_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/ndp12"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/back_icon" />
+
+    </FrameLayout>
+
+    <!--edit profile header-->
+    <FrameLayout
+        android:id="@+id/chat_header2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/chat_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/ndp12"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/back_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <com.ak.ta.salaamswipe.customui.CircleImageView
+                android:id="@+id/chat_pic_ci"
+                android:layout_width="@dimen/dp32"
+                android:layout_height="@dimen/dp32"
+                android:layout_gravity="center"
+                android:background="@drawable/small_pic_placeholder" />
+
+            <TextView
+                android:id="@+id/chat_user_name"
+                style="@style/avenirLTStdBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/matched_name"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp12"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_17sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/info_icon_iv"
+            style="@style/avenirLTStdBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:paddingBottom="@dimen/margin_5"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp12"
+            android:paddingTop="@dimen/margin_5"
+            android:src="@drawable/more_button"
+            android:textSize="@dimen/text_size_15sp" />
+
+    </FrameLayout>
+
+
+    <!--full profile header-->
+    <!--<FrameLayout-->
+    <!--android:id="@+id/full_profile_header"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:visibility="gone">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/fpp_back_icon"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="left|center"-->
+    <!--android:layout_marginLeft="@dimen/ndp12"-->
+    <!--android:padding="@dimen/dp12"-->
+    <!--android:src="@drawable/back_icon" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/fpp_edit"-->
+    <!--style="@style/avenirLTStdBook"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="right|center"-->
+    <!--android:paddingRight="@dimen/dp12"-->
+    <!--android:text="@string/edit"-->
+    <!--android:textColor="@color/colorWhite"-->
+    <!--android:textSize="@dimen/text_size_15sp" />-->
+    <!--</FrameLayout>-->
+</android.support.v7.widget.Toolbar>
