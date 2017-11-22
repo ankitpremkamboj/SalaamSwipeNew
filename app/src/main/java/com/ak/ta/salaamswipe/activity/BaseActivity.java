@@ -53,7 +53,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseList
         super.onStop();
         //BaseGpsActivity.getGoogleClient().disconnect();
     }
-
+/*on Create method */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
