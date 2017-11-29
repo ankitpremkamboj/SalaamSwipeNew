@@ -1,15 +1,28 @@
 package com.ak.ta.salaamswipe.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
+import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.ak.ta.salaamswipe.R;
 import com.ak.ta.salaamswipe.constants.AppConstant;
 import com.ak.ta.salaamswipe.gcm.GCMUtils;
 import com.ak.ta.salaamswipe.utils.PrefUtils;
 import com.flurry.android.FlurryAgent;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by ashishkumar on 16/6/16.
@@ -34,6 +47,7 @@ public class SplashActivity extends Activity {
         }, SPLASH_TIME_OUT);
 
         GCMUtils.getRegId(this);
+
 
     }
 

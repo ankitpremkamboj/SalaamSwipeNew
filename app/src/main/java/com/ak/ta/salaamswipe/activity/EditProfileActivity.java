@@ -297,6 +297,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
+
         return R.layout.activity_edit_profile;
     }
 

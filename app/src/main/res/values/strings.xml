@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Salaam Swipe</string>
 
-    <string name="fb_appid">1538070763109665</string>
+    <string name="fb_appid">1793433884023315</string>
     <string name="fb_secret_key">e0ff9b45fbda6bb3edd80454a9d00376</string>
 
     <string name="we_do_not_post">WE do not post anything to your facebook</string>
@@ -180,5 +180,9 @@
     <string name="turn_on_location">Please turn on gps. Please try again.</string>
     <string name="waiting_for_location">Waiting for current location. Try again in a few minutes.</string>
     <string name="lbl_new">New</string>
+    <string name="login_with_facebook">Login With Facebook</string>
+    <string name="chat">Chat</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
 
 </resources>

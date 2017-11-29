@@ -56,6 +56,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_settings;
     }
 
@@ -108,7 +109,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         String settingsStatus = getIntent().getStringExtra(AppConstant.SETTINGS_STATUS);
         // 0 for profile / 1 for home
         if (settingsStatus.equals("0")) {
-            profileIcon.setImageDrawable(getResources().getDrawable(R.drawable.profile_icon));
+            profileIcon.setImageDrawable(getResources().getDrawable(R.drawable.ic_back));
         } else {
             profileIcon.setImageDrawable(getResources().getDrawable(R.drawable.home_icon));
         }

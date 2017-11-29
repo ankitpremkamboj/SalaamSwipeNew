@@ -6,7 +6,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
+        <!--
+                <item name="colorPrimary">@drawable/cancle_selector_gradient</item>
+        -->
     </style>
+
+    <!-- &lt;!&ndash; Base application theme. &ndash;&gt;
+   <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+       &lt;!&ndash; Customize your theme here. &ndash;&gt;
+
+       <item name="colorPrimary">@drawable/action_bar_bg</item>
+
+   </style>-->
 
     <style name="Widget.MaterialProgressBar.ProgressBar" parent="android:Widget.ProgressBar">
         <item name="android:indeterminateDrawable">@null</item>
@@ -30,6 +43,11 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="switchCompat" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumb">@drawable/ic_thumb</item>
+        <item name="showText">false</item>
+    </style>
+
     <!--fonts style-->
 
     <style name="avenirLTStdBlack" parent="TextAppearance.AppCompat">
@@ -50,6 +68,10 @@
 
     <style name="avenirLTStdHeavy" parent="TextAppearance.AppCompat">
         <item name="fontPath">fonts/AvenirLTStd-Heavy.otf</item>
+    </style>
+
+    <style name="latoBlack" parent="TextAppearance.AppCompat">
+        <item name="fontPath">fonts/Lato-Black.ttf</item>
     </style>
 
     <style name="avenirLTStdHeavyOblique" parent="TextAppearance.AppCompat">

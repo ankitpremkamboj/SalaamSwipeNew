@@ -1,13 +1,22 @@
 package com.ak.ta.salaamswipe.activity;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ak.ta.salaamswipe.R;
@@ -39,6 +48,7 @@ import com.facebook.HttpMethod;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.glidepool.Util;
 import com.google.android.gms.maps.GoogleMap;
 
 import org.json.JSONObject;
@@ -60,15 +70,15 @@ import retrofit2.Response;
 public class SwipeViewHomeActivity extends BaseGpsActivity {
     private static final Integer[] IMAGES = {R.drawable.tutorial_1, R.drawable.tutorial_2, R.drawable.tutorial_3, R.drawable.tutorial_4};
     private static final Integer[] PAGE_TITLE = {R.string.first_find_the_best, R.string.second_swipe_picture_left_to_right, R.string.third_let_us_notify, R.string.four_get_to_know};
-    private static ViewPager mPager;
+    // private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    ImageView fbLogin, infoIcon;
+    // ImageView fbLogin, infoIcon;
     String device_token;
     Double lat = 0.0;
     Double lng = 0.0;
     //  GPSTracker gpsTracker;
-    private TextView privacyPolicy2, termAndUse4;
+    // private TextView privacyPolicy2, termAndUse4;
     private String TAG = "FACEBOOK LOG:";
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
     private ArrayList<Integer> PageTitleArray = new ArrayList<Integer>();
@@ -81,9 +91,13 @@ public class SwipeViewHomeActivity extends BaseGpsActivity {
     private FriendsListIdResp friendsEntity;
     private String profilePic;
 
+    private LinearLayout fb_login_ly;
+    private TextView fb_login_tv;
+
     @Override
     public int setLayout() {
-        return R.layout.activity_swipe_view_home;
+        Utility.setStatusBarGradiant(this);
+        return R.layout.activity_login;
     }
 
     @Override
@@ -97,16 +111,15 @@ public class SwipeViewHomeActivity extends BaseGpsActivity {
         }
         //   GCMUtils.getRegId(this);
 
-        mPager = (ViewPager) findViewById(R.id.viewpager);
-        mPager.setAdapter(new HomeSlidingImageAdapter(this, ImagesArray, PageTitleArray));
-        CirclePageIndicator indicator = (CirclePageIndicator)
-                findViewById(R.id.indicator);
-        indicator.setViewPager(mPager);
+        // mPager = (ViewPager) findViewById(R.id.viewpager);
+        //mPager.setAdapter(new HomeSlidingImageAdapter(this, ImagesArray, PageTitleArray));
+        // CirclePageIndicator indicator = (CirclePageIndicator)        findViewById(R.id.indicator);
+        //indicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
         //Set circle indicator radius
-        indicator.setRadius(5 * density);
+//        indicator.setRadius(5 * density);
         // Pager listener over indicator
-        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+       /* indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 currentPage = position;
@@ -121,13 +134,20 @@ public class SwipeViewHomeActivity extends BaseGpsActivity {
             public void onPageScrollStateChanged(int pos) {
 
             }
-        });
+        });*/
 
         // device_token = Utility.getStringSharedPreference(SwipeViewHomeActivity.this, AppConstant.PREF_DEVICE_TOKEN);
 
         /*facebook login*/
-        fbLogin = (ImageView) findViewById(R.id.fb_login_iv);
-        fbLogin.setOnClickListener(new View.OnClickListener() {
+        //  fbLogin = (ImageView) findViewById(R.id.fb_login_iv);
+        fb_login_tv = (TextView) findViewById(R.id.fb_login_tv);
+        fb_login_tv.setTextColor(Color.WHITE);
+      /*  Typeface tf = Typeface.createFromAsset(getAssets(),
+                "fonts/Lato-Black.ttf");
+        fb_login_tv.setTypeface(tf);*/
+
+        fb_login_ly = (LinearLayout) findViewById(R.id.fb_login_ly);
+        fb_login_ly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -158,7 +178,7 @@ public class SwipeViewHomeActivity extends BaseGpsActivity {
                 }
             }
         });
-
+/*
         infoIcon = (ImageView) findViewById(R.id.info_icon_iv);
         infoIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,9 +199,11 @@ public class SwipeViewHomeActivity extends BaseGpsActivity {
             public void onClick(View v) {
                 Utility.loadWebPage(SwipeViewHomeActivity.this, ApiConstants.URL_TERMS, 3);
             }
-        });
+        });*/
 
     }
+
+
 
     @Override
     public String getName() {

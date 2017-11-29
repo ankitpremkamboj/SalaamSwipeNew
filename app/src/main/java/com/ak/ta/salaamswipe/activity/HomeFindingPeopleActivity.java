@@ -66,7 +66,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
     // private int imageCount = 0;
     private CardSwipeAdapter cardSwAdapter;
     private SwipeFlingAdapterView flingContainer;
-    private FrameLayout frameUp;
+    private RelativeLayout frameUp;
     private FrameLayout frameB;
     private RelativeLayout findingPeopleHome;
     private ImageView mLeftArrowImg, mRightArrowImg;
@@ -78,6 +78,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_home_finding_people;
     }
 
@@ -94,7 +95,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
                 mRightArrowImg.setVisibility(View.VISIBLE);
             }
         }
-      //  AppEventsLogger.activateApp(this);
+        //  AppEventsLogger.activateApp(this);
     }
 
     @Override
@@ -118,7 +119,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
         findingPeopleAnimation = (ImageView) findViewById(R.id.finding_people_animation_iv);
         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(findingPeopleAnimation);
         Glide.with(HomeFindingPeopleActivity.this).load(R.raw.salam_swipe_animation_logo).into(imageViewTarget);
-        frameUp = (FrameLayout) findViewById(R.id.image_ll);
+        frameUp = (RelativeLayout) findViewById(R.id.image_ll);
         frameUp.setVisibility(View.GONE);
         frameLayoutHomeHeader.setVisibility(View.VISIBLE);
         mNameTv = (TextView) findViewById(R.id.name_tv);
@@ -148,6 +149,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
             }
         });
+
         LinearLayout mProfilell = (LinearLayout) findViewById(R.id.profile_lin_layout);
         if (mProfilell != null) {
             mProfilell.setOnClickListener(new View.OnClickListener() {
@@ -832,7 +834,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
                     chatIcon.setImageResource(R.drawable.message_indicator);
                     break;
                 } else {
-                    chatIcon.setImageResource(R.drawable.chat_icon);
+                    chatIcon.setImageResource(R.drawable.ic_chat);
                 }
             }
         }
@@ -865,7 +867,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
     protected void onDestroy() {
         super.onDestroy();
         mGoogleApiClient.disconnect();
-     //   AppEventsLogger.deactivateApp(this);
+        //   AppEventsLogger.deactivateApp(this);
     }
 }
 

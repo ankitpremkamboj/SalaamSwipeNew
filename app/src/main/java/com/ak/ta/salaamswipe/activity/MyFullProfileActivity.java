@@ -16,6 +16,7 @@ import com.ak.ta.salaamswipe.application.ApplicationController;
 import com.ak.ta.salaamswipe.customui.CirclePageIndicator;
 import com.ak.ta.salaamswipe.models.res.UserProfileRes;
 import com.ak.ta.salaamswipe.utils.Constants;
+import com.ak.ta.salaamswipe.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,8 @@ public class MyFullProfileActivity extends BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
+
         return R.layout.activity_my_full_profile;
     }
 

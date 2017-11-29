@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
+    android:layout_height="@dimen/dp80"
+    android:background="@drawable/tollbar_grediant"
     android:minHeight="?attr/actionBarSize"
     app:layout_collapseMode="pin">
 
@@ -13,32 +13,117 @@
         android:id="@+id/home_header_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp20"
+        android:paddingRight="@dimen/dp40"
         android:visibility="gone">
 
-        <ImageView
-            android:id="@+id/hh_profile_icon"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
-            android:layout_marginLeft="@dimen/ndp12"
-            android:padding="@dimen/dp12"
-            android:src="@drawable/profile_icon" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/hh_profile_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp4"
+                android:src="@drawable/ic_profile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.07"
+                android:text="@string/profile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/header_logo" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/hh_chat_icon"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp4"
+
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.07"
+                android:text="@string/home"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
-            android:padding="@dimen/dp12"
-            android:src="@drawable/chat_icon" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/hh_chat_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp4"
+                android:src="@drawable/ic_chat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.07"
+                android:text="@string/chat"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
 
     </FrameLayout>
+    <!-- <FrameLayout
+         android:id="@+id/home_header_frame_layout"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:visibility="gone">
+
+         <ImageView
+             android:id="@+id/hh_profile_icon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="left|center"
+             android:layout_marginLeft="@dimen/ndp12"
+             android:padding="@dimen/dp12"
+             android:src="@drawable/profile_icon" />
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:src="@drawable/header_logo" />
+
+         <ImageView
+             android:id="@+id/hh_chat_icon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="right|center"
+             android:padding="@dimen/dp12"
+             android:src="@drawable/chat_icon" />
+
+     </FrameLayout>-->
     <!--outlook header-->
     <FrameLayout
         android:id="@+id/outlook_header"
@@ -145,32 +230,87 @@
         android:id="@+id/profile_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp20"
+        android:paddingRight="@dimen/dp40"
         android:visibility="gone">
 
-        <ImageView
-            android:id="@+id/ph_settings_icon"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            android:padding="@dimen/dp5"
-            android:src="@drawable/settings_icon" />
+            <ImageView
+                android:id="@+id/ph_settings_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:padding="@dimen/dp4"
+                android:src="@drawable/ic_open_profile" />
 
-        <ImageView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.07"
+                android:text="@string/profile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginRight="@dimen/margin_15"
-            android:src="@drawable/profile_icon" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/ph_home_icon"
+            <ImageView
+                android:id="@+id/ph_home_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp4"
+                android:src="@drawable/ic_un_select_home" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.07"
+                android:text="@string/home"
+                android:textColor="@color/colorLightGreyText"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
-            android:paddingLeft="@dimen/margin_5"
-            android:paddingRight="@dimen/dp12"
-            android:src="@drawable/home_icon" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:padding="@dimen/dp4"
+                android:src="@drawable/ic_chat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.07"
+                android:text="@string/chat"
+                android:textColor="@color/colorLightGreyText"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
 
     </FrameLayout>
     <!--edit profile header-->
@@ -221,6 +361,14 @@
         android:visibility="gone">
 
         <ImageView
+            android:id="@+id/sh_profile_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@drawable/ic_back" />
+
+        <ImageView
             android:id="@+id/sh_settings_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -228,12 +376,13 @@
             android:src="@drawable/settings_icon" />
 
 
-        <ImageView
+       <!-- <ImageView
             android:id="@+id/sh_profile_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
-            android:padding="@dimen/dp12" />
+            android:padding="@dimen/dp12"
+            android:visibility="gone" />-->
 
     </FrameLayout>
     <!--matched profile header-->

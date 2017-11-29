@@ -33,14 +33,16 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
     FrameLayout profileHeader;
     GetSettingRes getSettingRes;
     private ImageView homeIcon;
-    private CircleImageViewForProfilePic myProfilePic;
+    private ImageView myProfilePic;
     private ImageView myProfileEditIcon;
-    private ImageView settingsIcon;
+  //  private ImageView settingsIcon;
     private UserProfileRes mUserProfile;
     private RelativeLayout inviteFriendsRl, feedBackRl;
 
     @Override
     public int setLayout() {
+        /*change status bar Gradient color   */
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_my_profile;
     }
 
@@ -58,7 +60,7 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
             }
         });
 
-        myProfilePic = (CircleImageViewForProfilePic) findViewById(R.id.my_profile_pic_ci);
+        myProfilePic = (ImageView) findViewById(R.id.my_profile_pic_ci);
         String imageFromPref = PrefUtils.getSharedPrefString(MyProfileActivity.this, PrefUtils.USER_PIC);
         try {
             // Picasso.with(this).load(imageFromPref).into(myProfilePic);
@@ -67,11 +69,13 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
             e.printStackTrace();
         }
         myProfileEditIcon = (ImageView) findViewById(R.id.my_profile_edit_icon_iv);
-        settingsIcon = (ImageView) findViewById(R.id.ph_settings_icon);
-        settingsIcon.setOnClickListener(this);
+
+       // settingsIcon = (ImageView) findViewById(R.id.ph_settings_icon);
+       // settingsIcon.setOnClickListener(this);
 
         inviteFriendsRl = (RelativeLayout) findViewById(R.id.invite_friends_rl);
-        inviteFriendsRl.setOnClickListener(new View.OnClickListener() {
+        inviteFriendsRl.setOnClickListener(this);
+       /* inviteFriendsRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
@@ -84,10 +88,11 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
                 sharingIntent.putExtra(Intent.EXTRA_TEXT, "http://www.salaamswipe.com");
                 startActivity(Intent.createChooser(sharingIntent, "Share link!"));
             }
-        });
+        });*/
 
         feedBackRl = (RelativeLayout) findViewById(R.id.feedback_rl);
-        feedBackRl.setOnClickListener(new View.OnClickListener() {
+        feedBackRl.setOnClickListener(this);
+       /* feedBackRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //  Utility.loadWebPage(MyProfileActivity.this, getString(R.string.urls_feedback), 4);
@@ -107,7 +112,7 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
                 }
 
             }
-        });
+        });*/
 
         //call service
 
@@ -136,12 +141,12 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
                 intentMyFullProfile.putExtra(Constants.EXTRA_USER_PROFILE, mUserProfile);
                 startActivity(intentMyFullProfile);
                 break;
-            case R.id.my_profile_edit_icon_iv:
+            case R.id.feedback_rl:
                 Intent intentEditProfile = new Intent(MyProfileActivity.this, EditProfileActivity.class);
                 intentEditProfile.putExtra(Constants.EXTRA_USER_PROFILE, mUserProfile);
                 startActivity(intentEditProfile);
                 break;
-            case R.id.ph_settings_icon:
+            case R.id.invite_friends_rl:
 //                Intent intentSettings = new Intent(MyProfileActivity.this, SettingsActivity.class);
 //                intentSettings.putExtra(AppConstant.SETTINGS_STATUS, "0");
 //                startActivity(intentSettings);
@@ -184,7 +189,7 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
     private void setUi(UserProfileRes userProfileRes) {
 
         myProfilePic.setOnClickListener(MyProfileActivity.this);
-        myProfileEditIcon.setOnClickListener(MyProfileActivity.this);
+       // myProfileEditIcon.setOnClickListener(MyProfileActivity.this);
         String profilePic = userProfileRes.getProfileDetails().getProfile_pic();
         PrefUtils.setSharedPrefStringData(MyProfileActivity.this, PrefUtils.USER_PIC, profilePic);
         if (!TextUtils.isEmpty(profilePic)) {
@@ -244,7 +249,7 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
             findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
         }
         if (!TextUtils.isEmpty(edu)) {
-            ((TextView) findViewById(R.id.edu_tv)).setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.edu_tv)).setVisibility(View.GONE);
             ((TextView) findViewById(R.id.edu_tv)).setText(edu);
         } else {
             ((TextView) findViewById(R.id.edu_tv)).setVisibility(View.GONE);
@@ -253,7 +258,7 @@ public class MyProfileActivity extends BaseActivity implements View.OnClickListe
             findViewById(R.id.my_profile_designation_tv).setVisibility(View.VISIBLE);
             ((TextView) findViewById(R.id.my_profile_designation_tv)).setText(work);
         } else {
-            findViewById(R.id.my_profile_designation_tv).setVisibility(View.GONE);
+            findViewById(R.id.my_profile_designation_tv).setVisibility(View.VISIBLE);
         }
     }
 

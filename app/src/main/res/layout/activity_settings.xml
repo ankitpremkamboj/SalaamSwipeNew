@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.ak.ta.salaamswipe.activity.SettingsActivity">
 
     <include
@@ -26,7 +27,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -46,20 +46,22 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dp16"
                     android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/miles"
-                    style="@style/avenirLTStdHeavy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="300"
-                    android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/miles"
+                        style="@style/avenirLTStdHeavy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="300"
+                        android:textColor="@color/black" />
+
                     <TextView
                         style="@style/avenirLTStdHeavy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp5"
                         android:text="@string/miles"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -67,7 +69,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp70"
-                android:background="@color/colorWhite"
                 android:paddingLeft="@dimen/dp16"
                 android:paddingRight="@dimen/dp16">
 
@@ -81,10 +82,9 @@
                     android:thumb="@drawable/thumb_seek"
                     app:drawThumbsApart="true"
                     app:rangeColor="@color/colorPrimary"
+                    app:scaleMax="300"
                     app:stepsThumbsApart="5"
                     app:thumbNumber="1"
-
-                    app:scaleMax="300"
 
                     />
 
@@ -98,7 +98,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -110,6 +109,7 @@
                     android:text="@string/age_range"
                     android:textColor="@color/colorDarkText"
                     android:textSize="@dimen/text_size_13sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -117,27 +117,29 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dp16"
                     android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/ages_min_tv"
-                    style="@style/avenirLTStdRoman"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="18"
-                    android:textColor="@color/colorPrimary" />
 
-                <TextView
-                    style="@style/avenirLTStdRoman"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textColor="@color/colorPrimary" />
-                <TextView
-                    android:id="@+id/ages_max_tv"
-                    style="@style/avenirLTStdRoman"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="60"
-                    android:textColor="@color/colorPrimary" />
+                    <TextView
+                        android:id="@+id/ages_min_tv"
+                        style="@style/avenirLTStdRoman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/avenirLTStdRoman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ages_max_tv"
+                        style="@style/avenirLTStdRoman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -145,7 +147,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp70"
-                android:background="@color/colorWhite"
                 android:paddingLeft="@dimen/dp16"
                 android:paddingRight="@dimen/dp16">
 
@@ -157,16 +158,14 @@
                     android:layout_centerVertical="true"
                     android:gravity="center"
                     android:thumb="@drawable/thumb_seek"
-                    app:rangeColor="@color/colorPrimary"
                     app:range1="@drawable/multislider_scrubber_track_holo_light"
-                    app:stepsThumbsApart="2"
+                    app:rangeColor="@color/colorPrimary"
                     app:scaleMax="60"
                     app:scaleMin="18"
-                    app:thumbValue1="18"
-                    app:thumbValue2="60"
+                    app:stepsThumbsApart="2"
                     app:thumbNumber="2"
-                    />
-
+                    app:thumbValue1="18"
+                    app:thumbValue2="60" />
 
 
             </RelativeLayout>
@@ -179,7 +178,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -226,7 +224,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/dp16"
                 android:layout_marginRight="@dimen/dp16"
-                android:background="@color/colorLightDividerLine" />
+                android:background="@color/white" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -263,7 +261,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -313,7 +310,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -397,7 +393,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -484,7 +479,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:background="@color/colorLight"
                 android:orientation="vertical">
 
                 <TextView
@@ -500,10 +494,10 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/contact_us_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
                 android:background="@color/colorWhite"
-                android:id="@+id/contact_us_rl"
                 android:paddingLeft="@dimen/dp16"
                 android:paddingRight="@dimen/dp16">
 
@@ -532,13 +526,13 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/dp16"
                 android:layout_marginRight="@dimen/dp16"
-                android:background="@color/colorLightDividerLine" />
+                android:background="@color/white" />
 
             <RelativeLayout
+                android:id="@+id/terms_of_services_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
                 android:background="@color/colorWhite"
-                android:id="@+id/terms_of_services_rl"
                 android:paddingLeft="@dimen/dp16"
                 android:paddingRight="@dimen/dp16">
 
@@ -568,13 +562,13 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/dp16"
                 android:layout_marginRight="@dimen/dp16"
-                android:background="@color/colorLightDividerLine" />
+                android:background="@color/white" />
 
             <RelativeLayout
+                android:id="@+id/privacy_policy_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
                 android:background="@color/colorWhite"
-                android:id="@+id/privacy_policy_rl"
                 android:paddingLeft="@dimen/dp16"
                 android:paddingRight="@dimen/dp16">
 
@@ -603,7 +597,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="@color/colorLight" />
+                android:background="@color/white" />
 
             <View
                 android:layout_width="match_parent"
@@ -643,7 +637,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/dp16"
                 android:layout_marginRight="@dimen/dp16"
-                android:background="@color/colorLightDividerLine" />
+                android:background="@color/white" />
 
             <RelativeLayout
                 android:id="@+id/remove_ac_rl"
