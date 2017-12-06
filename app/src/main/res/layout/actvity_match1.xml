@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_150">
 
-                <com.ak.ta.salaamswipe.customui.CircleImageView
+                <com.soul.app.customui.CircleImageView
                     android:id="@+id/left_img"
                     android:layout_width="@dimen/margin_150"
                     android:layout_height="@dimen/margin_150"
@@ -70,7 +70,7 @@
                     app:border_color="@color/white"
                     app:border_width="@dimen/margin_3" />
 
-                <com.ak.ta.salaamswipe.customui.CircleImageView
+                <com.soul.app.customui.CircleImageView
                     android:id="@+id/right_img"
                     android:layout_width="@dimen/margin_150"
                     android:layout_height="@dimen/margin_150"

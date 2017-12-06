@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/dp10"
+    android:layout_marginTop="@dimen/dp20"
     android:layout_gravity="center">
 
     <!--<RelativeLayout
@@ -21,7 +21,7 @@
             android:visibility="gone"
             >
 
-            <com.ak.ta.salaamswipe.customui.tindercard.SwipeFlingAdapterView
+            <com.soul.app.customui.tindercard.SwipeFlingAdapterView
                 android:id="@+id/frame_sfav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

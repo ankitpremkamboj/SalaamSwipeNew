@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.ak.ta.salaamswipe.activity.SettingsActivity">
+    tools:context="com.soul.app.activity.SettingsActivity">
 
     <include
         android:id="@+id/settings_header_tb"

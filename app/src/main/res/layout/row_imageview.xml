@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/margin_5"
     android:paddingRight="@dimen/margin_5">
 
-    <com.ak.ta.salaamswipe.customui.RoundedImageView
+    <com.soul.app.customui.RoundedImageView
         android:id="@+id/images"
         android:layout_width="@dimen/dp110"
         android:layout_height="@dimen/dp110"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ak.ta.salaamswipe.activity.YourSectActivity">
+    tools:context="com.soul.app.activity.YourSectActivity">
 
     <include
         android:id="@+id/your_sect_outlook_header_tb"

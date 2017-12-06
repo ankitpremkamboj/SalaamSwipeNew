@@ -8,7 +8,7 @@
     android:padding="@dimen/dp20"
     android:background="@android:color/transparent"
     android:orientation="vertical"
-    tools:context="com.ak.ta.salaamswipe.activity.ChatReportActivity">
+    tools:context="com.soul.app.activity.ChatReportActivity">
     <ImageView
         android:id="@+id/close_imgvw"
         android:layout_width="wrap_content"

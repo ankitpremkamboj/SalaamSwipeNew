@@ -15,7 +15,7 @@
         android:paddingLeft="@dimen/dp19"
         android:paddingRight="@dimen/dp19">
 
-        <com.ak.ta.salaamswipe.customui.CircleImageView
+        <com.soul.app.customui.CircleImageView
             android:id="@+id/row_matches_pic_ci"
             android:layout_width="@dimen/dp60"
             android:layout_height="@dimen/dp60"
@@ -101,6 +101,9 @@
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:background="@color/colorLightDividerLine" />
+        android:visibility="visible"
+        android:layout_below="@+id/row_matches_rl"
+        android:layout_marginLeft="@dimen/dp80"
+        android:background="@color/colorDarkDividerLine" />
 
 </RelativeLayout>

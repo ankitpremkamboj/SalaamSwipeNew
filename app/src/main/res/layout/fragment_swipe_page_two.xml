@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tutorial_bg"
-    tools:context="com.ak.ta.salaamswipe.fragment.SwipePageTwoFragment">
+    tools:context="com.soul.app.fragment.SwipePageTwoFragment">
 
     <!--android:layout_marginBottom="@dimen/dp132"-->
     <RelativeLayout

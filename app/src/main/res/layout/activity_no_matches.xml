@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ak.ta.salaamswipe.activity.NoMatchesActivity">
+    tools:context="com.soul.app.activity.NoMatchesActivity">
 
     <include
         android:id="@+id/header_match_tb"

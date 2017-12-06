@@ -43,20 +43,18 @@
                         android:layout_centerVertical="true"
                         android:src="@drawable/login_profile" />
                 </RelativeLayout>
-
-
             </RelativeLayout>
 
             <TextView
+                style="@style/latoRagular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relative_layout"
                 android:layout_marginTop="@dimen/dp40"
                 android:gravity="center_horizontal"
-                android:text="Join a community of inspiring singles"
+                android:text="Join a community of \n inspiring singles"
                 android:textColor="#000000"
                 android:textSize="@dimen/text_16" />
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.ak.ta.salaamswipe.activity.EditProfileActivity">
+    tools:context="com.soul.app.activity.EditProfileActivity">
 
     <include
         android:id="@+id/edit_profile_header_tb"

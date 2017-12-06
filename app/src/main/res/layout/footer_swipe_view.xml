@@ -10,7 +10,7 @@
     android:elevation="@dimen/dp32"
     android:orientation="vertical">
 
-    <com.ak.ta.salaamswipe.customui.CirclePageIndicator
+    <com.soul.app.customui.CirclePageIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

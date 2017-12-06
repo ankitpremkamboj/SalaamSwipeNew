@@ -18,7 +18,7 @@
             android:layout_weight="1">
 
 
-            <com.ak.ta.salaamswipe.customui.RoundedImageViewForEditProfile
+            <com.soul.app.customui.RoundedImageViewForEditProfile
                 android:id="@+id/profile_image_iv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -62,7 +62,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
-                    <com.ak.ta.salaamswipe.customui.RoundedImageViewForEditProfile
+                    <com.soul.app.customui.RoundedImageViewForEditProfile
                         android:id="@+id/image1"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp85"
@@ -84,7 +84,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
-                    <com.ak.ta.salaamswipe.customui.RoundedImageViewForEditProfile
+                    <com.soul.app.customui.RoundedImageViewForEditProfile
                         android:id="@+id/image2"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp85"
@@ -117,7 +117,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
-                    <com.ak.ta.salaamswipe.customui.RoundedImageViewForEditProfile
+                    <com.soul.app.customui.RoundedImageViewForEditProfile
                         android:id="@+id/image3"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp85"
@@ -139,7 +139,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
-                    <com.ak.ta.salaamswipe.customui.RoundedImageViewForEditProfile
+                    <com.soul.app.customui.RoundedImageViewForEditProfile
                         android:id="@+id/image4"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp85"

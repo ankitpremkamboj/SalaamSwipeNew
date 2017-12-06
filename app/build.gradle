@@ -20,7 +20,7 @@ android {
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-        applicationId "com.ak.ta.salaamswipe"
+        applicationId "com.soul.app"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 4

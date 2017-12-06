@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
                 android:layout_below="@+id/header_match_found_tb"
-                android:background="@color/colorStrip"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:visibility="visible">
 
@@ -35,8 +35,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp19"
-                    android:text="@string/matches"
-                    android:textColor="@color/colorPrimary"
+                    android:text="New Matches"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/text_size_14sp" />
 
                 <TextView
@@ -47,6 +47,7 @@
                     android:layout_toEndOf="@+id/matches_tv"
                     android:layout_toRightOf="@+id/matches_tv"
                     android:gravity="bottom"
+                    android:visibility="gone"
                     android:text="@string/your_matches_are_expiring"
                     android:textSize="@dimen/text_size_11sp" />
             </RelativeLayout>
@@ -74,7 +75,7 @@
                         android:layout_marginRight="@dimen/dp32"
                         android:visibility="visible">
 
-                        <com.ak.ta.salaamswipe.customui.CircleImageView
+                        <com.soul.app.customui.CircleImageView
                             android:id="@+id/matches_pic_ci"
                             android:layout_width="@dimen/dp60"
                             android:layout_height="@dimen/dp60"
@@ -96,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone">
 
-                        <com.ak.ta.salaamswipe.customui.CircleImageView
+                        <com.soul.app.customui.CircleImageView
                             android:id="@+id/matches_pic2_ci"
                             android:layout_width="@dimen/dp60"
                             android:layout_height="@dimen/dp60" />
@@ -124,7 +125,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
                 android:layout_below="@+id/header_chat_tv"
-                android:background="@color/colorStrip"
+                android:background="@color/white"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -135,6 +137,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp19"
                     android:text="@string/messages"
+                    android:visibility="gone"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text_size_14sp" />
 
@@ -214,7 +217,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:divider="@color/white"
                 android:visibility="visible" />
+
+
 
             <LinearLayout
                 android:id="@+id/no_result_ll"

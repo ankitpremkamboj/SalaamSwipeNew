@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">Salaam Swipe</string>
-
+    <string name="app_name">Soul</string>
     <string name="fb_appid">1793433884023315</string>
     <string name="fb_secret_key">e0ff9b45fbda6bb3edd80454a9d00376</string>
-
     <string name="we_do_not_post">WE do not post anything to your facebook</string>
     <string name="by_clicking_sign_up">By clicking Sign Up, you agree to salaam swipe\'s\u0020</string>
     <string name="privacy_policy">Privacy Policy</string>
@@ -13,7 +11,6 @@
     <string name="second_swipe_picture_left_to_right">Swipe left to pass or \n right to like</string>
     <string name="third_let_us_notify">We\'ll notify you when there\'s a \n match!</string>
     <string name="four_get_to_know">Get to know your match using \n the app</string>
-
     <string name="webpage_not_available">Web page not available.</string>
     <string name="nointernetconnction">No internet connection</string>
     <string name="url_not_found">Url not found</string>

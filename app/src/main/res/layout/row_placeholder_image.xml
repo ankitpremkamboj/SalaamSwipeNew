@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dp25">
 
-        <com.ak.ta.salaamswipe.customui.CircleImageView
+        <com.soul.app.customui.CircleImageView
             android:id="@+id/matches_pic_ci"
             android:layout_width="@dimen/dp60"
             android:layout_height="@dimen/dp60"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dp25">
 
-        <com.ak.ta.salaamswipe.customui.CircleImageView
+        <com.soul.app.customui.CircleImageView
             android:layout_width="@dimen/dp60"
             android:layout_height="@dimen/dp60"
             android:src="@drawable/match_placeholder"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dp25">
 
-        <com.ak.ta.salaamswipe.customui.CircleImageView
+        <com.soul.app.customui.CircleImageView
             android:layout_width="@dimen/dp60"
             android:layout_height="@dimen/dp60"
             android:src="@drawable/match_placeholder"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dp20">
 
-        <com.ak.ta.salaamswipe.customui.CircleImageView
+        <com.soul.app.customui.CircleImageView
             android:layout_width="@dimen/dp60"
             android:layout_height="@dimen/dp60"
             android:src="@drawable/match_placeholder"

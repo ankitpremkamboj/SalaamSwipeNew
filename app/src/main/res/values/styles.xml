@@ -74,6 +74,10 @@
         <item name="fontPath">fonts/Lato-Black.ttf</item>
     </style>
 
+    <style name="latoRagular" parent="TextAppearance.AppCompat">
+        <item name="fontPath">fonts/Lato-Regular.ttf</item>
+    </style>
+
     <style name="avenirLTStdHeavyOblique" parent="TextAppearance.AppCompat">
         <item name="fontPath">fonts/AvenirLTStd-HeavyOblique.otf</item>
     </style>

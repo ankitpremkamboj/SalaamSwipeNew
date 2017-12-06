@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                   >
 
-                    <com.ak.ta.salaamswipe.customui.tindercard.SwipeFlingAdapterView
+                    <com.soul.app.customui.tindercard.SwipeFlingAdapterView
                         android:id="@+id/frame_sfav"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
