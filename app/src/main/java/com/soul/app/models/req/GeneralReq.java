@@ -42,6 +42,12 @@ public class GeneralReq {
     private String distance_unit;
     private String max_age;
     private String min_age;
+    private String min_height;
+    private String max_height;
+    private String academy;
+    private String interest;
+
+
     /**
      * address :
      * latitude : 24
@@ -398,6 +404,38 @@ public class GeneralReq {
         this.is_convert = is_convert;
     }
 
+    public String getMin_height() {
+        return min_height;
+    }
+
+    public void setMin_height(String min_height) {
+        this.min_height = min_height;
+    }
+
+    public String getMax_height() {
+        return max_height;
+    }
+
+    public void setMax_height(String max_height) {
+        this.max_height = max_height;
+    }
+
+    public String getAcademy() {
+        return academy;
+    }
+
+    public void setAcademy(String academy) {
+        this.academy = academy;
+    }
+
+    public String getInterest() {
+        return interest;
+    }
+
+    public void setInterest(String interest) {
+        this.interest = interest;
+    }
+
     public static class IntrestsEntity {
         private String category_id;
         private String is_primary;
@@ -418,4 +456,6 @@ public class GeneralReq {
             this.is_primary = is_primary;
         }
     }
+
+
 }

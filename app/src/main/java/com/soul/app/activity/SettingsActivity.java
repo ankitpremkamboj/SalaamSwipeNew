@@ -1,11 +1,13 @@
 package com.soul.app.activity;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SwitchCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
@@ -13,19 +15,27 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
+import com.github.mrengineer13.snackbar.SnackBar;
 import com.soul.app.R;
-import com.soul.app.activity.*;
+import com.soul.app.activity.SwipeViewHomeActivity;
+import com.soul.app.activity.YourOutLookActivity;
+import com.soul.app.activity.YourSectActivity;
 import com.soul.app.application.ApplicationController;
 import com.soul.app.constants.AppConstant;
 import com.soul.app.models.req.GeneralReq;
 import com.soul.app.models.res.CommonUserRes;
 import com.soul.app.models.res.GetSettingRes;
+import com.soul.app.models.res.ListResp;
 import com.soul.app.models.res.LogoutRes;
+import com.soul.app.models.res.ObjResp;
+import com.soul.app.models.res.UserProfileRes;
 import com.soul.app.retrofit.ApiConstants;
+import com.soul.app.utils.Constants;
 import com.soul.app.utils.PrefUtils;
 import com.soul.app.utils.Utility;
-import com.facebook.login.LoginManager;
-import com.github.mrengineer13.snackbar.SnackBar;
+
+import java.util.ArrayList;
 
 import io.apptik.widget.MultiSlider;
 import retrofit2.Call;
@@ -45,8 +55,11 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     private SwitchCompat mMaleSwitch, mFmaleSwitch, mInCogSwitch, mNewMatchSwitch, mNewMsgSwitch;
     private RelativeLayout logoutRl;
     private boolean logoutFlag;
-    private RelativeLayout termsOfServicesRl, privacyPolicyRl, contactUsRl, mRemoveAcRl;
-
+    private RelativeLayout termsOfServicesRl, privacyPolicyRl, contactUsRl, mRemoveAcRl, height_rl;
+    private String minHeight, maxHeight;
+    private String academic;
+    private ArrayList<String> mInterestList;
+    private String interestId;
 
     @Override
     protected void onPause() {
@@ -63,8 +76,10 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
 
     @Override
     public void initUi() {
-        mRemoveAcRl = (RelativeLayout) findViewById(R.id.remove_ac_rl);
+        mInterestList = new ArrayList<String>();
 
+        mRemoveAcRl = (RelativeLayout) findViewById(R.id.remove_ac_rl);
+        height_rl = (RelativeLayout) findViewById(R.id.height_rl);
         settingsHeader = (FrameLayout) findViewById(R.id.settings_header);
         settingsHeader.setVisibility(View.VISIBLE);
         mAgeMaxTv = (TextView) findViewById(R.id.ages_max_tv);
@@ -114,7 +129,7 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         } else {
             profileIcon.setImageDrawable(getResources().getDrawable(R.drawable.home_icon));
         }
-
+        height_rl.setOnClickListener(this);
         findViewById(R.id.outlook_rl).setOnClickListener(this);
         findViewById(R.id.sect_rl).setOnClickListener(this);
         profileIcon.setOnClickListener(this);
@@ -149,8 +164,9 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         });
         mRemoveAcRl.setOnClickListener(this);
 
-        // getSettingApi();
-        setUi((GetSettingRes) getIntent().getSerializableExtra(AppConstant.SETTINGS_DATA));
+        getSettingApi();
+        profileApi();
+        //setUi((GetSettingRes) getIntent().getSerializableExtra(AppConstant.SETTINGS_DATA));
         //ArrayList<String> porfilePicList=PrefUtils.getSharedPrefListData(SettingsActivity.this,PrefUtils.PROFILE_PIC_LIST);
     }
 
@@ -203,13 +219,32 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
                 finish();
                 break;
             case R.id.outlook_rl:
-                startActivity(new Intent(this, YourOutLookActivity.class));
+                //startActivity(new Intent(this, YourOutLookActivity.class));
+
+                Intent intentEditInterests = new Intent(SettingsActivity.this, InterestActivity.class);
+                intentEditInterests.putStringArrayListExtra(Constants.EXTRA_INTEREST_LIST, mInterestList);
+
+                startActivityForResult(intentEditInterests, 3);
                 break;
             case R.id.sect_rl:
-                startActivity(new Intent(this, YourSectActivity.class));
+                //startActivity(new Intent(this, AcademicActivity.class));
+                Intent intentAcademic = new Intent(SettingsActivity.this, AcademicActivity.class);
+                intentAcademic.putExtra(Constants.EXTRA_ACADEMIC, academic);
+                startActivityForResult(intentAcademic, 4);
+
+
                 break;
             case R.id.remove_ac_rl:
                 removeAc();
+                break;
+            case R.id.height_rl:
+                // startActivity(new Intent(this, HeightActivity.class));
+
+                Intent intentHeight = new Intent(SettingsActivity.this, HeightActivity.class);
+                intentHeight.putExtra(Constants.EXTRA_MIN_HEIGHT, minHeight);
+                intentHeight.putExtra(Constants.EXTRA_MAX_HEIGHT, maxHeight);
+                startActivityForResult(intentHeight, 5);
+
                 break;
             case R.id.logout_rl:
                 logout();
@@ -217,26 +252,77 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         }
     }
 
-    /*public void getSettingApi() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Constants.RESULT_INTEREST) {
+            try {
+                interestId = data.getStringExtra(Constants.EXTRA_INTEREST);
+                Log.e("interest", interestId);
+                //((TextView) findViewById(R.id.my_edit_profile_interests_tv)).setText(interest);
+            /*here get interest data for sending on setting  */
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (resultCode == Constants.RESULT_ACADEMIC) {
+            try {
+                academic = data.getStringExtra(Constants.EXTRA_ACADEMIC);
+                /*get academic data*/
+                //((TextView) findViewById(R.id.my_edit_profile_sect_tv)).setText(data.getStringExtra(Constants.EXTRA_SECT));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        } else if (resultCode == Constants.RESULT_HEIGHT) {
+
+            minHeight = data.getStringExtra(Constants.EXTRA_MIN_HEIGHT);
+            maxHeight = data.getStringExtra(Constants.EXTRA_MAX_HEIGHT);
+
+
+            /*get height data here */
+
+        } else {
+            try {
+                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_OUTLOOK));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+       /* if (resultCode == Activity.RESULT_OK && mediaFactory != null) {
+            ArrayList<String> stringArrayList = mediaFactory.onActivityResult(requestCode, resultCode, data);
+            if (stringArrayList != null && stringArrayList.size() > 0) {
+                updateUserImageApi(stringArrayList.get(0));
+                setSelectImageUri(stringArrayList.get(0));
+
+            }
+        }*/
+    }
+
+    public void getSettingApi() {
         if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
             showProgressDialog(true);
             GeneralReq generalReq = new GeneralReq();
             generalReq.setUser_id(PrefUtils.getSharedPrefString(SettingsActivity.this, PrefUtils.USER_ID));
-            Call<ListResp<GetSettingRes>> call = mApis.getSetting(generalReq);
-            call.enqueue(new Callback<ListResp<GetSettingRes>>() {
+            Call<ObjResp<GetSettingRes>> call = mApis.getSetting(generalReq);
 
+            call.enqueue(new Callback<ObjResp<GetSettingRes>>() {
                 @Override
-                public void onResponse(Call<ListResp<GetSettingRes>> call, Response<ListResp<GetSettingRes>> response) {
+                public void onResponse(Call<ObjResp<GetSettingRes>> call, Response<ObjResp<GetSettingRes>> response) {
                     showProgressDialog(false);
                     if (response.isSuccessful()) {
-                        if (response.body().getData().size() > 0) {
+
+                        setUi(response.body().getData());
+                        /*if (response.body().getData().size() > 0) {
                             setUi(response.body().getData().get(0));
-                        }
+                        }*/
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ListResp<GetSettingRes>> call, Throwable t) {
+                public void onFailure(Call<ObjResp<GetSettingRes>> call, Throwable t) {
                     showProgressDialog(false);
                 }
             });
@@ -244,11 +330,15 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
             new SnackBar.Builder(SettingsActivity.this)
                     .withMessage(getResources().getString(R.string.err_network)).show();
         }
-    }*/
+    }
 
     public void setUi(GetSettingRes response) {
         mAgeMaxTv.setText(response.getMax_age());
         mAgeMinTv.setText(response.getMin_age());
+        maxHeight = response.getMaxHeight();
+        minHeight = response.getMinHeight();
+        academic = response.getAcademy();
+        interestId = response.getIntrestid();
         String distance = response.getDistance();
         if (distance.length() > 3) {
             distance = distance.substring(0, 2);
@@ -303,6 +393,13 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
             generalReq.setDistance(mDistanceSeekBar.getThumb(0).getValue() + "");
             generalReq.setMax_age(mAgeSeekBar.getThumb(1).getValue() + "");
             generalReq.setMin_age(mAgeSeekBar.getThumb(0).getValue() + "");
+
+            generalReq.setMax_height(maxHeight + "");
+            generalReq.setMin_height(minHeight + "");
+
+            generalReq.setAcademy(academic + "");
+            generalReq.setInterest(interestId + "");
+
             if (mNewMatchSwitch.isChecked()) {
                 generalReq.setMatch_notification("1");
             } else {
@@ -534,5 +631,55 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
                 });
         // Showing Alert Dialog
         alertDialog2.show();
+    }
+
+
+    private void profileApi() {
+
+        if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
+            GeneralReq generalReq = new GeneralReq();
+            generalReq.setUser_id(PrefUtils.getSharedPrefString(SettingsActivity.this, PrefUtils.USER_ID));
+            Call<ObjResp<UserProfileRes>> call = mApis.userProfile(generalReq);
+            showProgressDialog(true);
+            call.enqueue(new Callback<ObjResp<UserProfileRes>>() {
+                @Override
+                public void onResponse(Call<ObjResp<UserProfileRes>> call, Response<ObjResp<UserProfileRes>> response) {
+
+                    showProgressDialog(false);
+                    if (response.isSuccessful()) {
+                        //  showProgressDialog(false);
+                        if (response.body() != null) {
+                            getIntrestData(response.body().getData());
+                            // Toast.makeText(EditProfileActivity.this, "" + response.body().getMsg(), Toast.LENGTH_SHORT).show();
+
+
+                        }
+
+                    }/* else {
+                        showProgressDialog(false);
+                    }*/
+                }
+
+                @Override
+                public void onFailure(Call<ObjResp<UserProfileRes>> call, Throwable t) {
+                    showProgressDialog(false);
+                }
+            });
+        } else {
+            new SnackBar.Builder(SettingsActivity.this)
+                    .withMessage(getString(R.string.err_network)).show();
+        }
+    }
+
+    public void getIntrestData(UserProfileRes userProfile) {
+
+        mInterestList.clear();
+        for (int i = 0; i < userProfile.getInterests().size(); i++) {
+            mInterestList.add(userProfile.getInterests().get(i).getCategory_name());
+            /*interest = interest + userProfile.getInterests().get(i).getCategory_name();
+            if (i < userProfile.getInterests().size() - 1) {
+                interest = interest + ", ";
+            }*/
+        }
     }
 }

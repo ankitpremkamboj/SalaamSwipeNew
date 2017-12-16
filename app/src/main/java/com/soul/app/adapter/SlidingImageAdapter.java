@@ -20,11 +20,9 @@ import java.util.ArrayList;
  */
 public class SlidingImageAdapter extends PagerAdapter {
 
-
     private ArrayList<String> IMAGES;
     private LayoutInflater inflater;
     private Context context;
-
 
     public SlidingImageAdapter(Context context, ArrayList<String> IMAGES) {
         this.context = context;
@@ -44,6 +42,8 @@ public class SlidingImageAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
+
+
         View imageLayout = inflater.inflate(R.layout.sliding_image, view, false);
 
         assert imageLayout != null;

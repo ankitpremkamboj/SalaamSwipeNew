@@ -130,4 +130,13 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="Color1SwitchStyle">
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="android:track">@drawable/switch_track</item>
+        //when use Switch in xml file
+        <item name="track">@drawable/switch_track</item>
+        //when use android.support.v7.widget.SwitchCompat in xml
+
+    </style>
+
 </resources>

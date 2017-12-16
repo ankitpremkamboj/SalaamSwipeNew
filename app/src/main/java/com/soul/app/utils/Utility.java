@@ -305,8 +305,12 @@ public class Utility {
     }
 
     public static boolean isGpsOn(Context context) {
-        LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-        boolean statusOfGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean statusOfGPS = false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+            statusOfGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            return statusOfGPS;
+        }
         return statusOfGPS;
     }
 
@@ -660,4 +664,5 @@ public class Utility {
             window.setBackgroundDrawable(background);
         }
     }
+
 }

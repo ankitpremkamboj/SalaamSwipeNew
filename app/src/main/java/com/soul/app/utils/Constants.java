@@ -16,12 +16,22 @@ public class Constants {
     public static final int RESULT_OUTLOOK = 1;
     public static final int RESULT_SECT = 2;
     public static final int RESULT_INTEREST = 3;
+    public static final int RESULT_ACADEMIC = 4;
+    public static final int RESULT_HEIGHT = 5;
+
+
     public static final String EXTRA_OTHER_ID = "otherId";
     public static final String EXTRA_NAME = "name";
     public static final String EXTRA_USER_PROFILE = "user_profile";
     public static final String EXTRA_SECT = "sect";
     public static final String EXTRA_OUTLOOK = "outlook";
     public static final String EXTRA_INTEREST = "interest";
+    public static final String EXTRA_ACADEMIC = "academic";
+
+    public static final String EXTRA_MIN_HEIGHT = "minHeight";
+    public static final String EXTRA_MAX_HEIGHT = "maxHeight";
+
+
     public static final String EXTRA_INTEREST_LIST = "interest_list";
     public static final String EXTRA_USER_MATCH = "userMatch";
     public static final String EXTRA_PUSH_TYPE = "pushtype";

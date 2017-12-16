@@ -22,6 +22,7 @@ import com.soul.app.constants.AppConstant;
 import com.soul.app.gcm.GCMUtils;
 import com.soul.app.utils.PrefUtils;
 import com.flurry.android.FlurryAgent;
+import com.soul.app.utils.Utility;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -38,6 +39,8 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Utility.setStatusBarGradiant(this);
+
         setContentView(R.layout.activity_splash);
         mHandler = new Handler();
 

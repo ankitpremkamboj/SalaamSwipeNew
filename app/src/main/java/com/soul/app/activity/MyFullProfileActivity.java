@@ -3,7 +3,9 @@ package com.soul.app.activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -44,7 +46,7 @@ public class MyFullProfileActivity extends com.soul.app.activity.BaseActivity {
 
     //  private Toolbar toolbar;
     //  private NestedScrollView nestedScrollView;
-    //  private CollapsingToolbarLayout collapsingToolbarLayout;
+     // private CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     public int setLayout() {
@@ -55,9 +57,8 @@ public class MyFullProfileActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public void initUi() {
-
-        //       collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+        //collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+      //collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.black));
 
 
         userProfile = (UserProfileRes) getIntent().getSerializableExtra(Constants.EXTRA_USER_PROFILE);
@@ -212,12 +213,15 @@ public class MyFullProfileActivity extends com.soul.app.activity.BaseActivity {
                 findViewById(R.id.interest_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(userProfile.getProfileDetails().getStatus())) {
-                ((TextView) findViewById(R.id.my_full_profile_outlook_tv)).setText(userProfile.getProfileDetails().getStatus());
+                findViewById(R.id.outlook_rl).setVisibility(View.GONE);
+
+               // ((TextView) findViewById(R.id.my_full_profile_outlook_tv)).setText(userProfile.getProfileDetails().getStatus());
             } else {
                 findViewById(R.id.outlook_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(userProfile.getProfileDetails().getDenomination())) {
-                ((TextView) findViewById(R.id.my_full_profile_sect_tv)).setText(userProfile.getProfileDetails().getDenomination());
+                findViewById(R.id.sect_rl).setVisibility(View.GONE);
+               // ((TextView) findViewById(R.id.my_full_profile_sect_tv)).setText(userProfile.getProfileDetails().getDenomination());
             } else {
                 findViewById(R.id.sect_rl).setVisibility(View.GONE);
             }

@@ -140,13 +140,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal|center_vertical">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorDarkDividerLine"
-                        android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/my_profile_invite_friends_iv"
@@ -168,19 +163,15 @@
                         android:text="Setting"
                         android:textSize="@dimen/text_size_16sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="19dp"
-                        android:background="@drawable/right_arrow"
-                        android:visibility="gone" />
+
                 </RelativeLayout>
 
                 <View
-                    android:layout_width="2dp"
-                    android:layout_height="@dimen/dp50"
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/dp65"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
                     android:background="@color/colorDarkDividerLine"
                     android:visibility="visible" />
 
@@ -189,7 +180,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal|center_vertical">
 
                     <ImageView
                         android:id="@+id/my_profile_feedback_iv"
@@ -209,14 +200,7 @@
                         android:text="Edit Profile"
                         android:textSize="@dimen/text_size_16sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="19dp"
-                        android:background="@drawable/right_arrow"
-                        android:visibility="gone" />
+
                 </RelativeLayout>
 
             </LinearLayout>

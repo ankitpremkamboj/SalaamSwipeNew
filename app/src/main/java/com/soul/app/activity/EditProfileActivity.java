@@ -77,10 +77,13 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
     private ImageView imageAddPic1, imageAddPic2, imageAddPic3, imageAddPic4;
     private EditText instagramEditTextView;
     private TextView aboutMeTv;
+
+    private RelativeLayout heights_rl;
     private ArrayList<String> mInterestList;
     //   private String instagram = "";
     //   private String aboutMe;
     private String mPath = "";
+    private String height,academic;
 
     @Override
     public void initUi() {
@@ -121,7 +124,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         RelativeLayout mInterests = (RelativeLayout) findViewById(R.id.interests_rl);
         RelativeLayout outLook = (RelativeLayout) findViewById(R.id.outlook_rl);
         RelativeLayout sect = (RelativeLayout) findViewById(R.id.sect_rl);
-
+        sect.setVisibility(View.GONE);
         mInterests.setOnClickListener(this);
         outLook.setOnClickListener(this);
         sect.setOnClickListener(this);
@@ -138,6 +141,17 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         instagramEditTextView.setText(Utility.getStringSharedPreference(EditProfileActivity.this, "instagram"));
 
         aboutMeTv = (TextView) findViewById(R.id.aboutme_tv);
+
+        heights_rl = (RelativeLayout) findViewById(R.id.heights_rl);
+        heights_rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentHeight = new Intent(EditProfileActivity.this, EditHeightActivity.class);
+                intentHeight.putExtra(Constants.EXTRA_MIN_HEIGHT, height);
+                startActivityForResult(intentHeight, 5);
+            }
+        });
+
 
         imageAddPic1 = (ImageView) findViewById(R.id.image_add_pic_1);
         imageAddPic1.setOnClickListener(new View.OnClickListener() {
@@ -390,9 +404,9 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
                 startActivityForResult(intentEditInterests, 1);
                 break;
             case R.id.outlook_rl:
-                Intent outlookIntent = new Intent(EditProfileActivity.this, YourOutLookActivity.class);
-                outlookIntent.putExtra(Constants.EXTRA_OUTLOOK, ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).getText());
-                startActivityForResult(outlookIntent, 1);
+                Intent outlookIntent = new Intent(EditProfileActivity.this, AcademicActivity.class);
+                outlookIntent.putExtra(Constants.EXTRA_ACADEMIC, ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).getText());
+                startActivityForResult(outlookIntent, 4);
                 break;
             case R.id.sect_rl:
                 Intent sectIntent = new Intent(EditProfileActivity.this, YourSectActivity.class);
@@ -467,6 +481,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 //                findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
             }
             mInterestList.clear();
+
+
             for (int i = 0; i < userProfile.getInterests().size(); i++) {
                 mInterestList.add(userProfile.getInterests().get(i).getCategory_name());
                 interest = interest + userProfile.getInterests().get(i).getCategory_name();
@@ -474,6 +490,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
                     interest = interest + ", ";
                 }
             }
+
+
             if (!TextUtils.isEmpty(interest)) {
                 ((TextView) findViewById(R.id.my_edit_profile_interests_tv)).setText(interest);
             } else {
@@ -626,9 +644,32 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
                 ex.printStackTrace();
             }
 
-        } else {
+        } else if (resultCode == Constants.RESULT_HEIGHT) {
+
             try {
-                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_OUTLOOK));
+                height = data.getStringExtra(Constants.EXTRA_MAX_HEIGHT);
+                ((TextView) findViewById(R.id.height_tv)).setText(height);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }else if (resultCode == Constants.RESULT_ACADEMIC) {
+
+            try {
+                academic = data.getStringExtra(Constants.EXTRA_ACADEMIC);
+                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(academic);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+        else {
+            try {
+                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_ACADEMIC));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

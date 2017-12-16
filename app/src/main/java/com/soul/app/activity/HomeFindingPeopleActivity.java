@@ -65,8 +65,8 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
     // private int imageCount = 0;
     private CardSwipeAdapter cardSwAdapter;
     private SwipeFlingAdapterView flingContainer;
-    private RelativeLayout frameUp;
-    private FrameLayout frameB;
+    //private RelativeLayout frameUp;
+    private FrameLayout frameB, frameUp;
     private RelativeLayout findingPeopleHome;
     private ImageView mLeftArrowImg, mRightArrowImg;
     private int rightCount = 0;
@@ -74,7 +74,10 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
     private ArrayList<String> mUserImgList;
     private boolean mLikeDislikeFlag = true;
     private Location mLocation;
-
+    private TextView txt_name, txt_designation;
+    private ImageView likeBottom;
+    private ImageView sDislikeBottom;
+     int childPos;
     @Override
     public int setLayout() {
         Utility.setStatusBarGradiant(this);
@@ -118,13 +121,101 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         findingPeopleAnimation = (ImageView) findViewById(R.id.finding_people_animation_iv);
         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(findingPeopleAnimation);
         Glide.with(HomeFindingPeopleActivity.this).load(R.raw.salam_swipe_animation_logo).into(imageViewTarget);
-        frameUp = (RelativeLayout) findViewById(R.id.image_ll);
+        //  frameUp = (RelativeLayout) findViewById(R.id.image_ll);
+        frameUp = (FrameLayout) findViewById(R.id.image_ll);
+
         frameUp.setVisibility(View.GONE);
         frameLayoutHomeHeader.setVisibility(View.VISIBLE);
         mNameTv = (TextView) findViewById(R.id.name_tv);
         mAgeTv = (TextView) findViewById(R.id.age_tv);
         mDistanceTv = (TextView) findViewById(R.id.distance_tv);
         profileIcon = (ImageView) findViewById(R.id.hh_profile_icon);
+        txt_name = (TextView) findViewById(R.id.txt_name);
+        txt_designation = (TextView) findViewById(R.id.txt_designation);
+        likeBottom = (ImageView) findViewById(R.id.like_bottom);
+        sDislikeBottom = (ImageView) findViewById(R.id.dislike_bottom);
+        sDislikeBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
+                FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_LEFTCARDSWIPE);
+                // dislike=0
+                callLikeDislike("0");
+                mData.remove(childPos);
+                if (mData.size() == 0) {
+                    frameUp.setVisibility(View.GONE);
+                    frameB.setVisibility(View.VISIBLE);
+                } else {
+                    setProfileInfo(mData);
+                    Log.e("User Id", mData.get(0).getUser_id());
+                    // Log.e("User Name", mData.get(0).getUser_name());
+                }
+                mUserImgList.clear();
+                if (mData != null) {
+                    if (mData.size() > 0) {
+                        if (!TextUtils.isEmpty(mData.get(0).getProfile_pic())) {
+                            mUserImgList.add(mData.get(0).getProfile_pic());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image1())) {
+                            mUserImgList.add(mData.get(0).getUser_image1());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image2())) {
+                            mUserImgList.add(mData.get(0).getUser_image2());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image3())) {
+                            mUserImgList.add(mData.get(0).getUser_image3());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image4())) {
+                            mUserImgList.add(mData.get(0).getUser_image4());
+                        }
+                    }
+                }
+
+                cardSwAdapter.notifyDataSetChanged();
+            }
+        });
+        likeBottom.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
+                FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_RIGHTCARDSWIPE);
+                // like=1
+                callLikeDislike("1");
+                mData.remove(childPos);
+                if (mData.size() == 0) {
+                    frameUp.setVisibility(View.GONE);
+                    frameB.setVisibility(View.VISIBLE);
+                } else {
+                    setProfileInfo(mData);
+                    Log.e("User Id", mData.get(0).getUser_id());
+                    // Log.e("User Name", mData.get(0).getUser_name());
+                }
+                mUserImgList.clear();
+                if (mData != null) {
+                    if (mData.size() > 0) {
+                        if (!TextUtils.isEmpty(mData.get(0).getProfile_pic())) {
+                            mUserImgList.add(mData.get(0).getProfile_pic());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image1())) {
+                            mUserImgList.add(mData.get(0).getUser_image1());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image2())) {
+                            mUserImgList.add(mData.get(0).getUser_image2());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image3())) {
+                            mUserImgList.add(mData.get(0).getUser_image3());
+                        }
+                        if (!TextUtils.isEmpty(mData.get(0).getUser_image4())) {
+                            mUserImgList.add(mData.get(0).getUser_image4());
+                        }
+                    }
+                }
+
+                cardSwAdapter.notifyDataSetChanged();
+            }
+        });
         profileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +240,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
             }
         });
 
-        LinearLayout mProfilell = (LinearLayout) findViewById(R.id.profile_lin_layout);
+       /* FrameLayout mProfilell = (FrameLayout) findViewById(R.id.profile_lin_layout);
         if (mProfilell != null) {
             mProfilell.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -171,7 +262,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                     }
                 }
             });
-        }
+        }*/
 
         TextView settingTv = (TextView) findViewById(R.id.setting_tv);
         if (settingTv != null) {
@@ -246,7 +337,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         }
         cardSwAdapter = new CardSwipeAdapter(mData, this);
         flingContainer.setAdapter(cardSwAdapter);
-        final int childPos = flingContainer.getChildCount();
+       childPos = flingContainer.getChildCount();
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
@@ -528,7 +619,10 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                     String name = userList.get(0).getUser_name() + ", ";
                     String designation = userList.get(0).getWork();
                     String edu = userList.get(0).getEducation();
-                    mNameTv.setText(name);
+                    // mNameTv.setText(name);
+                    txt_name.setText(name);
+                    txt_designation.setText(edu);
+
                     mAgeTv.setText(userList.get(0).getAge());
                     String distance = userList.get(0).getDistance();
                     Double dis = Double.valueOf(userList.get(0).getDistance());
@@ -539,14 +633,23 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                         e.printStackTrace();
                     }
 
-                    if (!TextUtils.isEmpty(designation)) {
+                   /* if (!TextUtils.isEmpty(designation)) {
+                        ((TextView) findViewById(R.id.txt_designation)).setText(designation);
+                    } else if (!TextUtils.isEmpty(edu)) {
+                        ((TextView) findViewById(R.id.txt_designation)).setText(edu);
+                    } else {
+                        findViewById(R.id.txt_designation).setVisibility(View.INVISIBLE);
+                    }*/
+
+
+                   /* if (!TextUtils.isEmpty(designation)) {
                         ((TextView) findViewById(R.id.designation_tv)).setText(designation);
                     } else if (!TextUtils.isEmpty(edu)) {
                         ((TextView) findViewById(R.id.designation_tv)).setText(edu);
                     } else {
                         findViewById(R.id.designation_tv).setVisibility(View.INVISIBLE);
                     }
-
+*/
                     LinearLayout linearLayout = (LinearLayout) ((FrameLayout) flingContainer.getSelectedView()).getChildAt(0);
                     FrameLayout frameLayout = (FrameLayout) linearLayout.getChildAt(0);
                     final ImageView imageView = (ImageView) frameLayout.getChildAt(0);
@@ -792,7 +895,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
 
     // for settings data
     public void getSettingApi() {
-        if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
+    /*    if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
             showProgressDialog(true);
             GeneralReq generalReq = new GeneralReq();
             generalReq.setUser_id(PrefUtils.getSharedPrefString(HomeFindingPeopleActivity.this, PrefUtils.USER_ID));
@@ -823,7 +926,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         } else {
             new SnackBar.Builder(HomeFindingPeopleActivity.this)
                     .withMessage(getResources().getString(R.string.err_network)).show();
-        }
+        }*/
     }
 
     public void showChatIndicator(List<ChatConversationRes> list) {

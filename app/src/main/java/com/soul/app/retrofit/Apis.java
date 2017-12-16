@@ -68,7 +68,7 @@ public interface Apis {
     Call<LikeDislikeRes> userLikeDislike(@Body GeneralReq req);
 
     @POST(ApiConstants.GET_USER_SETTING)
-    Call<ListResp<GetSettingRes>> getSetting(@Body GeneralReq req);
+    Call<ObjResp<GetSettingRes>> getSetting(@Body GeneralReq req);
 
     @POST(ApiConstants.UPDATE_USER_SETTING)
     Call<CommonUserRes> updateSetting(@Body GeneralReq req);

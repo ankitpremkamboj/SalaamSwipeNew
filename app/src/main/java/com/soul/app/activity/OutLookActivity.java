@@ -15,6 +15,7 @@ import com.soul.app.models.res.ObjResp;
 import com.soul.app.utils.PrefUtils;
 import com.flurry.android.FlurryAgent;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.soul.app.utils.Utility;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +38,8 @@ public class OutLookActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
+
         return R.layout.activity_out_look;
     }
 

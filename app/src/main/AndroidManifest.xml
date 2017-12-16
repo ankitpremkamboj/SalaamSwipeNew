@@ -29,7 +29,7 @@
     <application
         android:name=".application.ApplicationController"
         android:allowBackup="true"
-        android:icon="@drawable/app_icon"
+        android:icon="@drawable/ic_soul_logo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
@@ -67,7 +67,7 @@
             android:name=".activity.MatchesFoundActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".activity.MyProfileActivity"
             android:screenOrientation="portrait" />
@@ -86,6 +86,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.EditInterestActivity"
+            android:label="@string/title_activity_edit_interest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.InterestActivity"
+            android:label="@string/title_activity_edit_interest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AcademicActivity"
+            android:label="@string/title_activity_edit_interest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HeightActivity"
+            android:label="@string/title_activity_edit_interest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EditHeightActivity"
             android:label="@string/title_activity_edit_interest"
             android:screenOrientation="portrait" />
         <activity
@@ -140,7 +156,6 @@
             android:label="@string/title_activity_submit_report"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
-
         <activity
             android:name=".activity.HFPChatReportActivity"
             android:label="@string/title_activity_chat_report"
@@ -151,13 +166,11 @@
             android:label="@string/title_activity_submit_report"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
-
         <activity
             android:name=".activity.UnMatchActivity"
             android:label="@string/title_activity_un_match"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
-
         <activity
             android:name=".activity.FacebookAlbumActivity"
             android:label="@string/title_activity_facebook_album"
@@ -165,7 +178,7 @@
         <activity
             android:name=".activity.ImageGalleryActivity"
             android:label="@string/title_activity_image_gallery"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/white">
 
     <!--<ImageView-->
     <!--android:id="@+id/splash_animation_iv"-->
@@ -11,11 +11,18 @@
     <!--android:layout_centerHorizontal="true"-->
     <!--android:layout_centerVertical="true" />-->
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/splash_gif"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@raw/salaam_swipe_splash_animation_update1"
-        android:visibility="visible"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_soul_logo" />
+
+    <!-- <pl.droidsonroids.gif.GifImageView
+         android:id="@+id/splash_gif"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@raw/salaam_swipe_splash_animation_update1"
+         android:visibility="visible"/>-->
 
 </RelativeLayout>

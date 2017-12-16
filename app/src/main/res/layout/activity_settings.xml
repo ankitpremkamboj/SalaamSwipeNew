@@ -79,11 +79,11 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
-                    android:thumb="@drawable/thumb_seek"
+                    android:thumb="@drawable/ic_thumb_white"
                     app:drawThumbsApart="true"
-                    app:rangeColor="@color/colorPrimary"
+                    app:range="@drawable/slide_track"
                     app:scaleMax="300"
-                    app:stepsThumbsApart="5"
+                    app:stepsThumbsApart="2"
                     app:thumbNumber="1"
 
                     />
@@ -157,9 +157,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
-                    android:thumb="@drawable/thumb_seek"
+                    android:thumb="@drawable/ic_thumb_white"
+                    app:range="@drawable/slide_track"
                     app:range1="@drawable/multislider_scrubber_track_holo_light"
-                    app:rangeColor="@color/colorPrimary"
                     app:scaleMax="60"
                     app:scaleMin="18"
                     app:stepsThumbsApart="2"
@@ -211,12 +211,12 @@
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/male_switch"
+                    style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:checked="true"
-                    android:theme="@style/ColorPrimaryStyle" />
+                    android:checked="true" />
             </RelativeLayout>
 
             <View
@@ -245,12 +245,12 @@
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/female_switch"
+                    style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:checked="false"
-                    android:theme="@style/ColorPrimaryStyle" />
+                    android:checked="false" />
             </RelativeLayout>
 
             <View
@@ -261,7 +261,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     style="@style/avenirLTStdHeavy"
@@ -280,7 +281,8 @@
                 android:layout_height="@dimen/dp60"
                 android:background="@color/colorWhite"
                 android:paddingLeft="@dimen/dp16"
-                android:paddingRight="@dimen/dp16">
+                android:paddingRight="@dimen/dp16"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/activity_settings_description_tv"
@@ -288,24 +290,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Incogonito mode"
+                    android:text="Hide My Profile"
                     android:textColor="@color/colorGrey"
                     android:textSize="@dimen/text_size_15sp" />
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/cognito_switch"
+                    style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:checked="false"
-                    android:theme="@style/ColorPrimaryStyle" />
+                    android:checked="false" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorDarkDividerLine" />
+                android:background="@color/colorDarkDividerLine"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -343,12 +346,12 @@
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/new_match_switch"
+                    style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:checked="true"
-                    android:theme="@style/ColorPrimaryStyle" />
+                    android:checked="true" />
             </RelativeLayout>
 
             <View
@@ -356,7 +359,8 @@
                 android:layout_height="1dp"
                 android:background="@color/colorLightDividerLine"
                 android:paddingLeft="@dimen/dp16"
-                android:paddingRight="@dimen/dp16" />
+                android:paddingRight="@dimen/dp16"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -377,12 +381,12 @@
 
                 <android.support.v7.widget.SwitchCompat
                     android:id="@+id/new_msg_switch"
+                    style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:checked="false"
-                    android:theme="@style/ColorPrimaryStyle" />
+                    android:checked="false" />
             </RelativeLayout>
 
             <View
@@ -415,13 +419,24 @@
                 android:paddingLeft="@dimen/dp16"
                 android:paddingRight="@dimen/dp16">
 
+                <!-- <TextView
+                     android:id="@+id/activity_settings_your_outlook_tv"
+                     style="@style/avenirLTStdRoman"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_centerVertical="true"
+                     android:text="@string/your_outlook"
+                     android:textColor="@color/colorGrey"
+                     android:textSize="@dimen/text_size_14sp" />
+ -->
+
                 <TextView
                     android:id="@+id/activity_settings_your_outlook_tv"
                     style="@style/avenirLTStdRoman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="@string/your_outlook"
+                    android:text="Interests"
                     android:textColor="@color/colorGrey"
                     android:textSize="@dimen/text_size_14sp" />
 
@@ -440,7 +455,8 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/dp16"
                 android:layout_marginRight="@dimen/dp16"
-                android:background="@color/colorLightDividerLine" />
+                android:background="@color/colorLightDividerLine"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/sect_rl"
@@ -457,7 +473,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="@string/your_sect"
+                    android:text="Academic"
                     android:textColor="@color/colorGrey"
                     android:textSize="@dimen/text_size_14sp" />
 
@@ -470,6 +486,43 @@
                     android:background="@drawable/right_arrow"
                     android:checked="true" />
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorDarkDividerLine"
+                android:visibility="gone" />
+
+
+            <RelativeLayout
+                android:id="@+id/height_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:background="@color/colorWhite"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16">
+
+
+                <TextView
+                    android:id="@+id/height_tv"
+                    style="@style/avenirLTStdRoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Height"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:background="@drawable/right_arrow"
+                    android:checked="true" />
+            </RelativeLayout>
+
 
             <View
                 android:layout_width="match_parent"
@@ -617,7 +670,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp16"
-                    android:background="@drawable/log_out" />
+                    android:background="@drawable/ic_logout" />
 
                 <TextView
                     android:id="@+id/my_profile_instagram_account_tv"
@@ -652,7 +705,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
-                    android:background="@drawable/remove_account" />
+                    android:background="@drawable/ic_remove_account" />
 
                 <TextView
                     android:id="@+id/activity_settings_logout_tv"

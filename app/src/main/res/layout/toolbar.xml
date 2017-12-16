@@ -131,11 +131,14 @@
         android:layout_height="wrap_content"
         android:visibility="gone">
 
-        <ImageView
+        <TextView
+            android:id="@+id/txt_academic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/header_logo" />
+            android:text="SOUL DATING"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16" />
 
 
         <TextView
@@ -405,7 +408,7 @@
             android:layout_gravity="left|center"
             android:layout_marginLeft="@dimen/ndp12"
             android:padding="@dimen/dp12"
-            android:src="@drawable/back_icon" />
+            android:src="@drawable/ic_back" />
 
 
         <TextView
@@ -451,7 +454,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/settings_icon" />
+            android:src="@drawable/settings_icon"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Setting"
+            android:textColor="@color/white" />
 
 
         <!-- <ImageView

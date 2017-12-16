@@ -32,6 +32,7 @@ import com.soul.app.utils.Constants;
 import com.soul.app.utils.PrefUtils;
 import com.flurry.android.FlurryAgent;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.soul.app.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -40,10 +41,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /*
-*
+ *
 * */
 
-public class MatchedProfileActivity extends com.soul.app.activity.BaseActivity implements View.OnClickListener {
+public class MatchedProfileActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "matchedProfile";
     public static ImageView sDislikeBottom;
@@ -118,6 +119,7 @@ public class MatchedProfileActivity extends com.soul.app.activity.BaseActivity i
         sDislikeBottom.setOnClickListener(this);
 
         likeDislikeBottom = (RelativeLayout) findViewById(R.id.like_dislike_bottom);
+        likeDislikeBottom.startAnimation(bottomUp);
         String likeAndDislike = getIntent().getStringExtra(Constants.HIDE_LIKE_AND_DISLIKE);
         if (likeAndDislike.equals("0")) { // for visible bottom
             likeDislikeBottom.setVisibility(View.VISIBLE);
@@ -223,7 +225,7 @@ public class MatchedProfileActivity extends com.soul.app.activity.BaseActivity i
 
     @Override
     public int setLayout() {
-
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_matched_profile;
     }
 

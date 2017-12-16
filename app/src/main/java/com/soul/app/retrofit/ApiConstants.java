@@ -4,9 +4,12 @@ package com.soul.app.retrofit;
  * Created by Rahil on 6/4/16.
  */
 public class ApiConstants {
-    //
+
     //public static final String BASE_URL = "http://103.25.130.197/salaam-swipe/"; // Salaam local URL
-    public static final String BASE_URL = "http://52.25.82.251/salaam-swipe-phase2/"; // Client server url
+   //public static final String BASE_URL = "http://52.25.82.251/salaam-swipe-phase2/"; // Client server url
+
+    public static final String BASE_URL = "http://soulsmatcher.com/soulapp/";//Client url
+
 
 
     public static final String APP_VERSION = "1.0";
@@ -43,7 +46,6 @@ public class ApiConstants {
     public static final String DELETE_PROFILE_IMAGES = "delete_profile_images";
     public static final String GET_USER_FILTER = "get_user_filters";
     public static final String UPDATE_USER_FILTER = "update_user_filters";
-
 
     /* base url */
     public static final String URL_PRIVACY = "http://salaamswipe.com/privacy.html";

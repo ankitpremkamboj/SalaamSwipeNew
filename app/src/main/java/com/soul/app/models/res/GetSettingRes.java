@@ -7,19 +7,6 @@ import java.io.Serializable;
  */
 public class GetSettingRes implements Serializable {
 
-    /**
-     * user_id : 14315
-     * distance : 192.951523
-     * distance_unit : mi
-     * min_age : 32
-     * max_age : 65
-     * male : 1
-     * female : 1
-     * incogonito_mode : 0
-     * chat_notification : 1
-     * match_notification : 1
-     * cogonito_status : 0
-     */
 
     private String user_id;
     private String distance;
@@ -32,6 +19,13 @@ public class GetSettingRes implements Serializable {
     private String chat_notification;
     private String match_notification;
     private String cogonito_status;
+
+    private String minHeight;
+    private String maxHeight;
+    private String academy;
+    private String intrestid;
+
+    private String intrestname;
 
     public String getUser_id() {
         return user_id;
@@ -120,4 +114,46 @@ public class GetSettingRes implements Serializable {
     public void setCogonito_status(String cogonito_status) {
         this.cogonito_status = cogonito_status;
     }
+
+    public String getMinHeight() {
+        return minHeight;
+    }
+
+    public void setMinHeight(String minHeight) {
+        this.minHeight = minHeight;
+    }
+
+    public String getMaxHeight() {
+        return maxHeight;
+    }
+
+    public void setMaxHeight(String maxHeight) {
+        this.maxHeight = maxHeight;
+    }
+
+    public String getAcademy() {
+        return academy;
+    }
+
+    public void setAcademy(String academy) {
+        this.academy = academy;
+    }
+
+
+    public String getIntrestid() {
+        return intrestid;
+    }
+
+    public void setIntrestid(String intrestid) {
+        this.intrestid = intrestid;
+    }
+
+    public String getIntrestname() {
+        return intrestname;
+    }
+
+    public void setIntrestname(String intrestname) {
+        this.intrestname = intrestname;
+    }
+
 }

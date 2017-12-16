@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.soul.app.R;
 import com.soul.app.activity.*;
+import com.soul.app.utils.Utility;
 
 /*  Created by ashishkumar .
 * If User did not found any match then show this screen
@@ -18,6 +19,8 @@ public class NoMatchesActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
+
         return R.layout.activity_no_matches;
     }
 

@@ -149,10 +149,10 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
                 startActivity(intentEditProfile);
                 break;
             case R.id.invite_friends_rl:
-//                Intent intentSettings = new Intent(MyProfileActivity.this, SettingsActivity.class);
-//                intentSettings.putExtra(AppConstant.SETTINGS_STATUS, "0");
-//                startActivity(intentSettings);
-                getSettingApi();
+               Intent intentSettings = new Intent(MyProfileActivity.this, SettingsActivity.class);
+               intentSettings.putExtra(AppConstant.SETTINGS_STATUS, "0");
+               startActivity(intentSettings);
+                //getSettingApi();
                 break;
         }
     }
@@ -223,8 +223,8 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
 
         ((TextView) findViewById(R.id.my_profile_user_name_tv)).setText(name);
         if (!TextUtils.isEmpty(aboutme)) {
-            findViewById(R.id.aboutme_ll).setVisibility(View.VISIBLE);
-            findViewById(R.id.aboutme_rl).setVisibility(View.VISIBLE);
+            findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
+            findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
             ((TextView) findViewById(R.id.my_profile_about_me_content_tv)).setText(aboutme);
             final TextView aboutMeContent = (TextView) findViewById(R.id.my_profile_about_me_content_tv);
             aboutMeContent.setOnClickListener(new View.OnClickListener() {
@@ -265,7 +265,7 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
     }
 
     // for settings data
-    public void getSettingApi() {
+   /* public void getSettingApi() {
         if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
             showProgressDialog(true);
             GeneralReq generalReq = new GeneralReq();
@@ -299,5 +299,6 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
                     .withMessage(getResources().getString(R.string.err_network)).show();
         }
     }
+*/
 
 }

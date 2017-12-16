@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Soul</string>
+    <string name="app_name">Soul Dating</string>
     <string name="fb_appid">1793433884023315</string>
     <string name="fb_secret_key">e0ff9b45fbda6bb3edd80454a9d00376</string>
     <string name="we_do_not_post">WE do not post anything to your facebook</string>
@@ -42,10 +42,10 @@
     <string name="name">Name</string>
     <string name="search_distance">SEARCH DISTANCE</string>
     <string name="done">DONE</string>
-    <string name="show_gender">SHOW GENDER</string>
-    <string name="notifications">NOTIFICATIONS</string>
-    <string name="change_filters">CHANGE FILTERS</string>
-    <string name="description">DESCRIPTION</string>
+    <string name="show_gender">I\'M  LOOKING FOR</string>
+    <string name="notifications">NOTIFY ME WHEN</string>
+    <string name="change_filters">FILTER WHO YOU WANT TO SEE</string>
+    <string name="description">INCOGNITO MODE</string>
     <string name="edit">EDIT</string>
     <string name="legal">LEGAL</string>
     <string name="education">EDUCATION</string>
@@ -59,10 +59,14 @@
     <string name="male">Male</string>
     <string name="your_sect">Your Sect</string>
     <string name="your_outlook">Your Outlook</string>
+
+    <string name="your_height">Height</string>
+    <string name="academic">Academic</string>
+
     <string name="new_match">New Match</string>
     <string name="new_message">New message</string>
     <string name="female">Female</string>
-    <string name="remove_account">Remove Account</string>
+    <string name="remove_account">Permanently Delete Account </string>
     <string name="logout">Logout</string>
     <string name="user_name">KHALIL, 25</string>
     <string name="interests">INTERESTS</string>
@@ -181,5 +185,16 @@
     <string name="chat">Chat</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="tell_your_friends">Tell your friends</string>
+    <string name="like_each_other">You and Ben like each other, you can   now send him a message</string>
+    <string name="its_match">It’s a Match</string>
+    <string name="high_school_drop_out">High school drop-out</string>
+    <string name="high_school_equivalent">High school equivalent</string>
+    <string name="diploma_degree">Diploma degree</string>
+    <string name="bachelor_degree">Bachelor Degree</string>
+    <string name="master_degree">Master degree</string>
+    <string name="select_academic">Select academic</string>
+    <string name="select_height">Select height</string>
+    <string name="about_mee">About me</string>
 
 </resources>

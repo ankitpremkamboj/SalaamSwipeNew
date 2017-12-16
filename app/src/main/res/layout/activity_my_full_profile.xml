@@ -69,7 +69,7 @@
                         android:layout_gravity="left|center"
                         android:layout_marginLeft="@dimen/ndp12"
                         android:padding="@dimen/dp12"
-                        android:src="@drawable/back_icon" />
+                        android:src="@drawable/ic_back" />
 
                     <TextView
                         android:id="@+id/fpp_edit"
@@ -120,12 +120,11 @@
                     android:layout_marginTop="@dimen/dp10"
                     android:paddingBottom="@dimen/margin_5"
                     android:paddingTop="@dimen/margin_5"
-
                     android:textColor="@color/colorDarkText"
                     android:textSize="@dimen/text_size_18sp" />
 
 
-                <LinearLayout
+                <!--<LinearLayout
                     android:id="@+id/aboutme_ll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -173,7 +172,7 @@
                         android:gravity="center"
                         android:textColor="@color/colorLightGreyText"
                         android:textSize="@dimen/text_size_15sp" />
-                </RelativeLayout>
+                </RelativeLayout>-->
 
 
                 <RelativeLayout
@@ -194,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp17"
                         android:layout_marginTop="@dimen/dp10"
-                        android:background="@drawable/interest" />
+                        android:background="@drawable/ic_interest" />
 
                     <TextView
                         android:id="@+id/interest_tv"
@@ -217,6 +216,51 @@
                         android:layout_below="@+id/interest_iv"
                         android:layout_marginTop="@dimen/dp5"
 
+                        android:textColor="@color/colorGreyText"
+                        android:textSize="@dimen/text_size_15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+
+                    android:id="@+id/aboutme_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp70"
+                    android:layout_marginTop="@dimen/dp17">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorDarkDividerLine" />
+
+                    <ImageView
+                        android:id="@+id/aboutme_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp17"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@drawable/ic_user" />
+
+                    <TextView
+                        android:id="@+id/aboutmee_tv"
+                        style="@style/avenirLTStdHeavy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp14"
+                        android:layout_marginTop="@dimen/dp12"
+                        android:layout_toRightOf="@+id/aboutme_iv"
+                        android:text="@string/about_mee"
+                        android:textColor="@color/colorDarkText"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                    <TextView
+                        android:id="@+id/my_full_profile_about_me_content_tv"
+                        style="@style/avenirLTStdRoman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/aboutmee_tv"
+                        android:layout_below="@+id/aboutmee_tv"
+                        android:layout_marginTop="@dimen/dp5"
                         android:textColor="@color/colorGreyText"
                         android:textSize="@dimen/text_size_15sp" />
 
@@ -330,7 +374,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp17"
                         android:layout_marginTop="@dimen/dp10"
-                        android:background="@drawable/education" />
+                        android:background="@drawable/ic_education" />
 
                     <TextView
                         android:id="@+id/education_tv"
@@ -375,7 +419,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp17"
                         android:layout_marginTop="@dimen/dp10"
-                        android:background="@drawable/work" />
+                        android:background="@drawable/ic_bag" />
 
                     <TextView
                         android:id="@+id/work_tv"
@@ -421,7 +465,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp17"
                         android:layout_marginTop="@dimen/dp10"
-                        android:background="@drawable/location" />
+                        android:background="@drawable/ic_map_pin" />
 
                     <TextView
                         android:id="@+id/location_tv"
@@ -444,6 +488,50 @@
                         android:layout_below="@+id/my_full_profile_location_iv"
                         android:layout_marginTop="@dimen/dp5"
 
+                        android:textColor="@color/colorGreyText"
+                        android:textSize="@dimen/text_size_15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/height_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp70">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorDarkDividerLine" />
+
+                    <ImageView
+                        android:id="@+id/height_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp17"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@drawable/ic_height" />
+
+                    <TextView
+                        android:id="@+id/height_tv"
+                        style="@style/avenirLTStdHeavy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp14"
+                        android:layout_marginTop="@dimen/dp12"
+                        android:layout_toRightOf="@+id/height_iv"
+                        android:text="@string/your_height"
+                        android:textColor="@color/colorDarkText"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                    <TextView
+                        android:id="@+id/heights_tv"
+                        style="@style/avenirLTStdRoman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/height_tv"
+                        android:layout_below="@+id/height_iv"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="180cm"
                         android:textColor="@color/colorGreyText"
                         android:textSize="@dimen/text_size_15sp" />
 

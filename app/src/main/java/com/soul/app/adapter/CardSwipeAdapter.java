@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.soul.app.R;
 import com.soul.app.interfaces.PagerListener;
@@ -77,6 +78,7 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
         }
         Glide.with(context).load(mData.get(position).getProfile_pic()).into(viewHolder.cardImage);
 
+        // viewHolder.txt_name.setText(mData.get(position).getUser_name());
         //viewHolder.cardImage.setTag(mData.get(position).getUser_id());
 
         return rowView;
@@ -94,6 +96,7 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
 
     public static class ViewHolder {
         public ImageView cardImage;
+        public TextView txt_name, txt_designation;
 
     }
 }

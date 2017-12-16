@@ -17,6 +17,7 @@ import com.soul.app.models.res.InterestListRes;
 import com.soul.app.models.res.ListResp;
 import com.soul.app.utils.Constants;
 import com.soul.app.utils.PrefUtils;
+import com.soul.app.utils.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,8 @@ public class EditInterestActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
+
         return R.layout.activity_edit_interest;
     }
 
@@ -96,7 +99,9 @@ public class EditInterestActivity extends com.soul.app.activity.BaseActivity {
                 public void onResponse(Call<ListResp<InterestListRes>> call, Response<ListResp<InterestListRes>> response) {
                     if (response.isSuccessful()) {
                         showProgressDialog(false);
-                        interestList.clear();
+                        if (!interestList.isEmpty()) {
+                            interestList.clear();
+                        }
                         interestList = response.body().getData();
                         setPreInterest();
                         mAdapter = new InterestRecycleViewAdapter(EditInterestActivity.this, interestList, mInterestList.size());

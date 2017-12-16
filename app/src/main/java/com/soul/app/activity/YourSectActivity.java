@@ -20,6 +20,7 @@ import com.soul.app.utils.Constants;
 import com.soul.app.utils.PrefUtils;
 import com.flurry.android.FlurryAgent;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.soul.app.utils.Utility;
 
 import java.util.List;
 
@@ -43,6 +44,8 @@ public class YourSectActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
+
         return R.layout.activity_your_sect;
     }
 
