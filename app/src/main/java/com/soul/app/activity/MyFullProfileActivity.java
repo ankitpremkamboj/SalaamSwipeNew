@@ -198,7 +198,7 @@ public class MyFullProfileActivity extends com.soul.app.activity.BaseActivity {
                 ((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText(aboutme);
             } else {
                 findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
-                findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
+               // findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
             }
 
             for (int i = 0; i < userProfile.getInterests().size(); i++) {

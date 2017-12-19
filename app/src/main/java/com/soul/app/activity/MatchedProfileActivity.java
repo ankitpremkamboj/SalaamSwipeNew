@@ -3,6 +3,7 @@ package com.soul.app.activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.PopupMenu;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -109,8 +111,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
         mPager.setAdapter(adapter);
 
         // Show the panel
-        Animation bottomUp = AnimationUtils.loadAnimation(this,
-                R.anim.bottom_up);
+        Animation bottomUp = AnimationUtils.loadAnimation(this,R.anim.bottom_up);
         sDislikeBottom = (ImageView) findViewById(R.id.dislike_bottom);
         sDislikeBottom.startAnimation(bottomUp);
         likeBottom = (ImageView) findViewById(R.id.like_bottom);
@@ -225,7 +226,12 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
 
     @Override
     public int setLayout() {
-        Utility.setStatusBarGradiant(this);
+       Utility.setStatusBarGradiant(this);
+       //Window window=getWindow();
+      //  window.setStatusBarColor(getColor(R.color.transparent));
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.setStatusBarColor(getColor(R.color.transparent));
+        }*/
         return R.layout.activity_matched_profile;
     }
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -83,7 +84,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
     //   private String instagram = "";
     //   private String aboutMe;
     private String mPath = "";
-    private String height,academic;
+    private String height, academic;
 
     @Override
     public void initUi() {
@@ -147,7 +148,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             @Override
             public void onClick(View v) {
                 Intent intentHeight = new Intent(EditProfileActivity.this, EditHeightActivity.class);
-                intentHeight.putExtra(Constants.EXTRA_MIN_HEIGHT, height);
+                intentHeight.putExtra(Constants.EXTRA_MAX_HEIGHT, height);
                 startActivityForResult(intentHeight, 5);
             }
         });
@@ -432,6 +433,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             String work = userProfile.getProfileDetails().getWork();
             String edu = userProfile.getProfileDetails().getEducation();
             String loc = userProfile.getProfileDetails().getHometown();
+            height = userProfile.getProfileDetails().getHeight();
+            academic = userProfile.getProfileDetails().getAcademy();
             try {
                 String instagram = userProfile.getProfileDetails().getInstagram().trim();
                 // String[] instagramName = instagram.split("/");
@@ -498,8 +501,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 //                findViewById(R.id.interest_rl).setVisibility(View.GONE);
 //                findViewById(R.id.interests_rl).setVisibility(View.GONE);
             }
-            if (!TextUtils.isEmpty(userProfile.getProfileDetails().getStatus())) {
-                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(userProfile.getProfileDetails().getStatus());
+            if (!TextUtils.isEmpty(userProfile.getProfileDetails().getAcademy())) {
+                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(userProfile.getProfileDetails().getAcademy());
             } else {
 //                findViewById(R.id.outlook_rl).setVisibility(View.GONE);
 //                findViewById(R.id.outlooks_rl).setVisibility(View.GONE);
@@ -513,8 +516,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             if (!TextUtils.isEmpty(work)) {
                 ((TextView) findViewById(R.id.my_edit_work_education_tv)).setText(work);
             } else {
-                findViewById(R.id.work_rl).setVisibility(View.GONE);
-                findViewById(R.id.works_rl).setVisibility(View.GONE);
+               // findViewById(R.id.work_rl).setVisibility(View.GONE);
+                //findViewById(R.id.works_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(edu)) {
                 ((TextView) findViewById(R.id.my_edit_profile_education_tv)).setText(edu);
@@ -525,9 +528,13 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             if (!TextUtils.isEmpty(loc)) {
                 ((TextView) findViewById(R.id.my_edit_work_location_tv)).setText(loc);
             } else {
-                findViewById(R.id.location_rl).setVisibility(View.GONE);
-                findViewById(R.id.locations_rl).setVisibility(View.GONE);
+               // findViewById(R.id.location_rl).setVisibility(View.GONE);
+               // findViewById(R.id.locations_rl).setVisibility(View.GONE);
             }
+            if (!TextUtils.isEmpty(height)) {
+                ((TextView) findViewById(R.id.height_tv)).setText(height + " cm");
+            }
+
         }
     }
 
@@ -560,7 +567,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         generalReq.setUser_id(userId);
         generalReq.setInstagram(((TextView) findViewById(R.id.instagram_et)).getText().toString());
         generalReq.setAbout_text(((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).getText().toString());
-
+        generalReq.setHeight(height);
+        generalReq.setAcademy(((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).getText().toString());
         return generalReq;
     }
 
@@ -578,7 +586,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 
         AlertDialog.Builder builder = new AlertDialog.Builder(EditProfileActivity.this);
         builder.setTitle("Add Photo!");
-        builder.setIcon(R.drawable.app_icon);
+        builder.setIcon(R.drawable.ic_soul_logo);
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
@@ -648,13 +656,13 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 
             try {
                 height = data.getStringExtra(Constants.EXTRA_MAX_HEIGHT);
-                ((TextView) findViewById(R.id.height_tv)).setText(height);
+                ((TextView) findViewById(R.id.height_tv)).setText(height + " cm");
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }else if (resultCode == Constants.RESULT_ACADEMIC) {
+        } else if (resultCode == Constants.RESULT_ACADEMIC) {
 
             try {
                 academic = data.getStringExtra(Constants.EXTRA_ACADEMIC);
@@ -664,10 +672,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
                 e.printStackTrace();
             }
 
-        }
-
-
-        else {
+        } else {
             try {
                 ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_ACADEMIC));
             } catch (Exception ex) {

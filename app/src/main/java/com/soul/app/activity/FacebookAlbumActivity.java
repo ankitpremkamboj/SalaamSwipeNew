@@ -40,12 +40,14 @@ public class FacebookAlbumActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
     }
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_facebook_album;
     }
 

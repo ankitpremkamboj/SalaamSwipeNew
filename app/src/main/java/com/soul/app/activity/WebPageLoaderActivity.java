@@ -15,6 +15,7 @@ import com.soul.app.activity.*;
 import com.soul.app.application.ApplicationController;
 import com.soul.app.constants.AppConstant;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.soul.app.utils.Utility;
 
 
 /**
@@ -27,6 +28,7 @@ public class WebPageLoaderActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_webpageloader;
     }
 

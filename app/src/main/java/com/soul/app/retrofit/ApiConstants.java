@@ -6,9 +6,9 @@ package com.soul.app.retrofit;
 public class ApiConstants {
 
     //public static final String BASE_URL = "http://103.25.130.197/salaam-swipe/"; // Salaam local URL
-   //public static final String BASE_URL = "http://52.25.82.251/salaam-swipe-phase2/"; // Client server url
+  // public static final String BASE_URL = "http://52.25.82.251/salaam-swipe-phase2/"; // Client server url
 
-    public static final String BASE_URL = "http://soulsmatcher.com/soulapp/";//Client url
+   public static final String BASE_URL = "http://soulsmatcher.com/soulapp/";//Client url
 
 
 

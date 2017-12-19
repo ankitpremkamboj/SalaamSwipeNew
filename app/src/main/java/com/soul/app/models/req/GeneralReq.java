@@ -46,6 +46,7 @@ public class GeneralReq {
     private String max_height;
     private String academy;
     private String interest;
+    private String height;
 
 
     /**
@@ -434,6 +435,14 @@ public class GeneralReq {
 
     public void setInterest(String interest) {
         this.interest = interest;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 
     public static class IntrestsEntity {

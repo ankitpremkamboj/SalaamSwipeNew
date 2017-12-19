@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import com.soul.app.R;
 import com.soul.app.activity.*;
 import com.soul.app.utils.Constants;
+import com.soul.app.utils.Utility;
 
 /*
 * Chat Report
@@ -26,6 +27,7 @@ public class ChatReportActivity extends com.soul.app.activity.BaseActivity imple
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_chat_report;
     }
 

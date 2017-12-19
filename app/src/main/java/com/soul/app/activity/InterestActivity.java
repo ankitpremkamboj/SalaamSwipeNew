@@ -19,6 +19,7 @@ import com.soul.app.utils.PrefUtils;
 import com.soul.app.utils.Utility;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -103,6 +104,7 @@ public class InterestActivity extends BaseActivity {
                         }
                         interestList = response.body().getData();
                         setPreInterest();
+
                         mAdapter = new InterestRecycleViewAdapter(InterestActivity.this, interestList, mInterestList.size());
                         mRecyclerView.setAdapter(mAdapter);
 

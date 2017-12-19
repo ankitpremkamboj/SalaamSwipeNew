@@ -65,7 +65,7 @@ public class EditHeightActivity extends BaseActivity {
                 Intent intent = new Intent();
 
                 String maxHeight = height_tv.getText().toString();
-                intent.putExtra(Constants.EXTRA_MAX_HEIGHT, maxHeight+"cm");
+                intent.putExtra(Constants.EXTRA_MAX_HEIGHT, maxHeight);
                 setResult(Constants.RESULT_HEIGHT, intent);
 
                 finish();
@@ -74,14 +74,13 @@ public class EditHeightActivity extends BaseActivity {
         });
 
 
-
         try {
             if (getIntent() != null) {
                 String minHeight = getIntent().getStringExtra(Constants.EXTRA_MAX_HEIGHT);
                 if (minHeight != null) {
                     height_tv.setText(minHeight);
                 }
-                mHeightSeekBar.getThumb(1).setValue(Integer.valueOf(minHeight));
+                mHeightSeekBar.getThumb(0).setValue(Integer.valueOf(minHeight));
 
             }
         } catch (Exception e) {

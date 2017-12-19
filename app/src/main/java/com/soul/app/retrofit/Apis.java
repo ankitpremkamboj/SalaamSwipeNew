@@ -93,8 +93,7 @@ public interface Apis {
 
     @Multipart
     @POST(ApiConstants.EDIT_PROFILE)
-    Call<EditProfileRes> updateEditProfile(@PartMap Map<String, RequestBody> requestBodyMap,
-                                           @Part("json") GeneralReq bean);
+    Call<EditProfileRes> updateEditProfile(@PartMap Map<String, RequestBody> requestBodyMap,@Part("json") GeneralReq bean);
 
     @Multipart
     @POST(ApiConstants.UPLOAD_IMAGE)

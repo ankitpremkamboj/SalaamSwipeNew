@@ -36,6 +36,7 @@ import com.soul.app.utils.PrefUtils;
 import com.soul.app.utils.Utility;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import io.apptik.widget.MultiSlider;
 import retrofit2.Call;
@@ -165,9 +166,15 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         mRemoveAcRl.setOnClickListener(this);
 
         getSettingApi();
-        profileApi();
+        //profileApi();
         //setUi((GetSettingRes) getIntent().getSerializableExtra(AppConstant.SETTINGS_DATA));
         //ArrayList<String> porfilePicList=PrefUtils.getSharedPrefListData(SettingsActivity.this,PrefUtils.PROFILE_PIC_LIST);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        profileApi();
     }
 
     private void logout() {
@@ -179,10 +186,10 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         alertDialog2.setTitle("Logout...");
 
         // Setting Dialog Message
-        alertDialog2.setMessage("Are you sure you want logout?");
+        alertDialog2.setMessage("Are you sure you want to logout?");
 
         // Setting Icon to Dialog
-        alertDialog2.setIcon(R.drawable.app_icon);
+        alertDialog2.setIcon(R.drawable.ic_soul_logo);
 
         // Setting Positive "Yes" Btn
         alertDialog2.setPositiveButton("YES",
@@ -223,7 +230,6 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
 
                 Intent intentEditInterests = new Intent(SettingsActivity.this, InterestActivity.class);
                 intentEditInterests.putStringArrayListExtra(Constants.EXTRA_INTEREST_LIST, mInterestList);
-
                 startActivityForResult(intentEditInterests, 3);
                 break;
             case R.id.sect_rl:
@@ -283,13 +289,13 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
 
             /*get height data here */
 
-        } else {
+        } /*else {
             try {
                 ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_OUTLOOK));
             } catch (Exception ex) {
                 ex.printStackTrace();
-            }
-        }
+            }*/
+        // }
 
        /* if (resultCode == Activity.RESULT_OK && mediaFactory != null) {
             ArrayList<String> stringArrayList = mediaFactory.onActivityResult(requestCode, resultCode, data);
@@ -610,7 +616,7 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         alertDialog2.setMessage("Are you sure you want remove account?");
 
         // Setting Icon to Dialog
-        alertDialog2.setIcon(R.drawable.app_icon);
+        alertDialog2.setIcon(R.drawable.ic_soul_logo);
 
         // Setting Positive "Yes" Btn
         alertDialog2.setPositiveButton("YES",
@@ -676,10 +682,13 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         mInterestList.clear();
         for (int i = 0; i < userProfile.getInterests().size(); i++) {
             mInterestList.add(userProfile.getInterests().get(i).getCategory_name());
+
+
             /*interest = interest + userProfile.getInterests().get(i).getCategory_name();
             if (i < userProfile.getInterests().size() - 1) {
                 interest = interest + ", ";
             }*/
         }
+
     }
 }

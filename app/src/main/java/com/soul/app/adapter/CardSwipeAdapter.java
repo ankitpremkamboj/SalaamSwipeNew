@@ -65,6 +65,9 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
             viewHolder = new ViewHolder();
 
             viewHolder.cardImage = (ImageView) rowView.findViewById(R.id.cardImage);
+            viewHolder.txt_name=(TextView)rowView.findViewById(R.id.txt_name);
+            viewHolder.txt_designation=(TextView)rowView.findViewById(R.id.txt_designation);
+
             rowView.setTag(viewHolder);
 
             //  this.imgView = viewHolder.cardImage;
@@ -78,8 +81,9 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
         }
         Glide.with(context).load(mData.get(position).getProfile_pic()).into(viewHolder.cardImage);
 
-        // viewHolder.txt_name.setText(mData.get(position).getUser_name());
-        //viewHolder.cardImage.setTag(mData.get(position).getUser_id());
+         viewHolder.txt_name.setText(mData.get(position).getUser_name());
+         viewHolder.txt_designation.setText(mData.get(position).getWork());
+         viewHolder.cardImage.setTag(mData.get(position).getUser_id());
 
         return rowView;
     }

@@ -17,6 +17,7 @@ import com.soul.app.utils.Constants;
 import com.soul.app.utils.PrefUtils;
 import com.flurry.android.FlurryAgent;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.soul.app.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,7 @@ public class UnMatchActivity extends com.soul.app.activity.BaseActivity implemen
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_un_match;
     }
 

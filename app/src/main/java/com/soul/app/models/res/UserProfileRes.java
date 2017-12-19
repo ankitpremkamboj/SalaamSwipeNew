@@ -101,6 +101,10 @@ public class UserProfileRes implements Serializable {
         private String created_on;
         private String is_profilePic_changed;
         private String instagram;
+        private String height;
+        private String academy;
+
+
 
         public String getInstagram() {
             return instagram;
@@ -357,6 +361,22 @@ public class UserProfileRes implements Serializable {
         public void setIs_profilePic_changed(String is_profilePic_changed) {
             this.is_profilePic_changed = is_profilePic_changed;
         }
+
+        public String getHeight() {
+            return height;
+        }
+
+        public void setHeight(String height) {
+            this.height = height;
+        }
+
+        public String getAcademy() {
+            return academy;
+        }
+
+        public void setAcademy(String academy) {
+            this.academy = academy;
+        }
     }
 
     public static class InterestsBean implements Serializable {
@@ -396,5 +416,7 @@ public class UserProfileRes implements Serializable {
         public void setIs_primary(String is_primary) {
             this.is_primary = is_primary;
         }
+
+
     }
 }

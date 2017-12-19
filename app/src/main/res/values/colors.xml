@@ -3,6 +3,7 @@
     <color name="colorPrimary">#ff4b52</color>
     <color name="colorPrimaryDark">@color/color_status_bar</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color_ff4a51">#ff4a51</color>
 
     <color name="colorWhite">#ffffff</color>
     <color name="colorDarkText">#383838</color>
@@ -37,5 +38,5 @@
     <color name="black">#000000</color>
     <color name="color_lite_gray">#0f000000</color>
 
-    <color name="transparent">#00000000</color>
+    <color name="transparent">#0b000000</color>
 </resources>

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:statusBarScrim="@color/transparent"
             app:expandedTitleTextAppearance="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -68,7 +68,7 @@
                         android:layout_gravity="left|center"
                         android:layout_marginLeft="@dimen/ndp12"
                         android:padding="@dimen/dp12"
-                        android:src="@drawable/back_icon" />
+                        android:src="@drawable/ic_back" />
 
                     <ImageView
                         android:id="@+id/info_icon_iv"
@@ -166,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
-                        android:drawableLeft="@drawable/miles_icon"
+                        android:drawableLeft="@drawable/ic_map_pin"
                         android:drawablePadding="5dp"
                         android:textColor="@color/black_6B6B6B"
                         android:textSize="@dimen/text_size_14sp" />
@@ -249,7 +249,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp17"
                     android:layout_marginTop="@dimen/dp10"
-                    android:background="@drawable/interest" />
+                    android:background="@drawable/ic_interest" />
 
                 <TextView
                     android:id="@+id/interest_tv"
@@ -386,7 +386,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp17"
                     android:layout_marginTop="@dimen/dp10"
-                    android:background="@drawable/work" />
+                    android:background="@drawable/ic_bag" />
 
                 <TextView
                     android:id="@+id/work_tv"
@@ -432,7 +432,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp17"
                     android:layout_marginTop="@dimen/dp10"
-                    android:background="@drawable/education" />
+                    android:background="@drawable/ic_education" />
 
                 <TextView
                     android:id="@+id/education_tv"
@@ -477,7 +477,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp17"
                     android:layout_marginTop="@dimen/dp10"
-                    android:background="@drawable/location" />
+                    android:background="@drawable/ic_map_pin" />
 
                 <TextView
                     android:id="@+id/location_tv"

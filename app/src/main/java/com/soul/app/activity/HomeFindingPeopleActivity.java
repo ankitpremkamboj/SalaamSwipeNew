@@ -51,7 +51,7 @@ import retrofit2.Response;
 
 public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActivity {
 
-    final List<UserListRes.DataBean> mData = new ArrayList<UserListRes.DataBean>();
+    List<UserListRes.DataBean> mData = new ArrayList<UserListRes.DataBean>();
     GetSettingRes getSettingRes;
     private TextView mNameTv, mAgeTv, mDistanceTv;//, mProfileTv;
     private FrameLayout frameLayoutHomeHeader;
@@ -77,7 +77,8 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
     private TextView txt_name, txt_designation;
     private ImageView likeBottom;
     private ImageView sDislikeBottom;
-     int childPos;
+    int childPos;
+
     @Override
     public int setLayout() {
         Utility.setStatusBarGradiant(this);
@@ -119,10 +120,16 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         findingPeopleHome = (RelativeLayout) findViewById(R.id.finding_people_home_rl);
         findingPeopleHome.setVisibility(View.VISIBLE);
         findingPeopleAnimation = (ImageView) findViewById(R.id.finding_people_animation_iv);
+
         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(findingPeopleAnimation);
-        Glide.with(HomeFindingPeopleActivity.this).load(R.raw.salam_swipe_animation_logo).into(imageViewTarget);
-        //  frameUp = (RelativeLayout) findViewById(R.id.image_ll);
+        Glide.with(HomeFindingPeopleActivity.this).load(R.raw.soul_logo).into(imageViewTarget);
+        // frameUp = (RelativeLayout) findViewById(R.id.image_ll);
         frameUp = (FrameLayout) findViewById(R.id.image_ll);
+
+
+        flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame_sfav);
+//        frameUp = (FrameLayout) findViewById(R.id.image_ll);
+        frameB = (FrameLayout) findViewById(R.id.no_image);
 
         frameUp.setVisibility(View.GONE);
         frameLayoutHomeHeader.setVisibility(View.VISIBLE);
@@ -270,9 +277,9 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                 @Override
                 public void onClick(View v) {
                     if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
-                        // Intent intentSettings = new Intent(HomeFindingPeopleActivity.this, SettingsActivity.class);
-                        // intentSettings.putExtra(AppConstant.SETTINGS_STATUS, "1");
-                        // startActivity(intentSettings);
+                        Intent intentSettings = new Intent(HomeFindingPeopleActivity.this, SettingsActivity.class);
+                        intentSettings.putExtra(AppConstant.SETTINGS_STATUS, "0");
+                        startActivity(intentSettings);
                         getSettingApi();
                     } else {
                         new SnackBar.Builder(HomeFindingPeopleActivity.this)
@@ -281,7 +288,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                 }
             });
         }
-        Button inviteFrndBtn = (Button) findViewById(R.id.invite_frnd_btn);
+        RelativeLayout inviteFrndBtn = (RelativeLayout) findViewById(R.id.invite_frnd_btn);
         if (inviteFrndBtn != null)
             inviteFrndBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -305,7 +312,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         //call api
 
         //setSwipeviewTemp();
-        setSwipeview();
+       setSwipeview();
 
     }
 
@@ -324,20 +331,25 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
     }
 
     public void setSwipeview() {
-        flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame_sfav);
+       /* flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame_sfav);
 //        frameUp = (FrameLayout) findViewById(R.id.image_ll);
         frameB = (FrameLayout) findViewById(R.id.no_image);
-
-        mData.clear();
+*/
+       mData.clear();
         for (int i = 0; i < 10; i++) {
+
             UserListRes.DataBean db = new UserListRes.DataBean();
-            db.setProfile_pic("http://52.25.82.251//salaam-swipe//assets//profileimages//2016-04-28WqHprofile_pic.png");
-            mData.add(db);
+           // userLis.set(i,db).setProfile_pic("http://soulsmatcher.com//soulapp//assets//profileimages//2016-04-28WqHprofile_pic.png");
+           // UserListRes.DataBean db = new UserListRes.DataBean();
+            db.setProfile_pic("http://soulsmatcher.com//soulapp//assets//profileimages//2016-04-28WqHprofile_pic.png");
+           mData.add(db);
 
         }
+
+       // mData=userLis;
         cardSwAdapter = new CardSwipeAdapter(mData, this);
         flingContainer.setAdapter(cardSwAdapter);
-       childPos = flingContainer.getChildCount();
+        childPos = flingContainer.getChildCount();
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
@@ -614,6 +626,8 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         try {
             if (userList != null)
                 if (userList.size() > 0) {
+
+                  ///  setSwipeview(userList);
 
 
                     String name = userList.get(0).getUser_name() + ", ";

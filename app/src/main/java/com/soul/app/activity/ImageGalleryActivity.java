@@ -37,6 +37,7 @@ public class ImageGalleryActivity extends com.soul.app.activity.BaseActivity {
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_image_gallery;
     }
 

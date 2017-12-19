@@ -10,11 +10,11 @@
         android:id="@+id/header_home_tb"
         layout="@layout/toolbar"></include>
 
-
     <FrameLayout
         android:id="@+id/image_ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="visible">
 
         <LinearLayout
             android:id="@+id/img_frame"
@@ -61,12 +61,21 @@
                         android:src="@drawable/home_right_arrow"
                         android:visibility="gone" />
 
+
+                    <ImageView
+                        android:id="@+id/img_undo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_undo" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp315"
+                        android:background="@color/transparent"
                         android:orientation="vertical"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/txt_name"
@@ -90,8 +99,8 @@
                             android:layout_width="@dimen/dp30"
                             android:layout_height="@dimen/dp20"
                             android:layout_gravity="center"
-                            android:rotation="270"
                             android:layout_marginTop="@dimen/dp10"
+                            android:rotation="270"
                             android:src="@drawable/back_icon" />
 
                     </LinearLayout>
@@ -203,7 +212,6 @@
                             android:drawableLeft="@drawable/miles_icon"
                             android:drawablePadding="5dp"
                             android:gravity="center"
-
                             android:textColor="@color/colorDarkText"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -351,7 +359,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp20"
         android:background="@color/colorWhite"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/finding_people_animation_iv"
@@ -404,7 +413,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp40"
-                    android:background="@drawable/no_cards_left1" />
+                    android:background="@drawable/ic_no_card" />
 
                 <TextView
                     style="@style/avenirLTStdBlack"
@@ -422,12 +431,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp36"
-                    android:drawablePadding="@dimen/dp10"
-                    android:drawableRight="@drawable/double_arrow"
                     android:gravity="center"
                     android:padding="@dimen/dp5"
                     android:text="@string/try_changing_your_preference"
-                    android:textColor="@color/colorLightGreyText"
+                    android:textColor="@color/color_ff4a51"
                     android:textSize="@dimen/text_size_14sp" />
 
                 <TextView
@@ -440,17 +447,23 @@
                     android:textColor="@color/colorLightGreyText"
                     android:textSize="@dimen/text_size_14sp" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:src="@drawable/ic_or" />
+
                 <TextView
                     style="@style/avenirLTStdMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp42"
+                    android:layout_marginTop="@dimen/dp22"
                     android:gravity="center"
                     android:text="@string/or_invite_some"
                     android:textColor="@color/colorLightGreyText"
                     android:textSize="@dimen/text_size_14sp" />
 
-                <Button
+                <!--<Button
                     android:id="@+id/invite_frnd_btn"
                     style="@style/avenirLTStdBlack"
                     android:layout_width="@dimen/dp305"
@@ -460,7 +473,43 @@
                     android:background="@drawable/fblogin_button_selector"
                     android:text="@string/invite_your_friend"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_13sp" />
+                    android:textSize="@dimen/text_size_13sp" />-->
+
+                <RelativeLayout
+                    android:id="@+id/invite_frnd_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp50"
+                    android:layout_marginBottom="@dimen/dp16"
+                    android:layout_marginLeft="@dimen/dp30"
+                    android:layout_marginRight="@dimen/dp30"
+                    android:layout_marginTop="@dimen/dp19"
+                    android:background="@drawable/cancel_selector_gradient"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/send_msg_tv"
+                        android:padding="@dimen/dp5"
+                        android:src="@drawable/ic_chat1" />
+
+                    <TextView
+                        android:id="@+id/send_msg_tv"
+                        style="@style/avenirLTStdBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:lineSpacingExtra="6sp"
+                        android:padding="@dimen/dp5"
+                        android:text="@string/invite_your_friend"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_13" />
+
+                </RelativeLayout>
+
 
             </LinearLayout>
         </ScrollView>

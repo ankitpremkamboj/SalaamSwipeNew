@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import com.soul.app.R;
 import com.soul.app.activity.*;
 import com.soul.app.utils.Constants;
+import com.soul.app.utils.Utility;
 
 /**
  * Created by ashishkumar on 10/8/16.
@@ -27,6 +28,7 @@ public class HFPChatReportActivity extends com.soul.app.activity.BaseActivity im
 
     @Override
     public int setLayout() {
+        Utility.setStatusBarGradiant(this);
         return R.layout.activity_chat_report;
     }
 
