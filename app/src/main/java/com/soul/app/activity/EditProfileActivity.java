@@ -431,10 +431,10 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             String image4 = userProfile.getProfileDetails().getUser_image4();
             String aboutMe = userProfile.getProfileDetails().getAbout_text().trim();
             String work = userProfile.getProfileDetails().getWork();
-            String edu = userProfile.getProfileDetails().getEducation();
+            //String edu = userProfile.getProfileDetails().getEducation();
             String loc = userProfile.getProfileDetails().getHometown();
             height = userProfile.getProfileDetails().getHeight();
-            academic = userProfile.getProfileDetails().getAcademy();
+            academic = userProfile.getProfileDetails().getEducation();
             try {
                 String instagram = userProfile.getProfileDetails().getInstagram().trim();
                 // String[] instagramName = instagram.split("/");
@@ -519,11 +519,12 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
                // findViewById(R.id.work_rl).setVisibility(View.GONE);
                 //findViewById(R.id.works_rl).setVisibility(View.GONE);
             }
-            if (!TextUtils.isEmpty(edu)) {
-                ((TextView) findViewById(R.id.my_edit_profile_education_tv)).setText(edu);
+            if (!TextUtils.isEmpty(academic)) {
+                ((TextView) findViewById(R.id.my_edit_profile_education_tv)).setText(academic);
             } else {
-                findViewById(R.id.edu_rl).setVisibility(View.GONE);
-                findViewById(R.id.edus_rl).setVisibility(View.GONE);
+                ((TextView) findViewById(R.id.my_edit_profile_education_tv)).setText(getString(R.string.select_academic));
+                //findViewById(R.id.edu_rl).setVisibility(View.GONE);
+               // findViewById(R.id.edus_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(loc)) {
                 ((TextView) findViewById(R.id.my_edit_work_location_tv)).setText(loc);
@@ -568,7 +569,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         generalReq.setInstagram(((TextView) findViewById(R.id.instagram_et)).getText().toString());
         generalReq.setAbout_text(((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).getText().toString());
         generalReq.setHeight(height);
-        generalReq.setAcademy(((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).getText().toString());
+        generalReq.setEducation(((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).getText().toString());
         return generalReq;
     }
 

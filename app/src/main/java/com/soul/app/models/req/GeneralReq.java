@@ -17,6 +17,8 @@ public class GeneralReq {
 
     private String about_text;
     private String instagram;
+    private String education;
+
 
 
     // 0-dislike 1-like
@@ -443,6 +445,14 @@ public class GeneralReq {
 
     public void setHeight(String height) {
         this.height = height;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
     }
 
     public static class IntrestsEntity {
