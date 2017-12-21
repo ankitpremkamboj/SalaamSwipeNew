@@ -137,6 +137,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/my_profile_instagram_iv"
                     android:textColor="@color/colorDarkText"
+                    android:text="Select Interest"
                     android:textSize="@dimen/text_size_15sp" />
 
                 <TextView
@@ -187,7 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/my_profile_instagram_iv"
-                    android:text="@string/select_academic"
+                    android:hint="@string/select_academic"
                     android:textColor="@color/colorDarkText"
                     android:textSize="@dimen/text_size_15sp" />
 
@@ -318,6 +319,7 @@
                 android:id="@+id/edus_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
+                android:visibility="gone"
                 android:background="@color/colorLight"
                 android:orientation="vertical">
 
@@ -339,6 +341,7 @@
                 android:layout_height="@dimen/dp53"
                 android:background="@color/colorWhite"
                 android:paddingLeft="@dimen/dp16"
+                android:visibility="gone"
                 android:paddingRight="@dimen/dp16">
 
                 <TextView
@@ -365,6 +368,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:visibility="gone"
                 android:background="@color/colorDarkDividerLine" />
 
 

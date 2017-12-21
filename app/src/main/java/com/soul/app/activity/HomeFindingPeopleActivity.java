@@ -147,7 +147,9 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
 
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_LEFTCARDSWIPE);
-                // dislike=0
+
+                //dislike=0
+
                 callLikeDislike("0");
                 mData.remove(childPos);
                 if (mData.size() == 0) {
@@ -565,7 +567,9 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                                 //  showProgressDialog(false);
                                 // mLikeDislikeFlag=false;
                                 // mLikeDislikeFlag = false;
+
                                 mData.clear();
+
                                 mData.addAll(response.body().getData());
                                 setProfileInfo(mData);
                                 cardSwAdapter.notifyDataSetChanged();
@@ -636,13 +640,14 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                     // mNameTv.setText(name);
                     txt_name.setText(name);
                     txt_designation.setText(edu);
-
                     mAgeTv.setText(userList.get(0).getAge());
                     String distance = userList.get(0).getDistance();
                     Double dis = Double.valueOf(userList.get(0).getDistance());
                     distance = dis.intValue() + " Miles";
                     try {
+
                         mDistanceTv.setText(distance);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -662,17 +667,21 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                         ((TextView) findViewById(R.id.designation_tv)).setText(edu);
                     } else {
                         findViewById(R.id.designation_tv).setVisibility(View.INVISIBLE);
-                    }
-*/
+                    }*/
+
                     LinearLayout linearLayout = (LinearLayout) ((FrameLayout) flingContainer.getSelectedView()).getChildAt(0);
                     FrameLayout frameLayout = (FrameLayout) linearLayout.getChildAt(0);
                     final ImageView imageView = (ImageView) frameLayout.getChildAt(0);
                     cardSwAdapter.notifyDataSetInvalidated();
+
                     try {
+
                         Glide.with(HomeFindingPeopleActivity.this).load(userList.get(0).getProfile_pic()).into(imageView);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                     cardSwAdapter.notifyDataSetChanged();
                 }
 

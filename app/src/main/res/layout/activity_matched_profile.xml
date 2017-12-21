@@ -10,6 +10,7 @@
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/tollbar_grediant"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -18,9 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:statusBarScrim="@color/transparent"
             app:expandedTitleTextAppearance="@android:color/transparent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="@color/transparent">
 
             <FrameLayout
                 android:id="@+id/profile_pic_fl"
@@ -125,7 +126,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:orientation="vertical"
-                    android:paddingBottom="16dp"
                     android:paddingTop="16dp">
 
                     <LinearLayout
@@ -138,7 +138,6 @@
                             style="@style/avenirLTStdHeavy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:textColor="@color/black_3c3c3c"
                             android:textSize="@dimen/text_size_18sp" />
 
@@ -147,28 +146,27 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textColor="@color/color_ff4a55"
+                            android:textColor="@color/black_3c3c3c"
                             android:textSize="@dimen/text_size_18sp" />
 
                         <TextView
-                            android:id="@+id/time_ago_tv"
+                            android:id="@+id/distance_tv"
+                            style="@style/avenirLTStdMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="right"
-
-                            android:textColor="@color/colorGreyText"
+                            android:drawableLeft="@drawable/ic_map_pin"
+                            android:drawablePadding="5dp"
+                            android:padding="@dimen/dp2"
+                            android:textColor="@color/black_6B6B6B"
                             android:textSize="@dimen/text_size_14sp" />
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/distance_tv"
-                        style="@style/avenirLTStdMedium"
+                        android:id="@+id/time_ago_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp10"
-                        android:drawableLeft="@drawable/ic_map_pin"
-                        android:drawablePadding="5dp"
-                        android:textColor="@color/black_6B6B6B"
+                        android:gravity="right"
+                        android:textColor="@color/colorGreyText"
                         android:textSize="@dimen/text_size_14sp" />
                 </LinearLayout>
 
@@ -182,45 +180,48 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/aboutme_ll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+            <!--
+                        <LinearLayout
+                            android:id="@+id/aboutme_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="2"
-                    android:background="@color/colorDarkDividerLine" />
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="2"
+                                android:background="@color/colorDarkDividerLine" />
 
-                <TextView
-                    style="@style/avenirLTStdHeavy"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_weight="1.4"
-                    android:gravity="center"
-                    android:text="@string/about_me"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_size_14sp" />
+                            <TextView
+                                style="@style/avenirLTStdHeavy"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_weight="1.4"
+                                android:gravity="center"
+                                android:text="@string/about_me"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_size_14sp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="2"
-                    android:background="@color/colorDarkDividerLine" />
-            </LinearLayout>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="2"
+                                android:background="@color/colorDarkDividerLine" />
+                        </LinearLayout>
+            -->
 
             <RelativeLayout
                 android:id="@+id/aboutme_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp17"
-                android:layout_marginTop="@dimen/dp17"
                 android:paddingLeft="@dimen/dp16"
-                android:paddingRight="@dimen/dp16">
+                android:paddingRight="@dimen/dp16"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/aboutme_tv"
@@ -232,6 +233,98 @@
                     android:textSize="@dimen/text_size_15sp" />
             </RelativeLayout>
 
+            <RelativeLayout
+
+                android:id="@+id/aboutme_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp70"
+                android:layout_marginTop="@dimen/dp27">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
+                    android:background="@color/colorDarkDividerLine"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/aboutme_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp17"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/ic_user" />
+
+                <TextView
+                    android:id="@+id/aboutmee_tv"
+                    style="@style/avenirLTStdHeavy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp14"
+                    android:layout_marginTop="@dimen/dp12"
+                    android:layout_toRightOf="@+id/aboutme_iv"
+                    android:text="@string/about_mee"
+                    android:textColor="@color/colorDarkText"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/my_full_profile_about_me_content_tv"
+                    style="@style/avenirLTStdRoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/aboutmee_tv"
+                    android:layout_below="@+id/aboutmee_tv"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:textColor="@color/colorGreyText"
+                    android:textSize="@dimen/text_size_15sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/height_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp70">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
+
+                    android:background="@color/colorDarkDividerLine" />
+
+                <ImageView
+                    android:id="@+id/height_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp24"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/ic_height" />
+
+                <TextView
+                    android:id="@+id/height_tv"
+                    style="@style/avenirLTStdHeavy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp12"
+                    android:layout_toRightOf="@+id/height_iv"
+                    android:text="@string/your_height"
+                    android:textColor="@color/colorDarkText"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/heights_tv"
+                    style="@style/avenirLTStdRoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/height_tv"
+                    android:layout_below="@+id/height_iv"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:text="180cm"
+                    android:textColor="@color/colorGreyText"
+                    android:textSize="@dimen/text_size_15sp" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/interest_rl"
@@ -241,6 +334,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
+
                     android:background="@color/colorDarkDividerLine" />
 
                 <ImageView
@@ -271,7 +366,6 @@
                     android:layout_alignLeft="@+id/interest_tv"
                     android:layout_below="@+id/interest_iv"
                     android:layout_marginTop="@dimen/dp5"
-
                     android:textColor="@color/colorGreyText"
                     android:textSize="@dimen/text_size_15sp" />
 
@@ -281,11 +375,14 @@
             <RelativeLayout
                 android:id="@+id/outlook_rl"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp70">
+                android:layout_height="@dimen/dp70"
+                android:visibility="gone">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
+
                     android:background="@color/colorDarkDividerLine" />
 
 
@@ -317,7 +414,6 @@
                     android:layout_alignLeft="@+id/outlook_tv"
                     android:layout_below="@+id/my_full_profile_outlook_iv"
                     android:layout_marginTop="@dimen/dp5"
-
                     android:textColor="@color/colorGreyText"
                     android:textSize="@dimen/text_size_15sp" />
 
@@ -327,11 +423,13 @@
             <RelativeLayout
                 android:id="@id/sect_rl"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp70">
+                android:layout_height="@dimen/dp70"
+                android:visibility="gone">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
                     android:background="@color/colorDarkDividerLine" />
 
 
@@ -363,7 +461,6 @@
                     android:layout_alignLeft="@+id/sect_tv"
                     android:layout_below="@+id/my_full_profile_sect_iv"
                     android:layout_marginTop="@dimen/dp5"
-
                     android:textColor="@color/colorGreyText"
                     android:textSize="@dimen/text_size_15sp" />
 
@@ -378,6 +475,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
                     android:background="@color/colorDarkDividerLine" />
 
                 <ImageView
@@ -424,6 +522,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
                     android:background="@color/colorDarkDividerLine" />
 
                 <ImageView
@@ -469,6 +568,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
                     android:background="@color/colorDarkDividerLine" />
 
                 <ImageView
@@ -499,7 +599,6 @@
                     android:layout_alignLeft="@+id/location_tv"
                     android:layout_below="@+id/my_full_profile_location_iv"
                     android:layout_marginTop="@dimen/dp5"
-
                     android:textColor="@color/colorGreyText"
                     android:textSize="@dimen/text_size_15sp" />
 
@@ -514,6 +613,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp50"
                     android:background="@color/colorDarkDividerLine" />
 
                 <ImageView
@@ -549,6 +649,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/dp50"
+
                 android:background="@color/colorDarkDividerLine" />
         </LinearLayout>
 
@@ -638,21 +740,21 @@
         </FrameLayout>
 
 
-      <!--  <ImageView
-            android:id="@+id/dislike_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/dislike"
-            android:visibility="gone" />
+        <!--  <ImageView
+              android:id="@+id/dislike_bottom"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:src="@drawable/dislike"
+              android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/like_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/like"
-            android:visibility="gone" />-->
+          <ImageView
+              android:id="@+id/like_bottom"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:src="@drawable/like"
+              android:visibility="gone" />-->
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

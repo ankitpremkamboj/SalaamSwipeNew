@@ -49,6 +49,7 @@ public class GeneralReq {
     private String academy;
     private String interest;
     private String height;
+    private String education_status;
 
 
     /**
@@ -453,6 +454,14 @@ public class GeneralReq {
 
     public void setEducation(String education) {
         this.education = education;
+    }
+
+    public String getEducation_status() {
+        return education_status;
+    }
+
+    public void setEducation_status(String education_status) {
+        this.education_status = education_status;
     }
 
     public static class IntrestsEntity {

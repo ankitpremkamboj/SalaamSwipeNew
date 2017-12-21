@@ -55,7 +55,7 @@ public class SlidingImageAdapter extends PagerAdapter {
 //            profilePic = profilePic.replace("http", "https");
         //Glide.with(context).load(profilePic).placeholder(R.drawable.home_placeholder).into(imageView);
         try {
-            Utility.glide(context, imageView, R.drawable.home_placeholder, profilePic);
+            Utility.glide(context, imageView, R.drawable.placeholder_image, profilePic);
         } catch (Exception e) {
             e.printStackTrace();
         }

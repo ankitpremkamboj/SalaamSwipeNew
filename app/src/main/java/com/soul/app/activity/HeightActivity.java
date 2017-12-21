@@ -85,12 +85,6 @@ public class HeightActivity extends BaseActivity {
                 //  userInterestApi();
                 Intent intent = new Intent();
 
-                /*int maxHeight = mHeightSeekBar.getThumb(0).getValue();
-                int minHeight = mHeightSeekBar.getThumb(1).getValue();
-                intent.putExtra(Constants.EXTRA_MIN_HEIGHT, String.valueOf(maxHeight));
-                intent.putExtra(Constants.EXTRA_MAX_HEIGHT, String.valueOf(minHeight));*/
-                //  String maxHeight = mHeight_max_tv.getText().toString();
-                // String minHeight = mHeight_min_tv.getText().toString();
                 intent.putExtra(Constants.EXTRA_MIN_HEIGHT, min);
                 intent.putExtra(Constants.EXTRA_MAX_HEIGHT, max);
                 setResult(Constants.RESULT_HEIGHT, intent);

@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp375"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/home_placeholder"
+                android:background="@drawable/placeholder_image"
                 android:scaleType="centerCrop"
                 app:riv_corner_radius="@dimen/margin_10" />
             <!--it will be user for later -->
@@ -44,7 +44,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/dp20"
-                    android:text="Christina Santos"
                     android:textColor="@color/white"
                     android:textSize="24sp" />
 
@@ -53,7 +52,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/dp20"
-                    android:text="Globsyn Business School, Melbourne"
                     android:textColor="@color/white" />
 
 

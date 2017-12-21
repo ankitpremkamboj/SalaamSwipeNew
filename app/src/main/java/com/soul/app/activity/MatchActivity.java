@@ -23,7 +23,7 @@ import com.flurry.android.FlurryAgent;
 * For Find the Match with Animation
 * */
 
-public class MatchActivity extends com.soul.app.activity.BaseActivity {
+public class MatchActivity extends BaseActivity {
 
     private static final int ANIMATION_INTERVAL = 1;// 200ms
     private final int[] IMAGE_RESOURCES = {R.drawable.comp1_00014, R.drawable.comp1_00015, R.drawable.comp1_00016,

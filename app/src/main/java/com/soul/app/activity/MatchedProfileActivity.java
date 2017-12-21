@@ -111,7 +111,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
         mPager.setAdapter(adapter);
 
         // Show the panel
-        Animation bottomUp = AnimationUtils.loadAnimation(this,R.anim.bottom_up);
+        Animation bottomUp = AnimationUtils.loadAnimation(this, R.anim.bottom_up);
         sDislikeBottom = (ImageView) findViewById(R.id.dislike_bottom);
         sDislikeBottom.startAnimation(bottomUp);
         likeBottom = (ImageView) findViewById(R.id.like_bottom);
@@ -226,9 +226,9 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
 
     @Override
     public int setLayout() {
-       Utility.setStatusBarGradiant(this);
-       //Window window=getWindow();
-      //  window.setStatusBarColor(getColor(R.color.transparent));
+        Utility.setStatusBarGradiant(this);
+        //Window window=getWindow();
+        //  window.setStatusBarColor(getColor(R.color.transparent));
        /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.setStatusBarColor(getColor(R.color.transparent));
         }*/
@@ -293,7 +293,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
 
         Double dis = Double.valueOf(otherProfileRes.getProfileDetails().getDistance());
         distance = dis.intValue() + " Miles";
-        if (secTime > 3600 * 24 * 7) {
+       /* if (secTime > 3600 * 24 * 7) {
             //long year = secTime / (3600 * 24 * 365);
             mLastSeenTv.setText("> a week ago");
         } else if (secTime > 3600 * 24) {
@@ -308,7 +308,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
             mLastSeenTv.setText(minTime + " m ago");
         } else {
             mLastSeenTv.setText(secTime + " s ago");
-        }
+        }*/
 
 
         String interest = "";
@@ -317,12 +317,15 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
         String loc = otherProfileRes.getProfileDetails().getLocation();
         ((TextView) findViewById(R.id.name_tv)).setText(name);
         ((TextView) findViewById(R.id.age_tv)).setText(otherProfileRes.getProfileDetails().getAge());
-        ((TextView) findViewById(R.id.distance_tv)).setText(distance);
-        if (TextUtils.isEmpty(aboutMe)) {
-            findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
-            findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.distance_tv)).setText(distance + "\n away");
+        if (!TextUtils.isEmpty(aboutMe)) {
+            ((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText(aboutMe);
+            // findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
+            // findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
+        }else {
+            ((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText("N/A");
         }
-        ((TextView) findViewById(R.id.aboutme_tv)).setText(aboutMe);
+
         for (int i = 0; i < otherProfileRes.getInterests().size(); i++) {
             interest = interest + otherProfileRes.getInterests().get(i).getCategory_name();
             if (i < otherProfileRes.getInterests().size() - 1) {
@@ -332,32 +335,41 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
         if (!TextUtils.isEmpty(interest)) {
             ((TextView) findViewById(R.id.my_full_profile_interest_tv)).setText(interest);
         } else {
-            findViewById(R.id.interest_rl).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.my_full_profile_interest_tv)).setText("N/A");
+            // findViewById(R.id.interest_rl).setVisibility(View.GONE);
         }
         if (!TextUtils.isEmpty(otherProfileRes.getProfileDetails().getStatus())) {
             ((TextView) findViewById(R.id.my_full_profile_outlook_tv)).setText(otherProfileRes.getProfileDetails().getStatus());
         } else {
-            findViewById(R.id.outlook_rl).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.my_full_profile_outlook_tv)).setText("N/A");
+
+            // findViewById(R.id.outlook_rl).setVisibility(View.GONE);
         }
         if (!TextUtils.isEmpty(otherProfileRes.getProfileDetails().getDenomination())) {
             ((TextView) findViewById(R.id.my_full_profile_sect_tv)).setText(otherProfileRes.getProfileDetails().getDenomination());
         } else {
-            findViewById(R.id.sect_rl).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.my_full_profile_sect_tv)).setText("N/A");
+            //  findViewById(R.id.sect_rl).setVisibility(View.GONE);
         }
         if (!TextUtils.isEmpty(work)) {
             ((TextView) findViewById(R.id.my_full_profile_work_tv)).setText(work);
+            mLastSeenTv.setText(work);
         } else {
-            findViewById(R.id.work_rl).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.my_full_profile_work_tv)).setText("N/A");
+            // findViewById(R.id.work_rl).setVisibility(View.GONE);
         }
+
         if (!TextUtils.isEmpty(edu)) {
             ((TextView) findViewById(R.id.my_full_profile_education_tv)).setText(edu);
         } else {
-            findViewById(R.id.edu_rl).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.my_full_profile_education_tv)).setText("N/A");
+            // findViewById(R.id.edu_rl).setVisibility(View.GONE);
         }
         if (!TextUtils.isEmpty(loc)) {
             ((TextView) findViewById(R.id.my_full_profile_location_tv)).setText(loc);
         } else {
-            findViewById(R.id.location_rl).setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.my_full_profile_location_tv)).setText("N/A");
+            // findViewById(R.id.location_rl).setVisibility(View.GONE);
         }
 
         profilePic.clear();

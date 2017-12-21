@@ -514,14 +514,15 @@ public class SwipeViewHomeActivity extends com.soul.app.activity.BaseGpsActivity
 
                         PrefUtils.setSharedPrefStringData(SwipeViewHomeActivity.this, PrefUtils.PREF_CATSELECTED, loginRes.getIsCatSelected());
 
-                        if (!response.body().getData().getIsCatSelected().equals("1")) {
+                        /*if (!response.body().getData().getIsCatSelected().equals("1")) {
                             Intent intentSeeYourSelf = new Intent(SwipeViewHomeActivity.this, OutLookActivity.class);
                             startActivity(intentSeeYourSelf);
                         } else {
                             Intent intentSeeYourSelf = new Intent(SwipeViewHomeActivity.this, HomeFindingPeopleActivity.class);
                             startActivity(intentSeeYourSelf);
-                        }
-
+                        }*/
+                        Intent intentSeeYourSelf = new Intent(SwipeViewHomeActivity.this, HomeFindingPeopleActivity.class);
+                        startActivity(intentSeeYourSelf);
                         updateLocation();
                         finish();
                     }

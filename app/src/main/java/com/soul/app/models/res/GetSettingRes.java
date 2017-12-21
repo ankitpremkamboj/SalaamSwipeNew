@@ -20,12 +20,13 @@ public class GetSettingRes implements Serializable {
     private String match_notification;
     private String cogonito_status;
 
-    private String minHeight;
-    private String maxHeight;
+    private String min_height;
+    private String max_height;
     private String academy;
     private String intrestid;
 
     private String intrestname;
+
 
     public String getUser_id() {
         return user_id;
@@ -115,20 +116,20 @@ public class GetSettingRes implements Serializable {
         this.cogonito_status = cogonito_status;
     }
 
-    public String getMinHeight() {
-        return minHeight;
+    public String getMin_height() {
+        return min_height;
     }
 
-    public void setMinHeight(String minHeight) {
-        this.minHeight = minHeight;
+    public void setMin_height(String min_height) {
+        this.min_height = min_height;
     }
 
-    public String getMaxHeight() {
-        return maxHeight;
+    public String getMax_height() {
+        return max_height;
     }
 
-    public void setMaxHeight(String maxHeight) {
-        this.maxHeight = maxHeight;
+    public void setMax_height(String max_height) {
+        this.max_height = max_height;
     }
 
     public String getAcademy() {

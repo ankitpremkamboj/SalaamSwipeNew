@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.soul.app.R;
 import com.soul.app.activity.*;
 import com.soul.app.activity.YourSectActivity;
@@ -50,7 +51,7 @@ import retrofit2.Response;
 *  Upload picture from facebook, gallery and camera.
 * */
 
-public class EditProfileActivity extends com.soul.app.activity.BaseActivity implements View.OnClickListener {
+public class EditProfileActivity extends BaseActivity implements View.OnClickListener {
 
     private static final int SELECT_PICTURE = 100;
     //   private static final int REQUEST_CAMERA = 200;
@@ -501,8 +502,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 //                findViewById(R.id.interest_rl).setVisibility(View.GONE);
 //                findViewById(R.id.interests_rl).setVisibility(View.GONE);
             }
-            if (!TextUtils.isEmpty(userProfile.getProfileDetails().getAcademy())) {
-                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(userProfile.getProfileDetails().getAcademy());
+            if (!TextUtils.isEmpty(userProfile.getProfileDetails().getEducation())) {
+                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(userProfile.getProfileDetails().getEducation());
             } else {
 //                findViewById(R.id.outlook_rl).setVisibility(View.GONE);
 //                findViewById(R.id.outlooks_rl).setVisibility(View.GONE);
@@ -516,7 +517,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             if (!TextUtils.isEmpty(work)) {
                 ((TextView) findViewById(R.id.my_edit_work_education_tv)).setText(work);
             } else {
-               // findViewById(R.id.work_rl).setVisibility(View.GONE);
+                // findViewById(R.id.work_rl).setVisibility(View.GONE);
                 //findViewById(R.id.works_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(academic)) {
@@ -524,13 +525,13 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
             } else {
                 ((TextView) findViewById(R.id.my_edit_profile_education_tv)).setText(getString(R.string.select_academic));
                 //findViewById(R.id.edu_rl).setVisibility(View.GONE);
-               // findViewById(R.id.edus_rl).setVisibility(View.GONE);
+                // findViewById(R.id.edus_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(loc)) {
                 ((TextView) findViewById(R.id.my_edit_work_location_tv)).setText(loc);
             } else {
-               // findViewById(R.id.location_rl).setVisibility(View.GONE);
-               // findViewById(R.id.locations_rl).setVisibility(View.GONE);
+                // findViewById(R.id.location_rl).setVisibility(View.GONE);
+                // findViewById(R.id.locations_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(height)) {
                 ((TextView) findViewById(R.id.height_tv)).setText(height + " cm");
@@ -569,7 +570,8 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         generalReq.setInstagram(((TextView) findViewById(R.id.instagram_et)).getText().toString());
         generalReq.setAbout_text(((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).getText().toString());
         generalReq.setHeight(height);
-        generalReq.setEducation(((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).getText().toString());
+        generalReq.setEducation(academic);
+        generalReq.setEducation_status("1");
         return generalReq;
     }
 
@@ -675,7 +677,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 
         } else {
             try {
-                ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_ACADEMIC));
+                // ((TextView) findViewById(R.id.my_edit_profile_outlook_tv)).setText(data.getStringExtra(Constants.EXTRA_ACADEMIC));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -714,11 +716,11 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         for (int i = 0; i < profilePicList.size(); i++) {
             if (profilePicList.get(i).equals("")) {
 
-//                // Glide.with(EditProfileActivity.this).load(selectedImageUri).placeholder(R.drawable.rounded_edit_profile).into(setSelectedImages);
-//                Utility.glide(EditProfileActivity.this, setSelectedImages, R.drawable.rounded_edit_profile, selectedImageUri);
-//                profilePicList.set(clickCounter, selectedImageUri);
-//                imageAdd.setVisibility(View.INVISIBLE);
-//                imageAdd.setEnabled(false);
+             //  Glide.with(EditProfileActivity.this).load(selectedImageUri).placeholder(R.drawable.rounded_edit_profile).into(setSelectedImages);
+                Utility.glide(EditProfileActivity.this, setSelectedImages, R.drawable.rounded_edit_profile, selectedImageUri);
+               profilePicList.set(clickCounter, selectedImageUri);
+               imageAdd.setVisibility(View.INVISIBLE);
+                imageAdd.setEnabled(false);
 
                 updateImageEditProfileApi(PrefUtils.getSharedPrefString(EditProfileActivity.this, PrefUtils.USER_ID));
                 if (profilePicList.get(i).contains("http") || profilePicList.get(i).contains("https")) {
@@ -783,7 +785,9 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
         generalReq.setUser_id(userId);
         generalReq.setAbout_text(((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).getText().toString());
         generalReq.setInstagram(((TextView) findViewById(R.id.instagram_et)).getText().toString());
-
+        generalReq.setHeight(height);
+        generalReq.setEducation(academic);
+        generalReq.setEducation_status("1");
         return generalReq;
     }
 
@@ -862,7 +866,7 @@ public class EditProfileActivity extends com.soul.app.activity.BaseActivity impl
 
         AlertDialog.Builder alert = new AlertDialog.Builder(
                 EditProfileActivity.this);
-        alert.setIcon(R.drawable.app_icon);
+        alert.setIcon(R.drawable.ic_soul_logo);
         alert.setTitle(getString(R.string.app_name));
         alert.setMessage(getString(R.string.delete_image));
         alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {

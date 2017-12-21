@@ -46,11 +46,10 @@ public class ApiConstants {
     public static final String DELETE_PROFILE_IMAGES = "delete_profile_images";
     public static final String GET_USER_FILTER = "get_user_filters";
     public static final String UPDATE_USER_FILTER = "update_user_filters";
-
     /* base url */
-    public static final String URL_PRIVACY = "http://salaamswipe.com/privacy.html";
-    public static final String URL_TERMS = "http://salaamswipe.com/terms.html";
-    public static final String URL_CONTACT = "http://salaamswipe.com/#contact";
+    public static final String URL_PRIVACY = "http://soulsmatcher.com/privacy.html";
+    public static final String URL_TERMS = "http://soulsmatcher.com/terms.html";
+    public static final String URL_CONTACT = "http://soulsmatcher.com/#contact";
 
 
 }

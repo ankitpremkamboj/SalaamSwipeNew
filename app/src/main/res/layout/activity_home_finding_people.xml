@@ -67,7 +67,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_undo" />
+                        android:src="@drawable/ic_undo"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -392,14 +393,14 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ScrollView
+       <!-- <ScrollView
             android:id="@+id/home_no_card_left_sv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_below="@+id/header_home"
             android:fillViewport="true"
-            android:scrollbars="none">
+            android:scrollbars="none">-->
 
             <LinearLayout
                 android:id="@+id/home_no_card_left_ll"
@@ -412,14 +413,14 @@
                     android:id="@+id/no_cards_left_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp40"
+                    android:layout_marginTop="@dimen/dp20"
                     android:background="@drawable/ic_no_card" />
 
                 <TextView
                     style="@style/avenirLTStdBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp50"
+                    android:layout_marginTop="@dimen/dp20"
                     android:gravity="center"
                     android:text="@string/look_like_there_no_new"
                     android:textColor="@color/colorDarkText"
@@ -430,7 +431,7 @@
                     style="@style/avenirLTStdBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp36"
+                    android:layout_marginTop="@dimen/dp20"
                     android:gravity="center"
                     android:padding="@dimen/dp5"
                     android:text="@string/try_changing_your_preference"
@@ -441,7 +442,7 @@
                     style="@style/avenirLTStdMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp24"
+                    android:layout_marginTop="@dimen/dp15"
                     android:gravity="center"
                     android:text="@string/check_back_soon"
                     android:textColor="@color/colorLightGreyText"
@@ -450,14 +451,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp10"
                     android:src="@drawable/ic_or" />
 
                 <TextView
                     style="@style/avenirLTStdMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp22"
+                    android:layout_marginTop="@dimen/dp10"
                     android:gravity="center"
                     android:text="@string/or_invite_some"
                     android:textColor="@color/colorLightGreyText"
@@ -479,10 +480,10 @@
                     android:id="@+id/invite_frnd_btn"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp50"
-                    android:layout_marginBottom="@dimen/dp16"
+                    android:layout_marginBottom="@dimen/dp26"
                     android:layout_marginLeft="@dimen/dp30"
                     android:layout_marginRight="@dimen/dp30"
-                    android:layout_marginTop="@dimen/dp19"
+                    android:layout_marginTop="@dimen/dp10"
                     android:background="@drawable/cancel_selector_gradient"
                     android:gravity="center_vertical">
 
@@ -512,6 +513,6 @@
 
 
             </LinearLayout>
-        </ScrollView>
+        <!--</ScrollView>-->
     </FrameLayout>
 </LinearLayout>

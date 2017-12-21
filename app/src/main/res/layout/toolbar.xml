@@ -149,6 +149,7 @@
             android:layout_gravity="right|center"
             android:paddingRight="@dimen/dp12"
             android:text="@string/done"
+            android:padding="@dimen/dp5"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_15sp" />
 
@@ -430,6 +431,8 @@
             android:layout_gravity="right|center"
             android:paddingRight="@dimen/dp12"
             android:text="@string/done"
+            android:padding="@dimen/dp5"
+
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_15sp" />
 

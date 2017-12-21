@@ -65,8 +65,17 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     @Override
     protected void onPause() {
         super.onPause();
-        if (!logoutFlag)
+        //if (!logoutFlag)
+            //updateSetting();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (!logoutFlag) {
             updateSetting();
+        }
     }
 
     @Override
@@ -175,6 +184,7 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     protected void onResume() {
         super.onResume();
         profileApi();
+
     }
 
     private void logout() {
@@ -223,6 +233,9 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sh_profile_icon:
+                if (!logoutFlag) {
+                    updateSetting();
+                }
                 finish();
                 break;
             case R.id.outlook_rl:
@@ -319,7 +332,6 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
                 public void onResponse(Call<ObjResp<GetSettingRes>> call, Response<ObjResp<GetSettingRes>> response) {
                     showProgressDialog(false);
                     if (response.isSuccessful()) {
-
                         setUi(response.body().getData());
                         /*if (response.body().getData().size() > 0) {
                             setUi(response.body().getData().get(0));
@@ -341,8 +353,8 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     public void setUi(GetSettingRes response) {
         mAgeMaxTv.setText(response.getMax_age());
         mAgeMinTv.setText(response.getMin_age());
-        maxHeight = response.getMaxHeight();
-        minHeight = response.getMinHeight();
+        maxHeight = response.getMax_height();
+        minHeight = response.getMin_height();
         academic = response.getAcademy();
         interestId = response.getIntrestid();
         String distance = response.getDistance();
@@ -399,7 +411,6 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
             generalReq.setDistance(mDistanceSeekBar.getThumb(0).getValue() + "");
             generalReq.setMax_age(mAgeSeekBar.getThumb(1).getValue() + "");
             generalReq.setMin_age(mAgeSeekBar.getThumb(0).getValue() + "");
-
             generalReq.setMax_height(maxHeight + "");
             generalReq.setMin_height(minHeight + "");
 

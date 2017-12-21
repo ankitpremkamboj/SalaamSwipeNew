@@ -56,17 +56,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 /*
 * Chat Using Web service
 * */
 
 public class ChatActivity extends com.soul.app.activity.BaseActivity {
 
-    // final int intervalTime = 5000; // 5 sec
+    // final int intervalTime = 5000;//5 sec
     public GifResponse responseData;
     GifFromChatRecyclerViewAdapter gifFromChatRecyclerViewAdapter;
-    //    private List<GetUnreadChatDataRes.DataBean> getUnreadChatDataBean = new ArrayList<>();
+    //private List<GetUnreadChatDataRes.DataBean> getUnreadChatDataBean = new ArrayList<>();
     private String lastMsgId = "1";
     private Timer timer;
     private ImageView chatPicCi;
@@ -90,8 +89,7 @@ public class ChatActivity extends com.soul.app.activity.BaseActivity {
     private String jsonData;
     private String TAG = ChatActivity.class.getSimpleName();
     private List<GifResponse.DataBean> dataBeanList = new ArrayList<GifResponse.DataBean>();
-    //  private String lastGifSearch = "";
-
+    // private String lastGifSearch = "";
     private int pageNumber;
     private int gifLimit = 10;
 

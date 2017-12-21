@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/home_placeholder"
+                android:background="@drawable/placeholder_image"
                 android:scaleType="centerCrop"
                 app:riv_corner_radius="@dimen/margin_10" />
 
@@ -111,7 +111,6 @@
                 android:layout_marginLeft="@dimen/dp20"
                 android:layout_marginTop="@dimen/dp6"
                 android:padding="@dimen/dp2"
-                android:text="Name"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_24sp" />
 
@@ -123,7 +122,6 @@
                 android:layout_below="@+id/my_profile_user_name_tv"
                 android:layout_marginLeft="@dimen/dp20"
                 android:padding="@dimen/dp2"
-                android:text="Product Desiginer"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_14sp"
                 android:visibility="visible" />
@@ -138,7 +136,6 @@
                 android:layout_marginLeft="@dimen/dp2"
                 android:layout_toRightOf="@+id/my_profile_designation_tv"
                 android:padding="@dimen/dp2"
-                android:text="at Tekmindz"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_12sp"
                 android:visibility="visible" />

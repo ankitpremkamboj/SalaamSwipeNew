@@ -5,6 +5,8 @@
     android:background="@color/white"
     android:gravity="center_vertical"
     android:orientation="horizontal"
+    android:layout_marginLeft="@dimen/dp20"
+    android:layout_marginRight="@dimen/dp20"
     android:paddingBottom="@dimen/dp12"
     android:paddingLeft="@dimen/dp13"
     android:paddingRight="@dimen/dp10"
