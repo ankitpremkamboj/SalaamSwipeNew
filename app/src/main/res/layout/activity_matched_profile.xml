@@ -320,7 +320,7 @@
                     android:layout_alignLeft="@+id/height_tv"
                     android:layout_below="@+id/height_iv"
                     android:layout_marginTop="@dimen/dp5"
-                    android:text="180cm"
+                    android:text=""
                     android:textColor="@color/colorGreyText"
                     android:textSize="@dimen/text_size_15sp" />
 

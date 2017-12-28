@@ -67,6 +67,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
     private ImageView backIcon;
     private ImageView infoIcon;
     private ImageView likeBottom;
+    private  TextView heights_tv;
     //  private NestedScrollView nestedScrollMatchedProfile;
     private String mOtherId;
 
@@ -227,11 +228,6 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
     @Override
     public int setLayout() {
         Utility.setStatusBarGradiant(this);
-        //Window window=getWindow();
-        //  window.setStatusBarColor(getColor(R.color.transparent));
-       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.setStatusBarColor(getColor(R.color.transparent));
-        }*/
         return R.layout.activity_matched_profile;
     }
 
@@ -277,6 +273,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
         String distance = "";
         String aboutMe = otherProfileRes.getProfileDetails().getAbout_text();
         String lastSeenTimeStamp = otherProfileRes.getProfileDetails().getLastActivity_time();
+        String height=otherProfileRes.getProfileDetails().getHeight();
         long currentTime = System.currentTimeMillis() / 1000L;
         long seenTime = Long.valueOf(lastSeenTimeStamp);
         long diffTime = currentTime - seenTime;
@@ -290,6 +287,7 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
         } else {
             findViewById(R.id.instagram_rl).setVisibility(View.VISIBLE);
         }
+
 
         Double dis = Double.valueOf(otherProfileRes.getProfileDetails().getDistance());
         distance = dis.intValue() + " Miles";
@@ -324,6 +322,14 @@ public class MatchedProfileActivity extends BaseActivity implements View.OnClick
             // findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
         }else {
             ((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText("N/A");
+        }
+
+        if (!TextUtils.isEmpty(height)) {
+            ((TextView) findViewById(R.id.heights_tv)).setText(height+" cm");
+            // findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
+            // findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
+        }else {
+            ((TextView) findViewById(R.id.heights_tv)).setText("N/A");
         }
 
         for (int i = 0; i < otherProfileRes.getInterests().size(); i++) {

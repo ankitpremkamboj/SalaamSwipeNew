@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Soul Dating</string>
-    <string name="fb_appid">1793433884023315</string>
+    <string name="fb_appid">2146124145527955</string>
     <string name="fb_secret_key">e0ff9b45fbda6bb3edd80454a9d00376</string>
     <string name="we_do_not_post">WE do not post anything to your facebook</string>
     <string name="by_clicking_sign_up">By clicking Sign Up, you agree to salaam swipe\'s\u0020</string>
@@ -138,7 +138,7 @@
     <string name="user_id">userid</string>
     <string name="profile_pic">profilepic</string>
     <string name="other_id">otherid</string>
-    <string name="send_message">Send a message</string>
+    <string name="send_message">Type a message here</string>
     <string name="send_gif">Send a gif</string>
 
     <string name="lbl_unmatch">Unmatch</string>
@@ -196,5 +196,8 @@
     <string name="select_academic">Select academic</string>
     <string name="select_height">Select height</string>
     <string name="about_mee">About me</string>
+    <string name="terms_of_service"><u>Terms of Service</u></string>
+    <string name="privacy_and_policy"><u>Privacy and Policy</u></string>
+    <string name="we_don_t_post_anything_to_facebook_n_by_signing_in_you_agree_to_our">We don\'t post anything to Facebook \n    By signing in, you agree to our</string>
 
 </resources>

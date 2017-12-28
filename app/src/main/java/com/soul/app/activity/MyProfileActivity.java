@@ -1,6 +1,7 @@
 package com.soul.app.activity;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.text.Layout;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,11 +20,14 @@ import com.soul.app.models.req.GeneralReq;
 import com.soul.app.models.res.GetSettingRes;
 import com.soul.app.models.res.ListResp;
 import com.soul.app.models.res.ObjResp;
+import com.soul.app.models.res.UserMatchesRes;
 import com.soul.app.models.res.UserProfileRes;
 import com.soul.app.utils.Constants;
 import com.soul.app.utils.PrefUtils;
 import com.soul.app.utils.Utility;
 import com.github.mrengineer13.snackbar.SnackBar;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +39,7 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
     FrameLayout profileHeader;
     GetSettingRes getSettingRes;
     private ImageView homeIcon;
+    private  ImageView chat_icon;
     private ImageView myProfilePic;
     private ImageView myProfileEditIcon;
   //  private ImageView settingsIcon;
@@ -59,6 +64,16 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        chat_icon=(ImageView)findViewById(R.id.chat_icon);
+        chat_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Intent intent = new Intent(MyProfileActivity.this, MatchesFoundActivity.class);
+               // startActivity(intent);
+
+                userMatchApi();
             }
         });
 
@@ -125,6 +140,54 @@ public class MyProfileActivity extends com.soul.app.activity.BaseActivity implem
     protected void onResume() {
         super.onResume();
         profileApi();
+    }
+
+
+    public void userMatchApi() {
+
+        if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
+            GeneralReq generalReq = new GeneralReq();
+            generalReq.setUser_id(PrefUtils.getSharedPrefString(MyProfileActivity.this, PrefUtils.USER_ID));
+            Call<ListResp<UserMatchesRes>> call = mApis.getUserMatches(generalReq);
+            //showProgressDialog(true);
+            call.enqueue(new Callback<ListResp<UserMatchesRes>>() {
+
+
+                @Override
+                public void onResponse(Call<ListResp<UserMatchesRes>> call, Response<ListResp<UserMatchesRes>> response) {
+
+                    if (response.isSuccessful()) {
+                        if (response.body() != null) {
+                            if (response.body().getData().size() > 0) {
+                                Intent intent = new Intent(MyProfileActivity.this, MatchesFoundActivity.class);
+                                intent.putParcelableArrayListExtra(Constants.EXTRA_USER_MATCH, (ArrayList<? extends Parcelable>) response.body().getData());
+                                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(MyProfileActivity.this, NoMatchesActivity.class);
+                                startActivity(intent);
+                            }
+                            //  showProgressDialog(false);
+                          //  chatIcon.setEnabled(true);
+                        }
+                    } else {
+                        // showProgressDialog(false);
+                       // chatIcon.setEnabled(true);
+                        new SnackBar.Builder(MyProfileActivity.this)
+                                .withMessage(getResources().getString(R.string.please_try_again)).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ListResp<UserMatchesRes>> call, Throwable t) {
+                    //  showProgressDialog(false);
+                   // chatIcon.setEnabled(true);
+                }
+            });
+        } else {
+            new SnackBar.Builder(MyProfileActivity.this)
+                    .withMessage(getResources().getString(R.string.err_network)).show();
+        }
     }
 
     @Override

@@ -133,6 +133,7 @@ public class SocketChatActivity extends com.soul.app.activity.BaseActivity {
         chatPicCi = (ImageView) findViewById(R.id.chat_pic_ci);
         chatGifIv = (ImageView) findViewById(R.id.chat_gif_iv);
         chatGifIv.setImageDrawable(getResources().getDrawable(R.drawable.gif_button));
+        chatGifIv.setVisibility(View.GONE);
         chatSendIv = (ImageView) findViewById(R.id.chat_send_iv);
         mChatMsgActionEditText = (EmojiconEditText) findViewById(R.id.chat_message_et);
         mChatMsgActionEditText.addTextChangedListener(new TextWatcher() {

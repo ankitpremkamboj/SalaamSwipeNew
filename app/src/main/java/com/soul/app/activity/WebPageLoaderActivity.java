@@ -9,12 +9,15 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.soul.app.R;
 import com.soul.app.activity.*;
 import com.soul.app.application.ApplicationController;
 import com.soul.app.constants.AppConstant;
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.soul.app.retrofit.ApiConstants;
 import com.soul.app.utils.Utility;
 
 
@@ -24,6 +27,8 @@ import com.soul.app.utils.Utility;
  */
 public class WebPageLoaderActivity extends com.soul.app.activity.BaseActivity {
     private WebView mWebView;
+    private ImageView eph_back_icon;
+    private TextView titleText;
     //  private View mParent;
 
     @Override
@@ -50,6 +55,27 @@ public class WebPageLoaderActivity extends com.soul.app.activity.BaseActivity {
 
         mWebView = (WebView) findViewById(R.id.webpageloader_webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        eph_back_icon = (ImageView) findViewById(R.id.eph_back_icon);
+        titleText = (TextView) findViewById(R.id.titleText);
+        String url = getIntent().getExtras().getString(AppConstant.KEY_WEB_URL);
+
+        if (url.equalsIgnoreCase(ApiConstants.URL_TERMS)) {
+
+            titleText.setText("Terms and Services");
+
+        } else if (url.equalsIgnoreCase(ApiConstants.URL_CONTACT)) {
+            titleText.setText("Contact Us");
+
+        } else if (url.equalsIgnoreCase(ApiConstants.URL_PRIVACY)) {
+            titleText.setText("Privacy policy");
+
+        }        eph_back_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         if (Build.VERSION.SDK_INT >= 11) {
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);

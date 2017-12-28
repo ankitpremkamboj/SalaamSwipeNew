@@ -156,7 +156,7 @@ public class GcmIntentService extends IntentService {
 
         PendingIntent contentIntent = getPendingIntentWithStackBuilder(intent, String.valueOf(NOTIFICATION_ID));
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.push_notification)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.ic_soul_logo)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_soul_logo)).setAutoCancel(true)
                 .setContentTitle(getString(R.string.app_name)).setContentText(msg);
 

@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -61,7 +62,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     public int clickCounter = 1;
     // ArrayList<String> stringArrayList = new ArrayList<>();
     ArrayList<String> stringArrayListTemp = new ArrayList<>();
-    ImageView imageAdd, setSelectedImages;
+    ImageView imageAdd, setSelectedImages, deleteImage;
     String permissionSet[] = new String[]{MSupportConstants.CAMERA, MSupportConstants.WRITE_EXTERNAL_STORAGE};
     //  private RelativeLayout editProfileParent;
     MediaFactory mediaFactory;
@@ -74,6 +75,13 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     private ImageView editProfileImageTwo;
     private ImageView editProfileImageThree;
     private ImageView editProfileImageFour;
+
+    private ImageView editDeleteProfileImageOne;
+    private ImageView editDeleteProfileImageTwo;
+    private ImageView editDeleteProfileImageThree;
+    private ImageView editDeleteProfileImageFour;
+
+
     // private TextView myEditProfileInterestsTv, myEditProfileOutLookTv, myEditProfileSectTv;
     // private UserProfileRes userProfile;
     private ImageView imageAddPic1, imageAddPic2, imageAddPic3, imageAddPic4;
@@ -86,6 +94,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     //   private String aboutMe;
     private String mPath = "";
     private String height, academic;
+    private SwitchCompat macademic_switch, mlocation_switch, mwork_switch, medu_switch;
 
     @Override
     public void initUi() {
@@ -97,11 +106,17 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
         MSupport.checkPermission(this, null, permissionSet, MSupportConstants.PERMISSIONS_REQUEST_CODE);
         //  userProfile = (UserProfileRes) getIntent().getSerializableExtra(Constants.EXTRA_USER_PROFILE);
+        macademic_switch = (SwitchCompat) findViewById(R.id.academic_switch);
+        mlocation_switch = (SwitchCompat) findViewById(R.id.location_switch);
+        mwork_switch = (SwitchCompat) findViewById(R.id.work_switch);
+        medu_switch = (SwitchCompat) findViewById(R.id.edu_switch);
 
         editProfileHeader = (FrameLayout) findViewById(R.id.edit_profile_header);
         editProfileHeader.setVisibility(View.VISIBLE);
 
         editProfileDone = (TextView) findViewById(R.id.eph_done);
+        editProfileDone.setVisibility(View.GONE);
+
         editProfileDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +134,14 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         editProfileBackIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Utility.putStringValueInSharedPreference(EditProfileActivity.this, "instagramName",
+                        instagramEditTextView.getText().toString());
+                //  url = "https://www.instagram.com/" + instagramEditTextView.getText().toString() + "/";
+                //instagramName = instagramEditTextView.getText().toString();
+                if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
+                    callEditProfileApi((PrefUtils.getSharedPrefString(EditProfileActivity.this, PrefUtils.USER_ID)));
+                }
                 finish();
             }
         });
@@ -138,6 +161,11 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         editProfileImageTwo = (ImageView) findViewById(R.id.image2);
         editProfileImageThree = (ImageView) findViewById(R.id.image3);
         editProfileImageFour = (ImageView) findViewById(R.id.image4);
+
+        editDeleteProfileImageOne = (ImageView) findViewById(R.id.image_delete_pic_1);
+        editDeleteProfileImageTwo = (ImageView) findViewById(R.id.image_delete_pic_2);
+        editDeleteProfileImageThree = (ImageView) findViewById(R.id.image_delete_pic_3);
+        editDeleteProfileImageFour = (ImageView) findViewById(R.id.image_delete_pic_4);
 
         instagramEditTextView = (EditText) findViewById(R.id.instagram_et);
         instagramEditTextView.setText(Utility.getStringSharedPreference(EditProfileActivity.this, "instagram"));
@@ -161,6 +189,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             public void onClick(View v) {
                 clickCounter = 1;
                 imageAdd = imageAddPic1;
+                deleteImage = editDeleteProfileImageOne;
                 //UPDATE ONLY SELECTED IMAGE
                 setSelectedImages = editProfileImageOne;
                 selectImage();
@@ -175,6 +204,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 imageAdd = imageAddPic2;
                 //UPDATE ONLY SELECTED IMAGE
                 setSelectedImages = editProfileImageTwo;
+                deleteImage = editDeleteProfileImageTwo;
+
                 selectImage();
             }
         });
@@ -186,6 +217,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 imageAdd = imageAddPic3;
                 //UPDATE ONLY SELECTED IMAGE
                 setSelectedImages = editProfileImageThree;
+                deleteImage = editDeleteProfileImageThree;
+
                 selectImage();
             }
         });
@@ -197,6 +230,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 imageAdd = imageAddPic4;
                 //UPDATE ONLY SELECTED IMAGE
                 setSelectedImages = editProfileImageFour;
+                deleteImage = editDeleteProfileImageFour;
+
                 selectImage();
             }
         });
@@ -210,18 +245,19 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                     profilePicList.set(1, stringArrayListTemp.get(0));
                     //      updateImageEditProfileApi((PrefUtils.getSharedPrefString(EditProfileActivity.this, PrefUtils.USER_ID)));
                     setImage();
+
                 }
             }
         });
         // DELETE IMAGE
-        editProfileImageOne.setOnLongClickListener(new View.OnLongClickListener() {
+        editDeleteProfileImageOne.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 if (!imageAddPic1.isEnabled()) {
                     String user_image = "user_image1";
-                    deleteImage(1, "", imageAddPic1, user_image);
+                    deleteImage(1, "", imageAddPic1, editDeleteProfileImageOne, user_image);
                 }
-                return false;
+                //  return false;
             }
         });
 
@@ -238,14 +274,14 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             }
         });
         // DELETE IMAGE
-        editProfileImageTwo.setOnLongClickListener(new View.OnLongClickListener() {
+        editDeleteProfileImageTwo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 if (!imageAddPic2.isEnabled()) {
                     String user_image = "user_image2";
-                    deleteImage(2, "", imageAddPic2, user_image);
+                    deleteImage(2, "", imageAddPic2, editDeleteProfileImageTwo, user_image);
                 }
-                return false;
+                //  return false;
             }
         });
 
@@ -262,15 +298,15 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             }
         });
         //         // DELETE IMAGE
-        editProfileImageThree.setOnLongClickListener(new View.OnLongClickListener() {
+        editDeleteProfileImageThree.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
 
                 if (!imageAddPic3.isEnabled()) {
                     String user_image = "user_image3";
-                    deleteImage(3, "", imageAddPic3, user_image);
+                    deleteImage(3, "", imageAddPic3, editDeleteProfileImageThree, user_image);
                 }
-                return false;
+                // return false;
             }
         });
 
@@ -287,14 +323,14 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             }
         });
         // DELETE IMAGE
-        editProfileImageFour.setOnLongClickListener(new View.OnLongClickListener() {
+        editDeleteProfileImageFour.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 if (!imageAddPic4.isEnabled()) {
                     String user_image = "user_image4";
-                    deleteImage(4, "", imageAddPic4, user_image);
+                    deleteImage(4, "", imageAddPic4, editDeleteProfileImageFour, user_image);
                 }
-                return false;
+                // return false;
             }
         });
         profileApi();
@@ -326,33 +362,48 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         if (profilePicList.get(1).equals("")) {
             imageAddPic1.setVisibility(View.VISIBLE);
             imageAddPic1.setEnabled(true);
+            editDeleteProfileImageOne.setVisibility(View.INVISIBLE);
+
         } else {
             imageAddPic1.setVisibility(View.INVISIBLE);
             imageAddPic1.setEnabled(false);
+            editDeleteProfileImageOne.setVisibility(View.VISIBLE);
         }
 
         if (profilePicList.get(2).equals("")) {
             imageAddPic2.setVisibility(View.VISIBLE);
             imageAddPic2.setEnabled(true);
+            editDeleteProfileImageTwo.setVisibility(View.INVISIBLE);
+
         } else {
             imageAddPic2.setVisibility(View.INVISIBLE);
             imageAddPic2.setEnabled(false);
+            editDeleteProfileImageTwo.setVisibility(View.VISIBLE);
+
         }
 
         if (profilePicList.get(3).equals("")) {
             imageAddPic3.setVisibility(View.VISIBLE);
             imageAddPic3.setEnabled(true);
+            editDeleteProfileImageThree.setVisibility(View.INVISIBLE);
+
         } else {
             imageAddPic3.setVisibility(View.INVISIBLE);
             imageAddPic3.setEnabled(false);
+            editDeleteProfileImageThree.setVisibility(View.VISIBLE);
+
         }
 
         if (profilePicList.get(4).equals("")) {
             imageAddPic4.setVisibility(View.VISIBLE);
             imageAddPic4.setEnabled(true);
+            editDeleteProfileImageFour.setVisibility(View.INVISIBLE);
+
         } else {
             imageAddPic4.setVisibility(View.INVISIBLE);
             imageAddPic4.setEnabled(false);
+            editDeleteProfileImageFour.setVisibility(View.VISIBLE);
+
         }
         setImage();
     }
@@ -432,6 +483,10 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             String image4 = userProfile.getProfileDetails().getUser_image4();
             String aboutMe = userProfile.getProfileDetails().getAbout_text().trim();
             String work = userProfile.getProfileDetails().getWork();
+            String work_status = userProfile.getProfileDetails().getWork_status();
+            String education_status = userProfile.getProfileDetails().getEducation_status();
+            String location_status = userProfile.getProfileDetails().getLocation_status();
+
             //String edu = userProfile.getProfileDetails().getEducation();
             String loc = userProfile.getProfileDetails().getHometown();
             height = userProfile.getProfileDetails().getHeight();
@@ -479,8 +534,17 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             ((TextView) findViewById(R.id.name_tv)).setText(name);
 
             if (!TextUtils.isEmpty(aboutMe)) {
-                ((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText(aboutMe);
+                EditText txtAboutMe = (EditText) findViewById(R.id.my_full_profile_about_me_content_tv);
+
+                String upperString = aboutMe.substring(0, 1).toUpperCase() + aboutMe.substring(1);
+                txtAboutMe.setText(upperString);
+                txtAboutMe.setSelection(txtAboutMe.getText().length());
+
+                //((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText(aboutMe);
+
             } else {
+                EditText txtAboutMe = (EditText) findViewById(R.id.my_full_profile_about_me_content_tv);
+                txtAboutMe.setText("N/A");
 //                findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
 //                findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
             }
@@ -495,6 +559,23 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 }
             }
 
+            if (work_status.equals("0")) {
+                mwork_switch.setChecked(false);
+
+            } else {
+                mwork_switch.setChecked(true);
+
+            }
+            if (education_status.equals("0")) {
+                macademic_switch.setChecked(false);
+            } else {
+                macademic_switch.setChecked(true);
+            }
+            if (location_status.equals("0")) {
+                mlocation_switch.setChecked(false);
+            } else {
+                mlocation_switch.setChecked(true);
+            }
 
             if (!TextUtils.isEmpty(interest)) {
                 ((TextView) findViewById(R.id.my_edit_profile_interests_tv)).setText(interest);
@@ -511,12 +592,15 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             if (!TextUtils.isEmpty(userProfile.getProfileDetails().getDenomination())) {
                 ((TextView) findViewById(R.id.my_edit_profile_sect_tv)).setText(userProfile.getProfileDetails().getDenomination());
             } else {
+                ((TextView) findViewById(R.id.my_edit_profile_sect_tv)).setText("N/A");
+
 //                findViewById(R.id.sect_rl).setVisibility(View.GONE);
 //                findViewById(R.id.sects_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(work)) {
                 ((TextView) findViewById(R.id.my_edit_work_education_tv)).setText(work);
             } else {
+                ((TextView) findViewById(R.id.my_edit_work_education_tv)).setText("N/A");
                 // findViewById(R.id.work_rl).setVisibility(View.GONE);
                 //findViewById(R.id.works_rl).setVisibility(View.GONE);
             }
@@ -530,11 +614,15 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             if (!TextUtils.isEmpty(loc)) {
                 ((TextView) findViewById(R.id.my_edit_work_location_tv)).setText(loc);
             } else {
+                ((TextView) findViewById(R.id.my_edit_work_location_tv)).setText("N/A");
+
                 // findViewById(R.id.location_rl).setVisibility(View.GONE);
                 // findViewById(R.id.locations_rl).setVisibility(View.GONE);
             }
             if (!TextUtils.isEmpty(height)) {
                 ((TextView) findViewById(R.id.height_tv)).setText(height + " cm");
+            } else {
+                ((TextView) findViewById(R.id.height_tv)).setText("N/A");
             }
 
         }
@@ -571,7 +659,30 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         generalReq.setAbout_text(((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).getText().toString());
         generalReq.setHeight(height);
         generalReq.setEducation(academic);
-        generalReq.setEducation_status("1");
+
+
+        if (macademic_switch.isChecked()) {
+            generalReq.setEducation_status("1");
+
+        } else {
+            generalReq.setEducation_status("0");
+
+        }
+        if (mlocation_switch.isChecked()) {
+            generalReq.setLocation_status("1");
+
+        } else {
+            generalReq.setLocation_status("0");
+
+        }
+        if (mwork_switch.isChecked()) {
+            generalReq.setWork_status("1");
+
+        } else {
+            generalReq.setWork_status("0");
+
+        }
+
         return generalReq;
     }
 
@@ -716,11 +827,12 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         for (int i = 0; i < profilePicList.size(); i++) {
             if (profilePicList.get(i).equals("")) {
 
-             //  Glide.with(EditProfileActivity.this).load(selectedImageUri).placeholder(R.drawable.rounded_edit_profile).into(setSelectedImages);
+                //  Glide.with(EditProfileActivity.this).load(selectedImageUri).placeholder(R.drawable.rounded_edit_profile).into(setSelectedImages);
                 Utility.glide(EditProfileActivity.this, setSelectedImages, R.drawable.rounded_edit_profile, selectedImageUri);
-               profilePicList.set(clickCounter, selectedImageUri);
-               imageAdd.setVisibility(View.INVISIBLE);
+                profilePicList.set(clickCounter, selectedImageUri);
+                imageAdd.setVisibility(View.INVISIBLE);
                 imageAdd.setEnabled(false);
+                editDeleteProfileImageOne.setVisibility(View.VISIBLE);
 
                 updateImageEditProfileApi(PrefUtils.getSharedPrefString(EditProfileActivity.this, PrefUtils.USER_ID));
                 if (profilePicList.get(i).contains("http") || profilePicList.get(i).contains("https")) {
@@ -756,7 +868,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     // for Update Images
     public void updateImageEditProfileApi(final String userId) {
         Call<EditProfileRes> call = mApis.updateEditProfile(getImagesRequest1(), getUpdateEditProfile1(userId));
-        showProgressDialog(true);
+        //  showProgressDialog(true);
         call.enqueue(new Callback<EditProfileRes>() {
 
             @Override
@@ -825,7 +937,6 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         Call<UserImageRes> call = mApis.updateUserImage(getUserImage(imagePath));
         showProgressDialog(true);
         call.enqueue(new Callback<UserImageRes>() {
-
             @Override
             public void onResponse(Call<UserImageRes> call, Response<UserImageRes> response) {
                 showProgressDialog(false);
@@ -836,6 +947,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                     profilePicList.set(clickCounter, response.body().getData().getProfilePicUrl());
                     imageAdd.setVisibility(View.INVISIBLE);
                     imageAdd.setEnabled(false);
+                    deleteImage.setVisibility(View.VISIBLE);
 
                 }
             }
@@ -862,7 +974,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     }
 
     // DELETE IMAGE
-    private void deleteImage(final int value, final String deleteImageName, final ImageView imageAddPic, final String imageName) {
+    private void deleteImage(final int value, final String deleteImageName, final ImageView imageAddPic, final ImageView imageDeletePic, final String imageName) {
 
         AlertDialog.Builder alert = new AlertDialog.Builder(
                 EditProfileActivity.this);
@@ -879,6 +991,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 profilePicList.set(value, deleteImageName);
                 imageAddPic.setEnabled(true);
                 imageAddPic.setVisibility(View.VISIBLE);
+                imageDeletePic.setVisibility(View.INVISIBLE);
+
                 deleteImagesApi(imageName);
                 setImage();
 
@@ -941,6 +1055,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             call.enqueue(new Callback<ChangeProfileImagesRes>() {
                 @Override
                 public void onResponse(Call<ChangeProfileImagesRes> call, Response<ChangeProfileImagesRes> response) {
+                    showProgressDialog(false);
                     if (response.isSuccessful()) {
                         showProgressDialog(false);
                         if (response.body() != null) {
@@ -1033,12 +1148,12 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             GeneralReq generalReq = new GeneralReq();
             generalReq.setUser_id(PrefUtils.getSharedPrefString(EditProfileActivity.this, PrefUtils.USER_ID));
             Call<ObjResp<UserProfileRes>> call = mApis.userProfile(generalReq);
-            showProgressDialog(true);
+            //  showProgressDialog(true);
             call.enqueue(new Callback<ObjResp<UserProfileRes>>() {
                 @Override
                 public void onResponse(Call<ObjResp<UserProfileRes>> call, Response<ObjResp<UserProfileRes>> response) {
 
-                    showProgressDialog(false);
+                    // showProgressDialog(false);
                     if (response.isSuccessful()) {
                         //  showProgressDialog(false);
                         if (response.body() != null) {
@@ -1053,7 +1168,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
                 @Override
                 public void onFailure(Call<ObjResp<UserProfileRes>> call, Throwable t) {
-                    showProgressDialog(false);
+                    // showProgressDialog(false);
                 }
             });
         } else {

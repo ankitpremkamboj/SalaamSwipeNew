@@ -20,7 +20,6 @@ public class GeneralReq {
     private String education;
 
 
-
     // 0-dislike 1-like
     private String is_match;
     /**
@@ -50,6 +49,8 @@ public class GeneralReq {
     private String interest;
     private String height;
     private String education_status;
+    private String location_status;
+    private String work_status;
 
 
     /**
@@ -95,6 +96,7 @@ public class GeneralReq {
     private String is_shiaismaili;
     private String is_justmuslim;
     private String is_convert;
+
 
     public String getUser_image_column() {
         return user_image_column;
@@ -462,6 +464,22 @@ public class GeneralReq {
 
     public void setEducation_status(String education_status) {
         this.education_status = education_status;
+    }
+
+    public String getLocation_status() {
+        return location_status;
+    }
+
+    public void setLocation_status(String location_status) {
+        this.location_status = location_status;
+    }
+
+    public String getWork_status() {
+        return work_status;
+    }
+
+    public void setWork_status(String work_status) {
+        this.work_status = work_status;
     }
 
     public static class IntrestsEntity {

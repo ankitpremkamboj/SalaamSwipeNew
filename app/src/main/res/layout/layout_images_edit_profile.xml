@@ -77,6 +77,16 @@
                         android:background="@drawable/add_pic"
                         android:padding="@dimen/dp10"
                         android:visibility="invisible" />
+                    <ImageView
+                        android:id="@+id/image_delete_pic_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|top"
+                        android:background="@drawable/delete_pic"
+                        android:padding="@dimen/dp10"
+                        android:visibility="invisible" />
+
+
                 </FrameLayout>
 
                 <FrameLayout
@@ -98,6 +108,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|top"
                         android:background="@drawable/add_pic"
+                        android:padding="@dimen/dp10"
+                        android:visibility="invisible" />
+                    <ImageView
+                        android:id="@+id/image_delete_pic_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|top"
+                        android:background="@drawable/delete_pic"
                         android:padding="@dimen/dp10"
                         android:visibility="invisible" />
                 </FrameLayout>
@@ -132,6 +150,14 @@
                         android:background="@drawable/add_pic"
                         android:padding="@dimen/dp10"
                         android:visibility="invisible" />
+                    <ImageView
+                        android:id="@+id/image_delete_pic_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|top"
+                        android:background="@drawable/delete_pic"
+                        android:padding="@dimen/dp10"
+                        android:visibility="invisible" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -154,6 +180,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|top"
                         android:background="@drawable/add_pic"
+                        android:padding="@dimen/dp10"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/image_delete_pic_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|top"
+                        android:background="@drawable/delete_pic"
                         android:padding="@dimen/dp10"
                         android:visibility="invisible" />
                 </FrameLayout>

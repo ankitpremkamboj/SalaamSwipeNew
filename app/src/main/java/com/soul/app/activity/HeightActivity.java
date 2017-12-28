@@ -105,8 +105,14 @@ public class HeightActivity extends BaseActivity {
                 String minHeight = getIntent().getStringExtra(Constants.EXTRA_MIN_HEIGHT);
                 if (minHeight != null) {
                     mHeight_min_tv.setText(minHeight + " cm");
-                } else if (maxHeight != null) {
+                } else {
+                    mHeight_min_tv.setText("N/A" + "");
+                }
+
+                if (maxHeight != null) {
                     mHeight_max_tv.setText(maxHeight + " cm");
+                } else {
+                    mHeight_max_tv.setText("N/A" + "");
                 }
 
 

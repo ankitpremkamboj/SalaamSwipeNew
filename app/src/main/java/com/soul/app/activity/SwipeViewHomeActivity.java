@@ -94,7 +94,7 @@ public class SwipeViewHomeActivity extends com.soul.app.activity.BaseGpsActivity
     private String profilePic;
 
     private LinearLayout fb_login_ly;
-    private TextView fb_login_tv;
+    private TextView fb_login_tv, terms_of_services_tv, privacy_policy_tv;
 
     @Override
     public int setLayout() {
@@ -144,9 +144,21 @@ public class SwipeViewHomeActivity extends com.soul.app.activity.BaseGpsActivity
         //  fbLogin = (ImageView) findViewById(R.id.fb_login_iv);
         fb_login_tv = (TextView) findViewById(R.id.fb_login_tv);
         fb_login_tv.setTextColor(Color.WHITE);
-      /*  Typeface tf = Typeface.createFromAsset(getAssets(),
-                "fonts/Lato-Black.ttf");
-        fb_login_tv.setTypeface(tf);*/
+        privacy_policy_tv = (TextView) findViewById(R.id.privacy_policy_tv);
+        privacy_policy_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utility.loadWebPage(SwipeViewHomeActivity.this, ApiConstants.URL_PRIVACY, 3);
+
+            }
+        });
+        terms_of_services_tv = (TextView) findViewById(R.id.terms_of_services_tv);
+        terms_of_services_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utility.loadWebPage(SwipeViewHomeActivity.this, ApiConstants.URL_TERMS, 3);
+            }
+        });
 
         fb_login_ly = (LinearLayout) findViewById(R.id.fb_login_ly);
         fb_login_ly.setOnClickListener(new View.OnClickListener() {
@@ -204,7 +216,6 @@ public class SwipeViewHomeActivity extends com.soul.app.activity.BaseGpsActivity
         });*/
 
     }
-
 
 
     @Override
@@ -439,8 +450,15 @@ public class SwipeViewHomeActivity extends com.soul.app.activity.BaseGpsActivity
             e.printStackTrace();
         }
 
-        location = PrefUtils.getSharedPrefString(this, PrefUtils.PREF_LOCATION);
+        //  location = PrefUtils.getSharedPrefString(this, PrefUtils.PREF_LOCATION);
 
+        try {
+            if (!TextUtils.isEmpty(sb.getWork().get(0).getLocation().getName())) {
+                location = sb.getWork().get(0).getLocation().getName();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try {
             if (!TextUtils.isEmpty(sb.getWork().get(0).getPosition().getName())) {
                 work = sb.getWork().get(0).getPosition().getName();

@@ -103,6 +103,7 @@ public class OtherProfileRes implements Serializable {
         private double distance;
         private String latitude;
         private String longitude;
+        private String height;
 
         public String getInstagram() {
             return instagram;
@@ -250,6 +251,14 @@ public class OtherProfileRes implements Serializable {
             this.hometown_status = hometown_status;
         }
 
+        public String getHeight() {
+            return height;
+        }
+
+        public void setHeight(String height) {
+            this.height = height;
+        }
+
         public String getWork() {
             return work;
         }
@@ -351,6 +360,8 @@ public class OtherProfileRes implements Serializable {
         public void setCategory_image(String category_image) {
             this.category_image = category_image;
         }
+
+
     }
 
     public static class CommonInterestsBean {

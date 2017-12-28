@@ -59,12 +59,20 @@ public class MatchActivity extends BaseActivity {
     private String mOtherPic = "";
     private TextView sendMsgTv;
     private ImageView matchedAnimation;
+    private TextView liketxt;
 
     @Override
     public void initUi() {
         mOtherId = getIntent().getStringExtra(Constants.EXTRA_OTHER_ID);
         mOtherName = getIntent().getStringExtra(Constants.EXTRA_NAME);
         mOtherPic = getIntent().getStringExtra(Constants.EXTRA_USER_PROFILE);
+        liketxt = (TextView) findViewById(R.id.liketxt);
+
+      //  String name = liketxt.getText().toString();
+
+       // String newString = name.replace("Ben", "ankit");
+       // liketxt.setText(newString);
+
 
         sendMsgTv = (TextView) findViewById(R.id.send_msg_tv);
         sendMsgTv.setOnClickListener(new View.OnClickListener() {
@@ -85,11 +93,11 @@ public class MatchActivity extends BaseActivity {
         ImageView imgRight = (ImageView) findViewById(R.id.right_img);
 
         //  final pl.droidsonroids.gif.GifImageView frontImgVw = (GifImageView) findViewById(R.id.fron_gif_imgvw);
-
-        String name = getResources().getString(R.string.lbl_you_match_with) + " " + mOtherName;
+        //mOtherName="Ankit";
+        String name = "You and " + " " + mOtherName+" like each other, you can \n now send  a message";
         // FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_MATCHES);
 
-        ((TextView) findViewById(R.id.match_name_tv)).setText(name);
+        ((TextView) findViewById(R.id.liketxt)).setText(name);
         String userImage = PrefUtils.getSharedPrefString(this, PrefUtils.USER_PIC);
         if (!TextUtils.isEmpty(userImage)) {
             userImage = userImage.replace("http", "https");
@@ -120,10 +128,8 @@ public class MatchActivity extends BaseActivity {
 //        }
 
         matchedAnimation = (ImageView) findViewById(R.id.matched_animation);
-        mFasterAnimationsContainer = FasterAnimationsContainer
-                .getInstance(matchedAnimation);
-        mFasterAnimationsContainer.addAllFrames(IMAGE_RESOURCES,
-                ANIMATION_INTERVAL);
+        mFasterAnimationsContainer = FasterAnimationsContainer.getInstance(matchedAnimation);
+        mFasterAnimationsContainer.addAllFrames(IMAGE_RESOURCES, ANIMATION_INTERVAL);
         mFasterAnimationsContainer.start();
 
         findViewById(R.id.keep_swiping_tv).setOnClickListener(new View.OnClickListener() {

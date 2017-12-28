@@ -136,8 +136,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/my_profile_instagram_iv"
-                    android:textColor="@color/colorDarkText"
                     android:text="Select Interest"
+                    android:textColor="@color/colorDarkText"
                     android:textSize="@dimen/text_size_15sp" />
 
                 <TextView
@@ -319,9 +319,9 @@
                 android:id="@+id/edus_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp36"
-                android:visibility="gone"
                 android:background="@color/colorLight"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     style="@style/avenirLTStdHeavy"
@@ -341,8 +341,8 @@
                 android:layout_height="@dimen/dp53"
                 android:background="@color/colorWhite"
                 android:paddingLeft="@dimen/dp16"
-                android:visibility="gone"
-                android:paddingRight="@dimen/dp16">
+                android:paddingRight="@dimen/dp16"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/my_edit_profile_education_tv"
@@ -350,26 +350,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="N/A"
                     android:layout_toRightOf="@+id/my_profile_instagram_iv"
+                    android:text="N/A"
                     android:textColor="@color/colorDarkText"
                     android:textSize="@dimen/text_size_15sp" />
 
                 <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/edu_switch"
+                    style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:checked="true"
-                    style="@style/Color1SwitchStyle"
-                    />
+                    android:checked="true" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:visibility="gone"
-                android:background="@color/colorDarkDividerLine" />
+                android:background="@color/colorDarkDividerLine"
+                android:visibility="gone" />
 
 
             <RelativeLayout
@@ -411,6 +411,7 @@
 
 
                 <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/work_switch"
                     style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -464,6 +465,7 @@
 
 
                 <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/location_switch"
                     style="@style/Color1SwitchStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -510,9 +512,9 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/my_profile_instagram_iv"
                     android:text="@string/url_instagram"
-                    android:visibility="gone"
                     android:textColor="@color/colorDarkText"
-                    android:textSize="@dimen/text_size_15sp" />
+                    android:textSize="@dimen/text_size_15sp"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/instagram_et"

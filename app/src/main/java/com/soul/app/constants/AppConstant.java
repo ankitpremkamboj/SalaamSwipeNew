@@ -17,7 +17,10 @@ public class AppConstant {
     public static final String PREFS_PROPERTY_APP_VERSION = "prefspropertyappversion";
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     // public static final String CHAT_BASE_URL = "ws://103.25.130.197:9090/salaam-swipe/server.php";  //LOCAL
-    public static final String CHAT_BASE_URL = "ws://ec2-52-25-82-251.us-west-2.compute.amazonaws.com:9090/salaam-swipe-phase2/server.php";    // CLIENT
+   // public static final String CHAT_BASE_URL = "ws://ec2-52-25-82-251.us-west-2.compute.amazonaws.com:9090/salaam-swipe-phase2/server.php";    // CLIENT
+
+    public static final String CHAT_BASE_URL = "ws://soulsmatcher.com:9099/soulapp/server.php";    // CLIENT
+
     public static final int CHAT_FIRST_LAUNCH = 1;
     public static final int CHAT_MID_LAUNCH = 2;
     public static final int CHAT_LAST_LAUNCH = 3;
@@ -37,9 +40,7 @@ public class AppConstant {
     public static final String MSG_TYPE = "message_type";
     public static final String CREATED_ON = "created_on";
     public static final String SETTINGS_DATA = "settings_data";
-
     public static final String FLURRY_API_KEY = "SRB873T2SN79GXDHSFDP";
-
     public static final String FLURRY_EVENT_CARDSWIPE = "card_swipe";
     public static final String FLURRY_EVENT_RIGHTCARDSWIPE = "rightcard_swipe";
     public static final String FLURRY_EVENT_LEFTCARDSWIPE = "leftcard_swipe";

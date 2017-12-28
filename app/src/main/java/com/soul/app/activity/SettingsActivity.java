@@ -48,7 +48,7 @@ import retrofit2.Response;
 *  For Application Settings, here we can change the app Preference
 * */
 
-public class SettingsActivity extends com.soul.app.activity.BaseActivity implements View.OnClickListener {
+public class SettingsActivity extends BaseActivity implements View.OnClickListener {
     FrameLayout settingsHeader;
     private ImageView profileIcon;
     private TextView mAgeMinTv, mAgeMaxTv, mDistanceTv;
@@ -66,7 +66,7 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     protected void onPause() {
         super.onPause();
         //if (!logoutFlag)
-            //updateSetting();
+        //updateSetting();
     }
 
 
@@ -103,6 +103,35 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         mInCogSwitch = (SwitchCompat) findViewById(R.id.cognito_switch);
         mNewMatchSwitch = (SwitchCompat) findViewById(R.id.new_match_switch);
         mNewMsgSwitch = (SwitchCompat) findViewById(R.id.new_msg_switch);
+       /* mMaleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mMaleSwitch.isChecked()) {
+                    mFmaleSwitch.setChecked(false);
+                } else {
+                    mFmaleSwitch.setChecked(true);
+
+                }
+
+
+            }
+        });*/
+
+        /*mFmaleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mFmaleSwitch.isChecked()) {
+                    mMaleSwitch.setChecked(false);
+                } else {
+                    mMaleSwitch.setChecked(true);
+
+                }
+
+
+            }
+        });*/
+
+
 
         termsOfServicesRl = (RelativeLayout) findViewById(R.id.terms_of_services_rl);
         termsOfServicesRl.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +204,7 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
         mRemoveAcRl.setOnClickListener(this);
 
         getSettingApi();
-        //profileApi();
+        profileApi();
         //setUi((GetSettingRes) getIntent().getSerializableExtra(AppConstant.SETTINGS_DATA));
         //ArrayList<String> porfilePicList=PrefUtils.getSharedPrefListData(SettingsActivity.this,PrefUtils.PROFILE_PIC_LIST);
     }
@@ -183,7 +212,7 @@ public class SettingsActivity extends com.soul.app.activity.BaseActivity impleme
     @Override
     protected void onResume() {
         super.onResume();
-        profileApi();
+       // profileApi();
 
     }
 

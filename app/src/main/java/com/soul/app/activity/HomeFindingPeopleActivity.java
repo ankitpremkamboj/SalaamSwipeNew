@@ -225,6 +225,8 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                 cardSwAdapter.notifyDataSetChanged();
             }
         });
+
+
         profileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -726,7 +728,6 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
     public void userMatchApi() {
 
         if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
-
             GeneralReq generalReq = new GeneralReq();
             generalReq.setUser_id(PrefUtils.getSharedPrefString(HomeFindingPeopleActivity.this, PrefUtils.USER_ID));
             Call<ListResp<UserMatchesRes>> call = mApis.getUserMatches(generalReq);

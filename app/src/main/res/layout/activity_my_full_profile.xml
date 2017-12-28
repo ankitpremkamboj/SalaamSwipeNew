@@ -116,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dp10"
-                    android:layout_marginLeft="@dimen/dp16"
+                    android:layout_marginLeft="@dimen/dp24"
                     android:layout_marginTop="@dimen/dp10"
                     android:paddingBottom="@dimen/margin_5"
                     android:paddingTop="@dimen/margin_5"
@@ -259,7 +259,6 @@
                         android:layout_alignLeft="@+id/interest_tv"
                         android:layout_below="@+id/interest_iv"
                         android:layout_marginTop="@dimen/dp5"
-
                         android:textColor="@color/colorGreyText"
                         android:textSize="@dimen/text_size_15sp" />
 
