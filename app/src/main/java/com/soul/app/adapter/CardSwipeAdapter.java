@@ -103,5 +103,13 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
         public TextView txt_name, txt_designation;
 
     }
+
+    public void restoreItem(UserListRes.DataBean dataBean, int position) {
+        mData.add(position, dataBean);
+        // notify item added by position
+        //notifyItemInserted(position);
+        notifyDataSetChanged();
+
+    }
 }
 

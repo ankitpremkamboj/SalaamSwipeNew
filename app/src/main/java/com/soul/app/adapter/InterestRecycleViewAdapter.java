@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class InterestRecycleViewAdapter extends RecyclerView.Adapter<RecyclerVie
     List<InterestListRes> mData;
     ArrayList<SelectedState> checkedIntst = new ArrayList<SelectedState>();
     private int count = 0;
+    private boolean isListChecked;
 
     public InterestRecycleViewAdapter(Context mContext, List<InterestListRes> mData, int interestCount) {
         this.mContext = mContext;
@@ -52,26 +54,54 @@ public class InterestRecycleViewAdapter extends RecyclerView.Adapter<RecyclerVie
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
         if (holder instanceof DataObjectHolder) {
-            DataObjectHolder dataObjectHolder = (DataObjectHolder) holder;
+            final DataObjectHolder dataObjectHolder = (DataObjectHolder) holder;
 
 
             dataObjectHolder.interestTv.setText(mData.get(position).getCategory_name());
             dataObjectHolder.interestTv.setTag(position);
             dataObjectHolder.interestCb.setTag(position);
+            dataObjectHolder.interest_list.setTag(position);
 
             if (mData.get(position).isSelected()) {
                 dataObjectHolder.interestCb.setChecked(true);
-
+                //isListChecked = true;
             } else {
                 dataObjectHolder.interestCb.setChecked(false);
+               // isListChecked = false;
             }
+           /* dataObjectHolder.interest_list.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = (Integer) dataObjectHolder.interest_list.getTag();
 
+                    if (dataObjectHolder.interestCb.isChecked()) {
+
+                        //isListChecked = true;
+                        mData.get(pos).setSelected(true);
+                        dataObjectHolder.interestCb.setChecked(true);
+                        if (count > 4) {
+                            dataObjectHolder.interestCb.setChecked(false);
+                            mData.get(pos).setSelected(false);
+                            Toast.makeText(mContext, "You can select max 5 interest", Toast.LENGTH_LONG).show();
+                        } else {
+                            ++count;
+                        }
+                    } else {
+                        mData.get(pos).setSelected(false);
+                        dataObjectHolder.interestCb.setChecked(false);
+                        --count;
+
+
+                    }
+                }
+            });
+*/
             dataObjectHolder.interestCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     int pos = (Integer) buttonView.getTag();
                     if (isChecked) {
-
+                        isListChecked = true;
                         mData.get(pos).setSelected(true);
                         buttonView.setChecked(true);
                         if (count > 4) {
@@ -122,11 +152,14 @@ public class InterestRecycleViewAdapter extends RecyclerView.Adapter<RecyclerVie
     public class DataObjectHolder extends RecyclerView.ViewHolder {
         TextView interestTv;
         CheckBox interestCb;
+        LinearLayout interest_list;
+
 
         public DataObjectHolder(View itemView) {
             super(itemView);
             interestTv = (TextView) itemView.findViewById(R.id.row_interest_tv);
             interestCb = (CheckBox) itemView.findViewById(R.id.row_interest_cb);
+            interest_list = (LinearLayout) itemView.findViewById(R.id.interest_list);
 
         }
     }
@@ -139,7 +172,6 @@ public class InterestRecycleViewAdapter extends RecyclerView.Adapter<RecyclerVie
             super(itemView);
             addInterestTv = (TextView) itemView.findViewById(R.id.add_interest_tv);
             addImageVw = (ImageView) itemView.findViewById(R.id.add_interest_imgvw);
-
         }
     }
 

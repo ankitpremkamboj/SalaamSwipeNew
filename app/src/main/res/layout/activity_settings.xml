@@ -52,7 +52,7 @@
                         style="@style/avenirLTStdHeavy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="300"
+                        android:text="0"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -123,7 +123,7 @@
                         style="@style/avenirLTStdRoman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="18"
+                        android:text="0"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -138,7 +138,14 @@
                         style="@style/avenirLTStdRoman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="60"
+                        android:text="0"
+                        android:textColor="@color/black" />
+                    <TextView
+                        style="@style/avenirLTStdHeavy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Years"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

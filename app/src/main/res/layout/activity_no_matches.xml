@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context="com.soul.app.activity.NoMatchesActivity">
 
     <include
@@ -16,7 +16,8 @@
         android:layout_height="@dimen/dp36"
         android:layout_below="@+id/header_match_tb"
         android:background="@color/colorStrip"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/matches_tv"
@@ -35,14 +36,16 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/dp19"
         android:paddingRight="@dimen/dp19"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp24"
             android:layout_marginTop="@dimen/dp24"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -86,7 +89,8 @@
         android:layout_height="@dimen/dp36"
         android:layout_below="@+id/header_chat_tv"
         android:background="@color/colorStrip"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/messages_tv"
@@ -110,9 +114,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/no_message" />
+            android:layout_marginTop="@dimen/dp100"
+            android:background="@drawable/no_match" />
 
         <TextView
             android:id="@+id/no_message_tv"
@@ -121,10 +125,24 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/no_message_iv"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dp16"
-            android:text="@string/no_message"
-            android:textColor="@color/colorDarkText"
-            android:textSize="@dimen/text_size_14sp" />
+            android:layout_marginTop="@dimen/dp25"
+            android:text="No Match Now"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_20sp" />
+
+
+        <TextView
+            style="@style/avenirLTStdBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_message_tv"
+            android:layout_marginTop="@dimen/dp15"
+            android:gravity="center_horizontal"
+            android:text="When you match with other users they’ll \n appear here where you can send them a \n message"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+
     </RelativeLayout>
 
 

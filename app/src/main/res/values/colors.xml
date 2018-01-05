@@ -37,6 +37,7 @@
     <color name="color_B1B1B1">#B1B1B1</color>
     <color name="black">#000000</color>
     <color name="color_lite_gray">#0f000000</color>
+    <color name="header_text_color">#cac5c5</color>
 
     <color name="transparent">#0b000000</color>
 </resources>

@@ -2,6 +2,8 @@ package com.soul.app.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -44,7 +46,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MatchesFoundActivity extends com.soul.app.activity.BaseActivity implements View.OnClickListener {
+public class MatchesFoundActivity extends BaseActivity implements View.OnClickListener {
 
     private ListView matchesMessageListView;
     private MatchesListAdapter matchesListAdapter;
@@ -52,11 +54,15 @@ public class MatchesFoundActivity extends com.soul.app.activity.BaseActivity imp
     private Button matchesCancelBtn;
     private TextView searchTv;
     private ImageView homeIcon;
+    private ImageView profile_icon;
     private FrameLayout matchHeader;
     private List<UserMatchesRes> mMatchesList;
     private List<UserMatchesRes> mFilterMatchList;
     private List mFilterList = new ArrayList();
     private LinearLayout mMatchesLinLayout;
+    private TextView profile_tv;
+    private TextView home_tv;
+    private TextView chat_tv;
 
     private EditText mSearchEdt;
     private ArrayList<ChatConversationRes> mChatConvList = new ArrayList<ChatConversationRes>();
@@ -79,15 +85,35 @@ public class MatchesFoundActivity extends com.soul.app.activity.BaseActivity imp
         matchHeader = (FrameLayout) findViewById(R.id.match_header);
         matchHeader.setVisibility(View.VISIBLE);
 
+        chat_tv = (TextView) findViewById(R.id.chat_tv);
+        chat_tv.setTextColor(Color.WHITE);
+
+        home_tv = (TextView) findViewById(R.id.home_tv);
+        home_tv.setTextColor(ContextCompat.getColor(this, R.color.header_text_color));
+
+        profile_tv = (TextView) findViewById(R.id.profile_tv);
+        profile_tv.setTextColor(ContextCompat.getColor(this, R.color.header_text_color));
+
         homeIcon = (ImageView) findViewById(R.id.mh_home_icon);
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MatchesFoundActivity.this, HomeFindingPeopleActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
 
+        profile_icon = (ImageView) findViewById(R.id.profile_icon);
+        profile_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MatchesFoundActivity.this, MyProfileActivity.class);
+                startActivity(intent);
+                finish();
 
+            }
+        });
         matchSearchBoxRl = (RelativeLayout) findViewById(R.id.match_search_box_rl);
         searchTv = (TextView) findViewById(R.id.search_tv);
         searchTv.setOnClickListener(new View.OnClickListener() {

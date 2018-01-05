@@ -2,6 +2,7 @@ package com.soul.app.activity;
 
 import android.content.Intent;
 import android.location.Location;
+import android.media.Image;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -39,6 +40,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,9 +52,11 @@ import retrofit2.Response;
 *  Finding Other Users Home Screen
 * */
 
-public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActivity {
+public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
     List<UserListRes.DataBean> mData = new ArrayList<UserListRes.DataBean>();
+    List<UserListRes.DataBean> mDataUndo = new ArrayList<UserListRes.DataBean>();
+
     GetSettingRes getSettingRes;
     private TextView mNameTv, mAgeTv, mDistanceTv;//, mProfileTv;
     private FrameLayout frameLayoutHomeHeader;
@@ -77,7 +82,9 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
     private TextView txt_name, txt_designation;
     private ImageView likeBottom;
     private ImageView sDislikeBottom;
+    private ImageView img_undo;
     int childPos;
+    private boolean isLike = true;
 
     @Override
     public int setLayout() {
@@ -130,6 +137,68 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame_sfav);
 //        frameUp = (FrameLayout) findViewById(R.id.image_ll);
         frameB = (FrameLayout) findViewById(R.id.no_image);
+        img_undo = (ImageView) findViewById(R.id.img_undo);
+
+        img_undo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // isLike = true;
+                isLike = false;
+
+                // mDataUndo.addAll(mData);
+                // mData.remove(childPos);
+                // mData.clear();
+
+                //  mData.addAll(response.body().getData());
+                // setProfileInfo(mData);
+
+
+               // final UserListRes.DataBean deletedItem = mDataUndo.get(childPos);
+               // final int deletedIndex = viewHolder.getAdapterPosition();
+                //cardSwAdapter.restoreItem(deletedItem,childPos);
+
+
+
+                if (mDataUndo.size() == 0) {
+                    frameUp.setVisibility(View.GONE);
+                    frameB.setVisibility(View.VISIBLE);
+                } else {
+                    //setProfileInfo(mDataUndo);
+                    //  flingContainer.addView(v, 0);
+
+                    flingContainer.removeAllViewsInLayout();
+                    cardSwAdapter.notifyDataSetChanged();
+                    cardSwAdapter = new CardSwipeAdapter(mDataUndo, HomeFindingPeopleActivity.this);
+                    flingContainer.setAdapter(cardSwAdapter);
+                    //childPos = flingContainer.getChildCount();
+                    Log.e("User Id", mDataUndo.get(0).getUser_id());
+                    // Log.e("User Name", mData.get(0).getUser_name());
+                }
+                mUserImgList.clear();
+                if (mDataUndo != null) {
+                    if (mDataUndo.size() > 0) {
+                        if (!TextUtils.isEmpty(mDataUndo.get(0).getProfile_pic())) {
+                            mUserImgList.add(mDataUndo.get(0).getProfile_pic());
+                        }
+                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image1())) {
+                            mUserImgList.add(mDataUndo.get(0).getUser_image1());
+                        }
+                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image2())) {
+                            mUserImgList.add(mDataUndo.get(0).getUser_image2());
+                        }
+                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image3())) {
+                            mUserImgList.add(mDataUndo.get(0).getUser_image3());
+                        }
+                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image4())) {
+                            mUserImgList.add(mDataUndo.get(0).getUser_image4());
+                        }
+                    }
+                }
+
+
+                // cardSwAdapter.notifyDataSetChanged();
+            }
+        });
 
         frameUp.setVisibility(View.GONE);
         frameLayoutHomeHeader.setVisibility(View.VISIBLE);
@@ -304,8 +373,9 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
 
                         // Add data to the intent, the receiving app will decide
                         // what to do with it.
-                        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Salaam Swipe is a wonderful application.");
-                        sharingIntent.putExtra(Intent.EXTRA_TEXT, "http://www.salaamswipe.com");
+                        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Soul Dating app");
+                        sharingIntent.putExtra(Intent.EXTRA_TEXT, "Soul Dating is a wonderful application. Please download to find your best match \n" +
+                                "https://play.google.com/store/apps/details?id=com.soul.app");
                         startActivity(Intent.createChooser(sharingIntent, "Share link!"));
                     } else {
                         new SnackBar.Builder(HomeFindingPeopleActivity.this)
@@ -314,9 +384,8 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                 }
             });
         //call api
-
         //setSwipeviewTemp();
-       setSwipeview();
+        setSwipeview();
 
     }
 
@@ -339,18 +408,18 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
 //        frameUp = (FrameLayout) findViewById(R.id.image_ll);
         frameB = (FrameLayout) findViewById(R.id.no_image);
 */
-       mData.clear();
+        mData.clear();
         for (int i = 0; i < 10; i++) {
 
             UserListRes.DataBean db = new UserListRes.DataBean();
-           // userLis.set(i,db).setProfile_pic("http://soulsmatcher.com//soulapp//assets//profileimages//2016-04-28WqHprofile_pic.png");
-           // UserListRes.DataBean db = new UserListRes.DataBean();
+            // userLis.set(i,db).setProfile_pic("http://soulsmatcher.com//soulapp//assets//profileimages//2016-04-28WqHprofile_pic.png");
+            // UserListRes.DataBean db = new UserListRes.DataBean();
             db.setProfile_pic("http://soulsmatcher.com//soulapp//assets//profileimages//2016-04-28WqHprofile_pic.png");
-           mData.add(db);
+            mData.add(db);
 
         }
 
-       // mData=userLis;
+        // mData=userLis;
         cardSwAdapter = new CardSwipeAdapter(mData, this);
         flingContainer.setAdapter(cardSwAdapter);
         childPos = flingContainer.getChildCount();
@@ -365,7 +434,15 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_LEFTCARDSWIPE);
                 // dislike=0
-                callLikeDislike("0");
+                Timer timer = new Timer();
+
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        callLikeDislike("0");
+                    }
+                }, 0, 60000);
+
                 mData.remove(childPos);
                 if (mData.size() == 0) {
                     frameUp.setVisibility(View.GONE);
@@ -406,7 +483,23 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_RIGHTCARDSWIPE);
                 // like=1
-                callLikeDislike("1");
+
+                Timer timer = new Timer();
+
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+
+                        if (isLike) {
+                            callLikeDislike("1");
+                        }
+
+                    }
+                }, 0, 60000);
+
+                // callLikeDislike("1");
+                mDataUndo.clear();
+                mDataUndo.addAll(mData);
                 mData.remove(childPos);
                 if (mData.size() == 0) {
                     frameUp.setVisibility(View.GONE);
@@ -633,7 +726,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
             if (userList != null)
                 if (userList.size() > 0) {
 
-                  ///  setSwipeview(userList);
+                    ///  setSwipeview(userList);
 
 
                     String name = userList.get(0).getUser_name() + ", ";
@@ -709,6 +802,7 @@ public class HomeFindingPeopleActivity extends com.soul.app.activity.BaseGpsActi
                     //  showProgressDialog(false);
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
+                            isLike = false;
                             // DialogUtils.showToast(HomeFindingPeopleActivity.this,response.body().getMsg());
                         }
                     }

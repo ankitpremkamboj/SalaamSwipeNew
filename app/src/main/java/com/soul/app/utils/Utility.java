@@ -480,7 +480,7 @@ public class Utility {
             Glide.with(context)
                     .load(url)
                     .centerCrop()
-                    // .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .dontAnimate().placeholder(drawable).into(iv);
         } catch (Exception e) {
             e.printStackTrace();

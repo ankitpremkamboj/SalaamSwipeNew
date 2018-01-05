@@ -97,7 +97,10 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         mDistanceTv = (TextView) findViewById(R.id.miles);
         mAgeSeekBar = (MultiSlider) findViewById(R.id.age_seekbar);
         mDistanceSeekBar = (MultiSlider) findViewById(R.id.distance_seekbar);
-        mDistanceSeekBar.getThumb(0).setValue(300);
+        mDistanceSeekBar.getThumb(0).setValue(0);
+        mAgeSeekBar.getThumb(0).setValue(0);
+        mAgeSeekBar.getThumb(1).setValue(1);
+
         mMaleSwitch = (SwitchCompat) findViewById(R.id.male_switch);
         mFmaleSwitch = (SwitchCompat) findViewById(R.id.female_switch);
         mInCogSwitch = (SwitchCompat) findViewById(R.id.cognito_switch);
@@ -130,7 +133,6 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
 
             }
         });*/
-
 
 
         termsOfServicesRl = (RelativeLayout) findViewById(R.id.terms_of_services_rl);
@@ -212,7 +214,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onResume() {
         super.onResume();
-       // profileApi();
+        // profileApi();
 
     }
 

@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/ic_undo"
-                        android:visibility="gone" />
+                        android:visibility="visible" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -413,14 +413,14 @@
                     android:id="@+id/no_cards_left_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
                     android:background="@drawable/ic_no_card" />
 
                 <TextView
                     style="@style/avenirLTStdBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
                     android:gravity="center"
                     android:text="@string/look_like_there_no_new"
                     android:textColor="@color/colorDarkText"
@@ -431,7 +431,7 @@
                     style="@style/avenirLTStdBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
                     android:gravity="center"
                     android:padding="@dimen/dp5"
                     android:text="@string/try_changing_your_preference"

@@ -350,6 +350,20 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        
+        Utility.putStringValueInSharedPreference(EditProfileActivity.this, "instagramName",
+                instagramEditTextView.getText().toString());
+        //  url = "https://www.instagram.com/" + instagramEditTextView.getText().toString() + "/";
+        //instagramName = instagramEditTextView.getText().toString();
+        if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
+            callEditProfileApi((PrefUtils.getSharedPrefString(EditProfileActivity.this, PrefUtils.USER_ID)));
+        }
+        finish();
+    }
+
+    @Override
     public int setLayout() {
         Utility.setStatusBarGradiant(this);
 
@@ -941,14 +955,12 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             public void onResponse(Call<UserImageRes> call, Response<UserImageRes> response) {
                 showProgressDialog(false);
                 if (response.isSuccessful()) {
-
                     // Glide.with(EditProfileActivity.this).load(selectedImageUri).placeholder(R.drawable.rounded_edit_profile).into(setSelectedImages);
                     Utility.glide(EditProfileActivity.this, setSelectedImages, R.drawable.rounded_edit_profile, response.body().getData().getProfilePicUrl());
                     profilePicList.set(clickCounter, response.body().getData().getProfilePicUrl());
                     imageAdd.setVisibility(View.INVISIBLE);
                     imageAdd.setEnabled(false);
                     deleteImage.setVisibility(View.VISIBLE);
-
                 }
             }
 

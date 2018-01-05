@@ -45,7 +45,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:button="@drawable/custom_checkbox"
-                    android:padding="@dimen/margin_5" />
+                    android:padding="@dimen/margin_10" />
             </RelativeLayout>
 
             <View
@@ -78,7 +78,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:button="@drawable/custom_checkbox"
-                    android:padding="@dimen/margin_5" />
+                    android:padding="@dimen/margin_10" />
             </RelativeLayout>
 
             <View
@@ -110,7 +110,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:button="@drawable/custom_checkbox"
-                    android:padding="@dimen/margin_5" />
+                    android:padding="@dimen/margin_10" />
             </RelativeLayout>
 
             <View
@@ -142,7 +142,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:button="@drawable/custom_checkbox"
-                    android:padding="@dimen/margin_5" />
+                    android:padding="@dimen/margin_10" />
 
             </RelativeLayout>
 
@@ -175,7 +175,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:button="@drawable/custom_checkbox"
-                    android:padding="@dimen/margin_5" />
+                    android:padding="@dimen/margin_10" />
 
             </RelativeLayout>
             <View

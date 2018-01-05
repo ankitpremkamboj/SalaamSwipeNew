@@ -24,7 +24,7 @@ import com.soul.app.customui.tindercard.FlingCardListener;
  * Use with caution dinosaurs might appear!
  */
 
-public class SwipeFlingAdapterView extends com.soul.app.customui.tindercard.BaseFlingAdapterView {
+public class SwipeFlingAdapterView extends BaseFlingAdapterView {
 
 
     private int MAX_VISIBLE = 4;

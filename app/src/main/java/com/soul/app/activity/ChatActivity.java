@@ -60,7 +60,7 @@ import retrofit2.Response;
 * Chat Using Web service
 * */
 
-public class ChatActivity extends com.soul.app.activity.BaseActivity {
+public class ChatActivity extends BaseActivity {
 
     // final int intervalTime = 5000;//5 sec
     public GifResponse responseData;
