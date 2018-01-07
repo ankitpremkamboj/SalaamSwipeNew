@@ -38,7 +38,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
     private boolean mInLayout = false;
     private View mActiveCard = null;
     private OnItemClickListener mOnItemClickListener;
-    private com.soul.app.customui.tindercard.FlingCardListener flingCardListener;
+    private FlingCardListener flingCardListener;
     private PointF mLastTouchPoint;
 
 
@@ -217,8 +217,8 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
             mActiveCard = getChildAt(LAST_OBJECT_IN_STACK);
             if (mActiveCard != null) {
 
-                flingCardListener = new com.soul.app.customui.tindercard.FlingCardListener(mActiveCard, mAdapter.getItem(0),
-                        ROTATION_DEGREES, new com.soul.app.customui.tindercard.FlingCardListener.FlingListener() {
+                flingCardListener = new FlingCardListener(mActiveCard, mAdapter.getItem(0),
+                        ROTATION_DEGREES, new FlingCardListener.FlingListener() {
 
                     @Override
                     public void onCardExited() {

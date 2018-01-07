@@ -135,8 +135,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
 
-                Utility.putStringValueInSharedPreference(EditProfileActivity.this, "instagramName",
-                        instagramEditTextView.getText().toString());
+                Utility.putStringValueInSharedPreference(EditProfileActivity.this, "instagramName",      instagramEditTextView.getText().toString());
                 //  url = "https://www.instagram.com/" + instagramEditTextView.getText().toString() + "/";
                 //instagramName = instagramEditTextView.getText().toString();
                 if (ApplicationController.getApplicationInstance().isNetworkConnected()) {
@@ -557,8 +556,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 //((TextView) findViewById(R.id.my_full_profile_about_me_content_tv)).setText(aboutMe);
 
             } else {
-                EditText txtAboutMe = (EditText) findViewById(R.id.my_full_profile_about_me_content_tv);
-                txtAboutMe.setText("N/A");
+               // EditText txtAboutMe = (EditText) findViewById(R.id.my_full_profile_about_me_content_tv);
+                //txtAboutMe.setText("N/A");
 //                findViewById(R.id.aboutme_ll).setVisibility(View.GONE);
 //                findViewById(R.id.aboutme_rl).setVisibility(View.GONE);
             }
@@ -956,7 +955,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 showProgressDialog(false);
                 if (response.isSuccessful()) {
                     // Glide.with(EditProfileActivity.this).load(selectedImageUri).placeholder(R.drawable.rounded_edit_profile).into(setSelectedImages);
-                    Utility.glide(EditProfileActivity.this, setSelectedImages, R.drawable.rounded_edit_profile, response.body().getData().getProfilePicUrl());
+                    //Utility.glide(EditProfileActivity.this, setSelectedImages, R.drawable.rounded_edit_profile, response.body().getData().getProfilePicUrl());
                     profilePicList.set(clickCounter, response.body().getData().getProfilePicUrl());
                     imageAdd.setVisibility(View.INVISIBLE);
                     imageAdd.setEnabled(false);

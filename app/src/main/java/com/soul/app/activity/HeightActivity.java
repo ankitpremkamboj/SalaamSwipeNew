@@ -106,13 +106,15 @@ public class HeightActivity extends BaseActivity {
                 if (minHeight != null) {
                     mHeight_min_tv.setText(minHeight + " cm");
                 } else {
-                    mHeight_min_tv.setText("N/A" + "");
+                    mHeight_min_tv.setText("0" + " cm");
+                    minHeight = "0";
                 }
 
                 if (maxHeight != null) {
                     mHeight_max_tv.setText(maxHeight + " cm");
                 } else {
-                    mHeight_max_tv.setText("N/A" + "");
+                    mHeight_max_tv.setText("0" + " cm");
+                    maxHeight = "0";
                 }
 
 

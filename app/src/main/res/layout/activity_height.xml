@@ -54,7 +54,7 @@
                         style="@style/avenirLTStdRoman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="100 cm"
+                        android:text="0 cm"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -69,7 +69,7 @@
                         style="@style/avenirLTStdRoman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="250 cm"
+                        android:text="0 cm"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -88,6 +88,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
+                    android:padding="@dimen/dp3"
                     android:thumb="@drawable/ic_thumb_white"
                     app:range="@drawable/slide_track"
                     app:range1="@drawable/multislider_scrubber_track_holo_light"

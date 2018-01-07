@@ -2,14 +2,13 @@ package com.soul.app.activity;
 
 import android.content.Intent;
 import android.location.Location;
-import android.media.Image;
+import android.os.CountDownTimer;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -84,7 +83,10 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
     private ImageView sDislikeBottom;
     private ImageView img_undo;
     int childPos;
-    private boolean isLike = true;
+    private boolean isLike = false;
+    private ImageView swapedImageView;
+    String userId;
+    private ImageView img_undo_nocard;
 
     @Override
     public int setLayout() {
@@ -121,6 +123,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
         Animation bottomUpText = AnimationUtils.loadAnimation(this,
                 R.anim.bottom_up_text);
         mFindingPotentialMatch.setAnimation(bottomUpText);
+        img_undo_nocard = (ImageView) findViewById(R.id.img_undo_nocard);
         mLeftArrowImg = (ImageView) findViewById(R.id.left_arrow_img);
         mRightArrowImg = (ImageView) findViewById(R.id.right_arrow_img);
         frameLayoutHomeHeader = (FrameLayout) findViewById(R.id.home_header_frame_layout);
@@ -139,64 +142,41 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
         frameB = (FrameLayout) findViewById(R.id.no_image);
         img_undo = (ImageView) findViewById(R.id.img_undo);
 
+        img_undo_nocard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("undo list size=" + mDataUndo.size(), "child" + childPos);
+                if (mDataUndo.size() != 0) {
+                    frameUp.setVisibility(View.VISIBLE);
+                    frameB.setVisibility(View.GONE);
+                    isLike = true;
+                    final UserListRes.DataBean deletedItem = mDataUndo.get(childPos);
+                    mData.add(childPos, deletedItem);
+                    mDataUndo.remove(deletedItem);
+                    flingContainer.removeAllViewsInLayout();
+                    cardSwAdapter = new CardSwipeAdapter(mData, HomeFindingPeopleActivity.this);
+                    flingContainer.setAdapter(cardSwAdapter);
+                    cardSwAdapter.notifyDataSetChanged();
+                    cardSwAdapter.notifyDataSetInvalidated();
+                }
+            }
+        });
+
         img_undo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // isLike = true;
-                isLike = false;
-
-                // mDataUndo.addAll(mData);
-                // mData.remove(childPos);
-                // mData.clear();
-
-                //  mData.addAll(response.body().getData());
-                // setProfileInfo(mData);
-
-
-               // final UserListRes.DataBean deletedItem = mDataUndo.get(childPos);
-               // final int deletedIndex = viewHolder.getAdapterPosition();
-                //cardSwAdapter.restoreItem(deletedItem,childPos);
-
-
-
-                if (mDataUndo.size() == 0) {
-                    frameUp.setVisibility(View.GONE);
-                    frameB.setVisibility(View.VISIBLE);
-                } else {
-                    //setProfileInfo(mDataUndo);
-                    //  flingContainer.addView(v, 0);
-
+                Log.e("undo list size=" + mDataUndo.size(), "child" + childPos);
+                if (mDataUndo.size() != 0) {
+                    isLike = true;
+                    final UserListRes.DataBean deletedItem = mDataUndo.get(childPos);
+                    mData.add(childPos, deletedItem);
+                    mDataUndo.remove(deletedItem);
                     flingContainer.removeAllViewsInLayout();
-                    cardSwAdapter.notifyDataSetChanged();
-                    cardSwAdapter = new CardSwipeAdapter(mDataUndo, HomeFindingPeopleActivity.this);
+                    cardSwAdapter = new CardSwipeAdapter(mData, HomeFindingPeopleActivity.this);
                     flingContainer.setAdapter(cardSwAdapter);
-                    //childPos = flingContainer.getChildCount();
-                    Log.e("User Id", mDataUndo.get(0).getUser_id());
-                    // Log.e("User Name", mData.get(0).getUser_name());
+                    cardSwAdapter.notifyDataSetChanged();
+                    cardSwAdapter.notifyDataSetInvalidated();
                 }
-                mUserImgList.clear();
-                if (mDataUndo != null) {
-                    if (mDataUndo.size() > 0) {
-                        if (!TextUtils.isEmpty(mDataUndo.get(0).getProfile_pic())) {
-                            mUserImgList.add(mDataUndo.get(0).getProfile_pic());
-                        }
-                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image1())) {
-                            mUserImgList.add(mDataUndo.get(0).getUser_image1());
-                        }
-                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image2())) {
-                            mUserImgList.add(mDataUndo.get(0).getUser_image2());
-                        }
-                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image3())) {
-                            mUserImgList.add(mDataUndo.get(0).getUser_image3());
-                        }
-                        if (!TextUtils.isEmpty(mDataUndo.get(0).getUser_image4())) {
-                            mUserImgList.add(mDataUndo.get(0).getUser_image4());
-                        }
-                    }
-                }
-
-
-                // cardSwAdapter.notifyDataSetChanged();
             }
         });
 
@@ -219,12 +199,41 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
                 //dislike=0
 
-                callLikeDislike("0");
+                // callLikeDislike("0");
+
+                img_undo.setVisibility(View.VISIBLE);
+                userId = mData.get(0).getUser_id();
+
+                CountDownTimer timer2 = new CountDownTimer(4000, 1000) {
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                    }
+                    @Override
+                    public void onFinish() {
+                        img_undo.setVisibility(View.GONE);
+                        img_undo_nocard.setVisibility(View.GONE);//(or GONE)
+                        if (isLike) {
+                            isLike = false;
+                        } else {
+                            callLikeDislike("0");
+                        }
+                    }
+
+                }.start();
+
+                if (!mDataUndo.isEmpty()) {
+                    mDataUndo.remove(childPos);
+                }
+                mDataUndo.add(mData.get(childPos));
                 mData.remove(childPos);
                 if (mData.size() == 0) {
+                    img_undo_nocard.setVisibility(View.VISIBLE);
                     frameUp.setVisibility(View.GONE);
                     frameB.setVisibility(View.VISIBLE);
                 } else {
+                    img_undo_nocard.setVisibility(View.GONE);
+
                     setProfileInfo(mData);
                     Log.e("User Id", mData.get(0).getUser_id());
                     // Log.e("User Name", mData.get(0).getUser_name());
@@ -260,12 +269,44 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_RIGHTCARDSWIPE);
                 // like=1
-                callLikeDislike("1");
+                // callLikeDislike("1");
+
+
+                img_undo.setVisibility(View.VISIBLE);
+                userId = mData.get(0).getUser_id();
+
+                CountDownTimer timer2 = new CountDownTimer(4000, 1000) {
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        img_undo.setVisibility(View.GONE); //(or GONE)
+                        img_undo_nocard.setVisibility(View.GONE);
+                        if (isLike) {
+                            isLike = false;
+                        } else {
+                            callLikeDislike("1");
+                        }
+                    }
+                }.start();
+
+
+                if (!mDataUndo.isEmpty()) {
+                    mDataUndo.remove(childPos);
+                }
+                mDataUndo.add(mData.get(childPos));
                 mData.remove(childPos);
                 if (mData.size() == 0) {
                     frameUp.setVisibility(View.GONE);
                     frameB.setVisibility(View.VISIBLE);
+                    img_undo_nocard.setVisibility(View.VISIBLE);
+
                 } else {
+                    img_undo_nocard.setVisibility(View.GONE);
+
                     setProfileInfo(mData);
                     Log.e("User Id", mData.get(0).getUser_id());
                     // Log.e("User Name", mData.get(0).getUser_name());
@@ -433,24 +474,44 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_LEFTCARDSWIPE);
-                // dislike=0
-                Timer timer = new Timer();
 
-                timer.scheduleAtFixedRate(new TimerTask() {
+                img_undo.setVisibility(View.VISIBLE);
+                userId = mData.get(0).getUser_id();
+
+                CountDownTimer timer2 = new CountDownTimer(4000, 1000) {
+
                     @Override
-                    public void run() {
-                        callLikeDislike("0");
+                    public void onTick(long millisUntilFinished) {
                     }
-                }, 0, 60000);
 
+                    @Override
+                    public void onFinish() {
+                        img_undo.setVisibility(View.GONE); //(or GONE)
+                        img_undo_nocard.setVisibility(View.GONE);
+                        if (isLike) {
+                            isLike = false;
+                        } else {
+                            callLikeDislike("0");
+                        }
+                    }
+                }.start();
+
+
+                Log.e("swap Userid", "" + mData.get(childPos).getUser_id());
+                if (!mDataUndo.isEmpty()) {
+                    mDataUndo.remove(childPos);
+                }
+                mDataUndo.add(mData.get(childPos));
                 mData.remove(childPos);
                 if (mData.size() == 0) {
                     frameUp.setVisibility(View.GONE);
                     frameB.setVisibility(View.VISIBLE);
+                    img_undo_nocard.setVisibility(View.VISIBLE);
+
                 } else {
+                    img_undo_nocard.setVisibility(View.GONE);
+
                     setProfileInfo(mData);
-                    Log.e("User Id", mData.get(0).getUser_id());
-                    // Log.e("User Name", mData.get(0).getUser_name());
                 }
                 mUserImgList.clear();
                 if (mData != null) {
@@ -472,7 +533,6 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
                         }
                     }
                 }
-
                 cardSwAdapter.notifyDataSetChanged();
 
             }
@@ -482,31 +542,46 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_CARDSWIPE);
                 FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_RIGHTCARDSWIPE);
-                // like=1
+                img_undo.setVisibility(View.VISIBLE);
 
-                Timer timer = new Timer();
+                userId = mData.get(0).getUser_id();
 
-                timer.scheduleAtFixedRate(new TimerTask() {
+
+                CountDownTimer timer2 = new CountDownTimer(4000, 1000) {
+
                     @Override
-                    public void run() {
-
+                    public void onTick(long millisUntilFinished) {
                         if (isLike) {
+                            Log.e("time", "test");
+                        }
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        img_undo.setVisibility(View.GONE); //(or GONE)
+                        img_undo_nocard.setVisibility(View.GONE);
+                        // callLikeDislike("1");
+                        if (isLike) {
+                            isLike = false;
+                            Log.e("time", "callLikeDislike");
+                        } else {
                             callLikeDislike("1");
                         }
-
                     }
-                }, 0, 60000);
+                }.start();
 
-                // callLikeDislike("1");
-                mDataUndo.clear();
-                mDataUndo.addAll(mData);
+                if (!mDataUndo.isEmpty()) {
+                    mDataUndo.remove(childPos);
+                }
+                mDataUndo.add(mData.get(childPos));
                 mData.remove(childPos);
                 if (mData.size() == 0) {
                     frameUp.setVisibility(View.GONE);
                     frameB.setVisibility(View.VISIBLE);
+                    img_undo_nocard.setVisibility(View.VISIBLE);
                 } else {
+                    img_undo_nocard.setVisibility(View.GONE);
                     setProfileInfo(mData);
-                    Log.e("User Id", mData.get(0).getUser_id());
                     // Log.e("User Name", mData.get(0).getUser_name());
                 }
                 mUserImgList.clear();
@@ -727,8 +802,6 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
                 if (userList.size() > 0) {
 
                     ///  setSwipeview(userList);
-
-
                     String name = userList.get(0).getUser_name() + ", ";
                     String designation = userList.get(0).getWork();
                     String edu = userList.get(0).getEducation();
@@ -791,7 +864,7 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
             // showProgressDialog(true);
             GeneralReq generalReq = new GeneralReq();
             generalReq.setUser_id(PrefUtils.getSharedPrefString(HomeFindingPeopleActivity.this, PrefUtils.USER_ID));
-            generalReq.setOther_id(mData.get(0).getUser_id());
+            generalReq.setOther_id(userId);
             generalReq.setIs_match(isMatch);
             Call<LikeDislikeRes> call = mApis.userLikeDislike(generalReq);
             call.enqueue(new Callback<LikeDislikeRes>() {
@@ -799,18 +872,18 @@ public class HomeFindingPeopleActivity extends BaseGpsActivity {
 
                 @Override
                 public void onResponse(Call<LikeDislikeRes> call, Response<LikeDislikeRes> response) {
-                    //  showProgressDialog(false);
+                    //   showProgressDialog(false);
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
                             isLike = false;
-                            // DialogUtils.showToast(HomeFindingPeopleActivity.this,response.body().getMsg());
+                            //DialogUtils.showToast(HomeFindingPeopleActivity.this,response.body().getMsg());
                         }
                     }
                 }
 
                 @Override
                 public void onFailure(Call<LikeDislikeRes> call, Throwable t) {
-                    //   showProgressDialog(false);
+                    // showProgressDialog(false);
                 }
             });
         } else {

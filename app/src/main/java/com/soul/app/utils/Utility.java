@@ -480,6 +480,8 @@ public class Utility {
             Glide.with(context)
                     .load(url)
                     .centerCrop()
+                    .dontTransform()
+                    .skipMemoryCache(true)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .dontAnimate().placeholder(drawable).into(iv);
         } catch (Exception e) {
@@ -493,6 +495,7 @@ public class Utility {
                 .load(url)
                 .asGif()
                 .fitCenter()
+
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(drawable).into(iv);
     }

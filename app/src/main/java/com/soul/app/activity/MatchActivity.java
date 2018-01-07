@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.soul.app.R;
@@ -61,6 +62,7 @@ public class MatchActivity extends BaseActivity {
     private ImageView matchedAnimation;
     private TextView liketxt;
 
+
     @Override
     public void initUi() {
         mOtherId = getIntent().getStringExtra(Constants.EXTRA_OTHER_ID);
@@ -68,14 +70,14 @@ public class MatchActivity extends BaseActivity {
         mOtherPic = getIntent().getStringExtra(Constants.EXTRA_USER_PROFILE);
         liketxt = (TextView) findViewById(R.id.liketxt);
 
-      //  String name = liketxt.getText().toString();
+        //  String name = liketxt.getText().toString();
 
-       // String newString = name.replace("Ben", "ankit");
-       // liketxt.setText(newString);
+        // String newString = name.replace("Ben", "ankit");
+        // liketxt.setText(newString);
 
-
+        RelativeLayout send_message = (RelativeLayout) findViewById(R.id.send_message);
         sendMsgTv = (TextView) findViewById(R.id.send_msg_tv);
-        sendMsgTv.setOnClickListener(new View.OnClickListener() {
+        send_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent intentChat = new Intent(MatchActivity.this, ChatActivity.class);
@@ -94,7 +96,7 @@ public class MatchActivity extends BaseActivity {
 
         //  final pl.droidsonroids.gif.GifImageView frontImgVw = (GifImageView) findViewById(R.id.fron_gif_imgvw);
         //mOtherName="Ankit";
-        String name = "You and " + " " + mOtherName+" like each other, you can \n now send  a message";
+        String name = "You and" + " " + mOtherName + " like each other, you can \n now send a message";
         // FlurryAgent.logEvent(AppConstant.FLURRY_EVENT_MATCHES);
 
         ((TextView) findViewById(R.id.liketxt)).setText(name);
@@ -132,7 +134,9 @@ public class MatchActivity extends BaseActivity {
         mFasterAnimationsContainer.addAllFrames(IMAGE_RESOURCES, ANIMATION_INTERVAL);
         mFasterAnimationsContainer.start();
 
-        findViewById(R.id.keep_swiping_tv).setOnClickListener(new View.OnClickListener() {
+        RelativeLayout keep_swiping = (RelativeLayout) findViewById(R.id.keep_swiping);
+
+        keep_swiping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MatchActivity.this, HomeFindingPeopleActivity.class));

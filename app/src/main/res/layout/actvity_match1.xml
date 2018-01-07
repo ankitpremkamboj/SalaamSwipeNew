@@ -136,6 +136,7 @@
 
 
                     <RelativeLayout
+                        android:id="@+id/send_message"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp50"
                         android:layout_marginLeft="@dimen/dp30"
@@ -168,6 +169,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/keep_swiping"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp30"

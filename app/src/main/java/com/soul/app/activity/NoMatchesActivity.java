@@ -60,8 +60,9 @@ public class NoMatchesActivity extends com.soul.app.activity.BaseActivity {
         profile_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-            }
+                Intent intent = new Intent(NoMatchesActivity.this, MyProfileActivity.class);
+                startActivity(intent);
+                finish();            }
         });
 
         mh_chat_icon = (ImageView) findViewById(R.id.mh_chat_icon);

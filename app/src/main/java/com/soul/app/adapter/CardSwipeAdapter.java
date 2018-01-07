@@ -8,10 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.soul.app.R;
 import com.soul.app.interfaces.PagerListener;
 import com.soul.app.models.res.UserListRes;
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -46,7 +46,7 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return mData.get(position);
     }
 
     @Override
@@ -61,42 +61,31 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
 
         if (rowView == null) {
             rowView = inflater.inflate(R.layout.row_swipe_view, parent, false);
-            // configure view holder
             viewHolder = new ViewHolder();
-
             viewHolder.cardImage = (ImageView) rowView.findViewById(R.id.cardImage);
-            viewHolder.txt_name=(TextView)rowView.findViewById(R.id.txt_name);
-            viewHolder.txt_designation=(TextView)rowView.findViewById(R.id.txt_designation);
-
+            viewHolder.txt_name = (TextView) rowView.findViewById(R.id.txt_name);
+            viewHolder.txt_designation = (TextView) rowView.findViewById(R.id.txt_designation);
             rowView.setTag(viewHolder);
-
-            //  this.imgView = viewHolder.cardImage;
-
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         if (mData.get(position).getProfile_pic().contains("http")) {
-            // String profilePic = mData.get(position).getProfile_pic().replace("http", "https");
             mData.get(position).getProfile_pic().replace("http", "https");
         }
-        Glide.with(context).load(mData.get(position).getProfile_pic()).into(viewHolder.cardImage);
+        Glide.with(context).load(mData.get(position).getProfile_pic()).skipMemoryCache(true).into(viewHolder.cardImage);
 
-         viewHolder.txt_name.setText(mData.get(position).getUser_name());
-         viewHolder.txt_designation.setText(mData.get(position).getWork());
-         viewHolder.cardImage.setTag(mData.get(position).getUser_id());
+        viewHolder.txt_name.setText(mData.get(position).getUser_name());
+        viewHolder.txt_designation.setText(mData.get(position).getWork());
+        viewHolder.cardImage.setTag(mData.get(position).getUser_id());
 
         return rowView;
     }
 
     @Override
     public void setCurrentPos(Context context, int pos) {
-//        Glide.with(context).load(matchList.get(pos).getmImageList().get(pos).getImagePath()).into(viewHolder.cardImage);
+        Glide.with(context).load(mData.get(pos).getProfile_pic()).into(viewHolder.cardImage);
     }
 
-
-    //  public void setImage(String image) {
-    //     Picasso.with(context).load(image).placeholder(R.drawable.home_placeholder).into(viewHolder.cardImage);
-    //  }
 
     public static class ViewHolder {
         public ImageView cardImage;
@@ -104,12 +93,6 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
 
     }
 
-    public void restoreItem(UserListRes.DataBean dataBean, int position) {
-        mData.add(position, dataBean);
-        // notify item added by position
-        //notifyItemInserted(position);
-        notifyDataSetChanged();
 
-    }
 }
 

@@ -57,7 +57,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
     private RelativeLayout logoutRl;
     private boolean logoutFlag;
     private RelativeLayout termsOfServicesRl, privacyPolicyRl, contactUsRl, mRemoveAcRl, height_rl;
-    private String minHeight, maxHeight;
+    private String minHeight = "", maxHeight = "";
     private String academic;
     private ArrayList<String> mInterestList;
     private String interestId;
@@ -215,6 +215,10 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
         // profileApi();
+        profileApi();
+
+
+        // profileApiforInterest();
 
     }
 
@@ -688,7 +692,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
             GeneralReq generalReq = new GeneralReq();
             generalReq.setUser_id(PrefUtils.getSharedPrefString(SettingsActivity.this, PrefUtils.USER_ID));
             Call<ObjResp<UserProfileRes>> call = mApis.userProfile(generalReq);
-            showProgressDialog(true);
+            // showProgressDialog(true);
             call.enqueue(new Callback<ObjResp<UserProfileRes>>() {
                 @Override
                 public void onResponse(Call<ObjResp<UserProfileRes>> call, Response<ObjResp<UserProfileRes>> response) {
@@ -699,8 +703,6 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
                         if (response.body() != null) {
                             getIntrestData(response.body().getData());
                             // Toast.makeText(EditProfileActivity.this, "" + response.body().getMsg(), Toast.LENGTH_SHORT).show();
-
-
                         }
 
                     }/* else {
@@ -710,7 +712,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
 
                 @Override
                 public void onFailure(Call<ObjResp<UserProfileRes>> call, Throwable t) {
-                    showProgressDialog(false);
+                    //showProgressDialog(false);
                 }
             });
         } else {
@@ -725,12 +727,8 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         for (int i = 0; i < userProfile.getInterests().size(); i++) {
             mInterestList.add(userProfile.getInterests().get(i).getCategory_name());
 
-
-            /*interest = interest + userProfile.getInterests().get(i).getCategory_name();
-            if (i < userProfile.getInterests().size() - 1) {
-                interest = interest + ", ";
-            }*/
         }
 
     }
+
 }

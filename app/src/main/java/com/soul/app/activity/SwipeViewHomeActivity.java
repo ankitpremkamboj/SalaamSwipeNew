@@ -310,6 +310,7 @@ public class SwipeViewHomeActivity extends com.soul.app.activity.BaseGpsActivity
 
             String str = "https://graph.facebook.com/v2.4/" + socialMediaInfoBean.getId() + "/picture?type" + "=large";
             PrefUtils.setSharedPrefStringData(SwipeViewHomeActivity.this, PrefUtils.USER_PIC, str);
+            PrefUtils.setSharedPrefStringData(SwipeViewHomeActivity.this, PrefUtils.USER_PIC1, str);
 
 
             Bundle paramtersphoto = new Bundle();

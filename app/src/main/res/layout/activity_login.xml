@@ -17,13 +17,13 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dp10"
                 android:src="@drawable/ic_soul_logo" />
 
             <RelativeLayout
                 android:id="@+id/relative_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dp10"
                 android:layout_marginRight="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp80"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relative_layout"
-                android:layout_marginTop="@dimen/dp40"
+                android:layout_marginTop="@dimen/dp20"
                 android:gravity="center_horizontal"
                 android:text="Join a community of \n inspiring singles"
                 android:textColor="#000000"
@@ -60,9 +60,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_below="@+id/join_text"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="@dimen/dp10">
 
                 <LinearLayout
                     android:id="@+id/fb_login_ly"
@@ -100,7 +100,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/we_don_t_post_anything_to_facebook_n_by_signing_in_you_agree_to_our"
                         android:textColor="@color/color_B1B1B1"
-                        android:textSize="@dimen/dp17" />
+                        android:textSize="@dimen/dp15" />
 
 
                     <LinearLayout
@@ -120,7 +120,7 @@
                             android:padding="@dimen/dp2"
                             android:text="@string/terms_of_service"
                             android:textColor="@color/color_B1B1B1"
-                            android:textSize="@dimen/dp17" />
+                            android:textSize="@dimen/dp15" />
 
                         <TextView
                             style="@style/latoRagular"
@@ -129,7 +129,7 @@
                             android:text=" and  "
                             android:textColor="@color/color_B1B1B1"
 
-                            android:textSize="@dimen/dp17" />
+                            android:textSize="@dimen/dp15" />
 
                         <TextView
                             android:id="@+id/privacy_policy_tv"
@@ -139,7 +139,7 @@
                             android:padding="@dimen/dp2"
                             android:text="@string/privacy_and_policy"
                             android:textColor="@color/color_B1B1B1"
-                            android:textSize="@dimen/dp17" />
+                            android:textSize="@dimen/dp15" />
                     </LinearLayout>
 
                     <TextView
