@@ -1,0 +1,335 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/khalil_salaamswipe_is_f/!svn/ver/546/phase2/android/SalaamSwipe/app/src/main/res/layout
+END
+activity_splash.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/khalil_salaamswipe_is_f/!svn/ver/440/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_splash.xml
+END
+fragment_swipe_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/khalil_salaamswipe_is_f/!svn/ver/211/phase2/android/SalaamSwipe/app/src/main/res/layout/fragment_swipe_view.xml
+END
+layout_circular_progressbar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/khalil_salaamswipe_is_f/!svn/ver/428/phase2/android/SalaamSwipe/app/src/main/res/layout/layout_circular_progressbar.xml
+END
+row_imageview.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/khalil_salaamswipe_is_f/!svn/ver/461/phase2/android/SalaamSwipe/app/src/main/res/layout/row_imageview.xml
+END
+row_interest_header.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/khalil_salaamswipe_is_f/!svn/ver/396/phase2/android/SalaamSwipe/app/src/main/res/layout/row_interest_header.xml
+END
+activity_swipe_view_full_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/khalil_salaamswipe_is_f/!svn/ver/211/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_swipe_view_full_profile.xml
+END
+activity_matched_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/khalil_salaamswipe_is_f/!svn/ver/476/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_matched_profile.xml
+END
+fragment_swipe_view_at_full_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/khalil_salaamswipe_is_f/!svn/ver/211/phase2/android/SalaamSwipe/app/src/main/res/layout/fragment_swipe_view_at_full_profile.xml
+END
+activity_your_sect.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/khalil_salaamswipe_is_f/!svn/ver/546/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_your_sect.xml
+END
+activity_out_look.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/469/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_out_look.xml
+END
+actvity_match1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/khalil_salaamswipe_is_f/!svn/ver/406/phase2/android/SalaamSwipe/app/src/main/res/layout/actvity_match1.xml
+END
+fragment_swipe_page_four.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/khalil_salaamswipe_is_f/!svn/ver/406/phase2/android/SalaamSwipe/app/src/main/res/layout/fragment_swipe_page_four.xml
+END
+fragment_swipe_page_three.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/khalil_salaamswipe_is_f/!svn/ver/406/phase2/android/SalaamSwipe/app/src/main/res/layout/fragment_swipe_page_three.xml
+END
+subheader_out_look.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/khalil_salaamswipe_is_f/!svn/ver/255/phase2/android/SalaamSwipe/app/src/main/res/layout/subheader_out_look.xml
+END
+row_message.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/khalil_salaamswipe_is_f/!svn/ver/538/phase2/android/SalaamSwipe/app/src/main/res/layout/row_message.xml
+END
+row_chat_gif.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/khalil_salaamswipe_is_f/!svn/ver/440/phase2/android/SalaamSwipe/app/src/main/res/layout/row_chat_gif.xml
+END
+layout_home_no_card_left.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/khalil_salaamswipe_is_f/!svn/ver/255/phase2/android/SalaamSwipe/app/src/main/res/layout/layout_home_no_card_left.xml
+END
+activity_edit_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/khalil_salaamswipe_is_f/!svn/ver/467/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_edit_profile.xml
+END
+row_rounded_image.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/450/phase2/android/SalaamSwipe/app/src/main/res/layout/row_rounded_image.xml
+END
+activity_no_matches.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/khalil_salaamswipe_is_f/!svn/ver/251/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_no_matches.xml
+END
+activity_facebook_album.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/khalil_salaamswipe_is_f/!svn/ver/455/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_facebook_album.xml
+END
+fragment_swipe_page_one.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/khalil_salaamswipe_is_f/!svn/ver/406/phase2/android/SalaamSwipe/app/src/main/res/layout/fragment_swipe_page_one.xml
+END
+row_placeholder_image.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/khalil_salaamswipe_is_f/!svn/ver/434/phase2/android/SalaamSwipe/app/src/main/res/layout/row_placeholder_image.xml
+END
+full_image.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/khalil_salaamswipe_is_f/!svn/ver/211/phase2/android/SalaamSwipe/app/src/main/res/layout/full_image.xml
+END
+footer_swipe_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/522/phase2/android/SalaamSwipe/app/src/main/res/layout/footer_swipe_view.xml
+END
+row_interest_list.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/396/phase2/android/SalaamSwipe/app/src/main/res/layout/row_interest_list.xml
+END
+row_fb_album.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/khalil_salaamswipe_is_f/!svn/ver/455/phase2/android/SalaamSwipe/app/src/main/res/layout/row_fb_album.xml
+END
+row_text.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/khalil_salaamswipe_is_f/!svn/ver/282/phase2/android/SalaamSwipe/app/src/main/res/layout/row_text.xml
+END
+activity_home_finding_people.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/khalil_salaamswipe_is_f/!svn/ver/471/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_home_finding_people.xml
+END
+home_swipe_row.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/khalil_salaamswipe_is_f/!svn/ver/477/phase2/android/SalaamSwipe/app/src/main/res/layout/home_swipe_row.xml
+END
+layout_finding_people.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/khalil_salaamswipe_is_f/!svn/ver/255/phase2/android/SalaamSwipe/app/src/main/res/layout/layout_finding_people.xml
+END
+toolbar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/khalil_salaamswipe_is_f/!svn/ver/507/phase2/android/SalaamSwipe/app/src/main/res/layout/toolbar.xml
+END
+activity_my_full_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/khalil_salaamswipe_is_f/!svn/ver/486/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_my_full_profile.xml
+END
+activity_image_gallery.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/khalil_salaamswipe_is_f/!svn/ver/455/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_image_gallery.xml
+END
+row_message_listview.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/khalil_salaamswipe_is_f/!svn/ver/541/phase2/android/SalaamSwipe/app/src/main/res/layout/row_message_listview.xml
+END
+layout_dialog_material_progress.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/khalil_salaamswipe_is_f/!svn/ver/428/phase2/android/SalaamSwipe/app/src/main/res/layout/layout_dialog_material_progress.xml
+END
+activity_swipe_view_home.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/khalil_salaamswipe_is_f/!svn/ver/523/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_swipe_view_home.xml
+END
+activity_matches_found.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/khalil_salaamswipe_is_f/!svn/ver/546/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_matches_found.xml
+END
+activity_my_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/khalil_salaamswipe_is_f/!svn/ver/471/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_my_profile.xml
+END
+activity_webpageloader.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/khalil_salaamswipe_is_f/!svn/ver/508/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_webpageloader.xml
+END
+layout_images_edit_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/khalil_salaamswipe_is_f/!svn/ver/465/phase2/android/SalaamSwipe/app/src/main/res/layout/layout_images_edit_profile.xml
+END
+activity_chat.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/khalil_salaamswipe_is_f/!svn/ver/538/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_chat.xml
+END
+sliding_image.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/khalil_salaamswipe_is_f/!svn/ver/476/phase2/android/SalaamSwipe/app/src/main/res/layout/sliding_image.xml
+END
+layout_my_profile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/420/phase2/android/SalaamSwipe/app/src/main/res/layout/layout_my_profile.xml
+END
+activity_chat_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/khalil_salaamswipe_is_f/!svn/ver/428/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_chat_report.xml
+END
+activity_submit_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/khalil_salaamswipe_is_f/!svn/ver/434/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_submit_report.xml
+END
+activity_your_out_look.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/khalil_salaamswipe_is_f/!svn/ver/546/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_your_out_look.xml
+END
+row_matches.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/khalil_salaamswipe_is_f/!svn/ver/331/phase2/android/SalaamSwipe/app/src/main/res/layout/row_matches.xml
+END
+row_report_dialog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/354/phase2/android/SalaamSwipe/app/src/main/res/layout/row_report_dialog.xml
+END
+activity_edit_interest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/khalil_salaamswipe_is_f/!svn/ver/286/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_edit_interest.xml
+END
+row_swipe_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/khalil_salaamswipe_is_f/!svn/ver/471/phase2/android/SalaamSwipe/app/src/main/res/layout/row_swipe_view.xml
+END
+activity_un_match.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/434/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_un_match.xml
+END
+fragment_swipe_page_two.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/khalil_salaamswipe_is_f/!svn/ver/406/phase2/android/SalaamSwipe/app/src/main/res/layout/fragment_swipe_page_two.xml
+END
+activity_settings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/khalil_salaamswipe_is_f/!svn/ver/398/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_settings.xml
+END
+activity_match.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/khalil_salaamswipe_is_f/!svn/ver/406/phase2/android/SalaamSwipe/app/src/main/res/layout/activity_match.xml
+END

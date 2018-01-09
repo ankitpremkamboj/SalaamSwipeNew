@@ -77,7 +77,6 @@ public class CardSwipeAdapter extends BaseAdapter implements PagerListener {
         viewHolder.txt_name.setText(mData.get(position).getUser_name());
         viewHolder.txt_designation.setText(mData.get(position).getWork());
         viewHolder.cardImage.setTag(mData.get(position).getUser_id());
-
         return rowView;
     }
 

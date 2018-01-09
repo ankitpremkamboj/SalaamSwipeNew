@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <!--<ImageView-->
+    <!--android:id="@+id/splash_animation_iv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true" />-->
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/splash_gif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@raw/salaam_swipe_splash_animation_update1"
+        android:visibility="visible"/>
+
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp90"
+        android:background="@color/colorPrimary">
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/my_profile_pic_fl"
+        android:layout_width="@dimen/dp170"
+        android:layout_height="@dimen/dp170"
+        android:layout_gravity="center">
+
+
+        <com.ak.ta.salaamswipe.customui.CircleImageViewForProfilePic
+            android:id="@+id/my_profile_pic_ci"
+            android:layout_width="@dimen/dp160"
+            android:layout_height="@dimen/dp160"
+            android:background="@drawable/big_pic_placeholder" />
+
+
+        <ImageView
+            android:id="@+id/my_profile_edit_icon_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="@dimen/dp26"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@drawable/edit_icon" />
+    </FrameLayout>
+</FrameLayout>
